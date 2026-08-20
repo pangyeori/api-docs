@@ -1,1 +1,575 @@
-{}
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/v1/users": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/email-verifications": {
+      "post": {
+        "tags": [
+          "email-verification-controller"
+        ],
+        "operationId": "sendCode",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseUnit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/email-verifications/confirm": {
+      "post": {
+        "tags": [
+          "email-verification-controller"
+        ],
+        "operationId": "confirmCode",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationConfirmRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseUnit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/signout": {
+      "post": {
+        "tags": [
+          "auth-controller"
+        ],
+        "operationId": "logout",
+        "parameters": [
+          {
+            "name": "refreshToken",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/signin": {
+      "post": {
+        "tags": [
+          "auth-controller"
+        ],
+        "operationId": "signIn",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignInRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseSignInResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/refresh": {
+      "post": {
+        "tags": [
+          "auth-controller"
+        ],
+        "operationId": "refresh",
+        "parameters": [
+          {
+            "name": "refreshToken",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseSignInResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/nickname/duplicate": {
+      "get": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "checkNicknameDuplicate",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/NicknameDuplicateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseNicknameDuplicateResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/me": {
+      "get": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "getMyInfo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserCreateRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "email",
+            "maxLength": 255,
+            "minLength": 0
+          },
+          "password": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64,
+            "minLength": 8
+          },
+          "nickname": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "profileImageUrl": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500,
+            "minLength": 0
+          }
+        },
+        "required": [
+          "email",
+          "nickname",
+          "password"
+        ]
+      },
+      "EmailVerificationRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "email",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "ApiError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/FieldError"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ]
+      },
+      "ApiResponseUnit": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "error": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApiError"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "success"
+        ]
+      },
+      "FieldError": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "field",
+          "message"
+        ]
+      },
+      "EmailVerificationConfirmRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "email",
+            "minLength": 1
+          },
+          "code": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "pattern": "^[0-9]{6}$"
+          }
+        },
+        "required": [
+          "code",
+          "email"
+        ]
+      },
+      "SignInRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "email",
+            "maxLength": 255,
+            "minLength": 0
+          },
+          "password": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64,
+            "minLength": 0
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "ApiResponseSignInResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SignInResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "error": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApiError"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "success"
+        ]
+      },
+      "SignInResponse": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "accessTokenExpiresIn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "refreshTokenExpiresIn": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "accessToken",
+          "accessTokenExpiresIn",
+          "refreshTokenExpiresIn",
+          "tokenType"
+        ]
+      },
+      "NicknameDuplicateRequest": {
+        "type": "object",
+        "properties": {
+          "nickname": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50,
+            "minLength": 2
+          }
+        },
+        "required": [
+          "nickname"
+        ]
+      },
+      "ApiResponseNicknameDuplicateResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/NicknameDuplicateResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "error": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApiError"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "success"
+        ]
+      },
+      "NicknameDuplicateResponse": {
+        "type": "object",
+        "properties": {
+          "duplicated": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "duplicated"
+        ]
+      },
+      "ApiResponseUserResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "error": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApiError"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "success"
+        ]
+      },
+      "UserResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "profileImageUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "email",
+          "id",
+          "nickname"
+        ]
+      }
+    }
+  }
+}
