@@ -1,0 +1,797 @@
+openapi: 3.0.1
+info:
+  title: REST Docs Kotlin DSL API
+  version: 0.0.1
+servers: []
+tags: []
+paths:
+  /api/v1/email-verifications:
+    post:
+      tags:
+      - Email-verification
+      summary: 이메일 인증 코드 발송
+      description: 이메일 인증 코드 발송
+      operationId: email-verification/send
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-email-verifications1872144117"
+            examples:
+              email-verification/send:
+                value: "{\r\n  \"email\" : \"send-success@pangyeori.com\"\r\n}"
+              email-verification/send-invalid-email:
+                value: "{\r\n  \"email\" : \"invalid-email\"\r\n}"
+              email-verification/send-missing-email:
+                value: "{ }"
+              email-verification/send-rate-limited:
+                value: "{\r\n  \"email\" : \"rate-limited@pangyeori.com\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications478885324"
+              examples:
+                email-verification/send:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
+                    error\" : null\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+              examples:
+                email-verification/send-invalid-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"올바른 이메일 형식이 아닙니다\
+                    .\"\r\n    } ]\r\n  }\r\n}"
+                email-verification/send-missing-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n\
+                    \    } ]\r\n  }\r\n}"
+        "429":
+          description: "429"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+              examples:
+                email-verification/send-rate-limited:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_RATE_LIMITED\"\
+                    ,\r\n    \"message\" : \"인증 코드는 60초마다 한 번만 요청할 수 있습니다.\",\r\n\
+                    \    \"details\" : null\r\n  }\r\n}"
+  /api/v1/users:
+    post:
+      tags:
+      - Users
+      summary: 회원가입
+      description: 회원가입
+      operationId: users/create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-users-525347036"
+            examples:
+              users/create:
+                value: "{\r\n  \"email\" : \"signup-success@pangyeori.com\",\r\n \
+                  \ \"password\" : \"password123!\",\r\n  \"nickname\" : \"판결이\",\r\
+                  \n  \"profileImageUrl\" : \"https://example.com/profile.png\"\r\n\
+                  }"
+              users/create-duplicate-email:
+                value: "{\r\n  \"email\" : \"duplicate@pangyeori.com\",\r\n  \"password\"\
+                  \ : \"password123!\",\r\n  \"nickname\" : \"새사용자\"\r\n}"
+              users/create-invalid-input:
+                value: "{ }"
+              users/create-not-verified:
+                value: "{\r\n  \"email\" : \"not-verified@pangyeori.com\",\r\n  \"\
+                  password\" : \"password123!\",\r\n  \"nickname\" : \"미인증사용자\"\r\n\
+                  }"
+      responses:
+        "201":
+          description: "201"
+        "409":
+          description: "409"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-962038704"
+              examples:
+                users/create-duplicate-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_ALREADY_EXISTS\",\r\n  \
+                    \  \"message\" : \"이미 가입된 이메일입니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-1728058300"
+              examples:
+                users/create-invalid-input:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 필수입니다.\"\
+                    \r\n    }, {\r\n      \"field\" : \"password\",\r\n      \"message\"\
+                    \ : \"비밀번호는 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"email\"\
+                    ,\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n    } ]\r\n  }\r\n\
+                    }"
+        "422":
+          description: "422"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-962038704"
+              examples:
+                users/create-not-verified:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_NOT_VERIFIED\",\r\n    \"\
+                    message\" : \"이메일 인증이 완료되지 않았습니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+  /api/v1/auth/refresh:
+    post:
+      tags:
+      - Auth
+      summary: 토큰 재발급
+      description: 토큰 재발급
+      operationId: auth/refresh
+      responses:
+        "200":
+          description: "200"
+          headers:
+            Set-Cookie:
+              description: "refreshToken (회전된(rotate) 새 Refresh Token, HttpOnly)"
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-refresh-767426548"
+              examples:
+                auth/refresh:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"accessToken\"\
+                    \ : \"<jwtToken>\",\r\n    \"tokenType\" : \"Bearer\",\r\n   \
+                    \ \"accessTokenExpiresIn\" : 900,\r\n    \"refreshTokenExpiresIn\"\
+                    \ : 1209600\r\n  },\r\n  \"error\" : null\r\n}"
+        "401":
+          description: "401"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-refresh1852456402"
+              examples:
+                auth/refresh-missing-cookie:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_TOKEN\",\r\n    \"message\"\
+                    \ : \"유효하지 않은 토큰입니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
+  /api/v1/auth/signin:
+    post:
+      tags:
+      - Auth
+      summary: 로그인
+      description: 로그인
+      operationId: auth/signin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-auth-signin536610982"
+            examples:
+              auth/signin:
+                value: "{\r\n  \"email\" : \"signin@pangyeori.com\",\r\n  \"password\"\
+                  \ : \"password123!\"\r\n}"
+              auth/signin-invalid-password:
+                value: "{\r\n  \"email\" : \"wrong-password@pangyeori.com\",\r\n \
+                  \ \"password\" : \"wrong-password\"\r\n}"
+              auth/signin-unknown-email:
+                value: "{\r\n  \"email\" : \"unknown@pangyeori.com\",\r\n  \"password\"\
+                  \ : \"password123!\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          headers:
+            Set-Cookie:
+              description: "refreshToken (발급된 Refresh Token, HttpOnly)"
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-signin-1587270936"
+              examples:
+                auth/signin:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"accessToken\"\
+                    \ : \"<jwtToken>\",\r\n    \"tokenType\" : \"Bearer\",\r\n   \
+                    \ \"accessTokenExpiresIn\" : 900,\r\n    \"refreshTokenExpiresIn\"\
+                    \ : 1209600\r\n  },\r\n  \"error\" : null\r\n}"
+        "401":
+          description: "401"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-refresh1852456402"
+              examples:
+                auth/signin-invalid-password:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_CREDENTIALS\",\r\n   \
+                    \ \"message\" : \"이메일 또는 비밀번호가 올바르지 않습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
+                auth/signin-unknown-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_CREDENTIALS\",\r\n   \
+                    \ \"message\" : \"이메일 또는 비밀번호가 올바르지 않습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
+  /api/v1/auth/signout:
+    post:
+      tags:
+      - Auth
+      summary: 로그아웃
+      description: 로그아웃
+      operationId: auth/signout
+      responses:
+        "204":
+          description: "204"
+  /api/v1/email-verifications/confirm:
+    post:
+      tags:
+      - Email-verification
+      summary: 이메일 인증 코드 검증
+      description: 이메일 인증 코드 검증
+      operationId: email-verification/confirm
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-email-verifications-confirm-1686273376"
+            examples:
+              email-verification/confirm:
+                value: "{\r\n  \"email\" : \"confirm-success@pangyeori.com\",\r\n\
+                  \  \"code\" : \"751750\"\r\n}"
+              email-verification/confirm-already-verified:
+                value: "{\r\n  \"email\" : \"confirm-already-verified@pangyeori.com\"\
+                  ,\r\n  \"code\" : \"277591\"\r\n}"
+              email-verification/confirm-invalid-code:
+                value: "{\r\n  \"email\" : \"confirm-invalid-code@pangyeori.com\"\
+                  ,\r\n  \"code\" : \"abc\"\r\n}"
+              email-verification/confirm-mismatch:
+                value: "{\r\n  \"email\" : \"confirm-mismatch@pangyeori.com\",\r\n\
+                  \  \"code\" : \"000000\"\r\n}"
+              email-verification/confirm-missing-code:
+                value: "{\r\n  \"email\" : \"missing-code@pangyeori.com\"\r\n}"
+              email-verification/confirm-missing-email:
+                value: "{\r\n  \"code\" : \"123456\"\r\n}"
+              email-verification/confirm-not-found:
+                value: "{\r\n  \"email\" : \"never-sent@pangyeori.com\",\r\n  \"code\"\
+                  \ : \"123456\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications478885324"
+              examples:
+                email-verification/confirm:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
+                    error\" : null\r\n}"
+        "409":
+          description: "409"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+              examples:
+                email-verification/confirm-already-verified:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_ALREADY_VERIFIED\"\
+                    ,\r\n    \"message\" : \"이미 인증이 완료된 이메일입니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+              examples:
+                email-verification/confirm-invalid-code:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"code\",\r\n      \"message\" : \"인증 코드는 6자리 숫자입니다\
+                    .\"\r\n    } ]\r\n  }\r\n}"
+                email-verification/confirm-missing-code:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"code\",\r\n      \"message\" : \"인증 코드는 필수입니다.\"\r\
+                    \n    } ]\r\n  }\r\n}"
+                email-verification/confirm-missing-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n\
+                    \    } ]\r\n  }\r\n}"
+        "422":
+          description: "422"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+              examples:
+                email-verification/confirm-mismatch:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_CODE_MISMATCH\"\
+                    ,\r\n    \"message\" : \"인증 코드가 일치하지 않습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
+                email-verification/confirm-not-found:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_CODE_NOT_FOUND\"\
+                    ,\r\n    \"message\" : \"인증 코드가 존재하지 않거나 만료되었습니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
+  /api/v1/users/me:
+    get:
+      tags:
+      - Users
+      summary: 내 정보 조회
+      description: 내 정보 조회
+      operationId: users/get-my-info
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me983907394"
+              examples:
+                users/get-my-info:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
+                    \ : \"0RBZJGFWPBW7Y\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
+                    ,\r\n    \"nickname\" : \"마이페이지사용자\",\r\n    \"profileImageUrl\"\
+                    \ : \"https://example.com/profile.png\"\r\n  },\r\n  \"error\"\
+                    \ : null\r\n}"
+        "401":
+          description: "401"
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-refresh1852456402"
+              examples:
+                users/get-my-info-unauthorized:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_TOKEN\",\r\n    \"message\"\
+                    \ : \"유효하지 않은 토큰입니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /api/v1/users/nickname/duplicate:
+    get:
+      tags:
+      - Users
+      summary: 닉네임 중복 확인
+      description: 닉네임 중복 확인
+      operationId: users/check-nickname-duplicate
+      parameters:
+      - name: nickname
+        in: query
+        description: 중복 여부를 확인할 닉네임
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-nickname-duplicate-1986113649"
+              examples:
+                users/check-nickname-duplicate:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"duplicated\"\
+                    \ : true\r\n  },\r\n  \"error\" : null\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-1728058300"
+              examples:
+                users/check-nickname-duplicate-missing-nickname:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 필수입니다.\"\
+                    \r\n    } ]\r\n  }\r\n}"
+                users/check-nickname-duplicate-too-long:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 2자 이상 50자\
+                    \ 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
+                users/check-nickname-duplicate-too-short:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 2자 이상 50자\
+                    \ 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
+components:
+  schemas:
+    api-v1-email-verifications-1546988534:
+      required:
+      - error
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          required:
+          - code
+          - message
+          type: object
+          properties:
+            code:
+              type: object
+              description: 에러 코드
+            details:
+              type: object
+              description: 필드별 검증 오류 목록
+              nullable: true
+            message:
+              type: object
+              description: 에러 메시지
+          description: 에러 정보
+    api-v1-email-verifications1872144117:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+          description: 인증 코드를 받을 이메일
+    api-v1-email-verifications2114211361:
+      required:
+      - error
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          required:
+          - code
+          - details
+          - message
+          type: object
+          properties:
+            code:
+              type: object
+              description: 에러 코드
+            details:
+              type: array
+              description: 필드별 검증 오류 목록
+              items:
+                required:
+                - field
+                - message
+                type: object
+                properties:
+                  field:
+                    type: object
+                    description: 오류가 발생한 필드명
+                  message:
+                    type: object
+                    description: 필드 오류 메시지
+            message:
+              type: object
+              description: 에러 메시지
+          description: 에러 정보
+    api-v1-email-verifications478885324:
+      required:
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 에러 정보
+          nullable: true
+    api-v1-users-me983907394:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - email
+          - id
+          - nickname
+          type: object
+          properties:
+            nickname:
+              type: object
+              description: 사용자 닉네임
+            id:
+              type: object
+              description: 사용자 ID
+            profileImageUrl:
+              type: object
+              description: 프로필 이미지 URL
+              nullable: true
+            email:
+              type: object
+              description: 사용자 이메일
+          description: 로그인한 사용자 정보
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-users-525347036:
+      required:
+      - email
+      - nickname
+      - password
+      type: object
+      properties:
+        password:
+          type: string
+          description: 비밀번호
+        nickname:
+          type: string
+          description: 닉네임
+        profileImageUrl:
+          type: string
+          description: 프로필 이미지 URL
+          nullable: true
+        email:
+          type: string
+          description: 인증하지 않은 이메일
+    api-v1-auth-signin-1587270936:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - accessToken
+          - accessTokenExpiresIn
+          - refreshTokenExpiresIn
+          - tokenType
+          type: object
+          properties:
+            refreshTokenExpiresIn:
+              type: object
+              description: Refresh Token 만료 시간(초)
+            accessTokenExpiresIn:
+              type: object
+              description: Access Token 만료 시간(초)
+            tokenType:
+              type: object
+              description: 인증 헤더 타입
+            accessToken:
+              type: object
+              description: API 인증에 사용하는 Access Token
+          description: 발급된 인증 토큰
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-auth-refresh-767426548:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - accessToken
+          - accessTokenExpiresIn
+          - refreshTokenExpiresIn
+          - tokenType
+          type: object
+          properties:
+            refreshTokenExpiresIn:
+              type: object
+              description: Refresh Token 만료 시간(초)
+            accessTokenExpiresIn:
+              type: object
+              description: Access Token 만료 시간(초)
+            tokenType:
+              type: object
+              description: 인증 헤더 타입
+            accessToken:
+              type: object
+              description: API 인증에 사용하는 Access Token
+          description: 재발급된 인증 토큰
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-users-nickname-duplicate-1986113649:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - duplicated
+          type: object
+          properties:
+            duplicated:
+              type: object
+              description: 닉네임 중복 여부
+          description: 닉네임 중복 확인 결과
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 에러 정보
+          nullable: true
+    api-v1-auth-refresh1852456402:
+      required:
+      - error
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          required:
+          - code
+          - message
+          type: object
+          properties:
+            code:
+              type: object
+              description: 오류 코드
+            details:
+              type: object
+              description: 필드별 검증 오류 목록
+              nullable: true
+            message:
+              type: object
+              description: 오류 메시지
+          description: 오류 정보
+    api-v1-users-962038704:
+      required:
+      - error
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          required:
+          - code
+          - message
+          type: object
+          properties:
+            code:
+              type: object
+              description: 에러 코드
+            details:
+              type: object
+              description: 필드별 검증 오류
+              nullable: true
+            message:
+              type: object
+              description: 에러 메시지
+          description: 에러 정보
+    api-v1-auth-signin536610982:
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        password:
+          type: string
+          description: 사용자 비밀번호
+        email:
+          type: string
+          description: 가입되지 않은 사용자 이메일
+    api-v1-users-1728058300:
+      required:
+      - error
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          required:
+          - code
+          - details
+          - message
+          type: object
+          properties:
+            code:
+              type: object
+              description: 에러 코드
+            details:
+              type: array
+              description: 필드별 검증 오류 목록
+              items:
+                required:
+                - field
+                - message
+                type: object
+                properties:
+                  field:
+                    type: object
+                    description: 오류가 발생한 필드
+                  message:
+                    type: object
+                    description: 필드 오류 메시지
+            message:
+              type: object
+              description: 에러 메시지
+          description: 에러 정보
+    api-v1-email-verifications-confirm-1686273376:
+      required:
+      - code
+      - email
+      type: object
+      properties:
+        code:
+          type: string
+          description: 인증 코드
+        email:
+          type: string
+          description: 코드를 발송한 적 없는 이메일
+  securitySchemes:
+    bearerAuthJWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
