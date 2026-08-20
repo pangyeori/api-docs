@@ -2,7 +2,8 @@ openapi: 3.0.1
 info:
   title: REST Docs Kotlin DSL API
   version: 0.0.1
-servers: []
+servers:
+- url: http://localhost:8080
 tags: []
 paths:
   /api/v1/email-verifications:
@@ -115,15 +116,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-1728058300"
+                $ref: "#/components/schemas/api-v1-users-nickname-duplicate-1728058300"
               examples:
                 users/create-invalid-input:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
-                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 필수입니다.\"\
-                    \r\n    }, {\r\n      \"field\" : \"password\",\r\n      \"message\"\
-                    \ : \"비밀번호는 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"email\"\
+                    field\" : \"password\",\r\n      \"message\" : \"비밀번호는 필수입니다.\"\
+                    \r\n    }, {\r\n      \"field\" : \"nickname\",\r\n      \"message\"\
+                    \ : \"닉네임은 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"email\"\
                     ,\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n    } ]\r\n  }\r\n\
                     }"
         "422":
@@ -156,13 +157,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-auth-refresh-767426548"
+                $ref: "#/components/schemas/api-v1-auth-refresh1572681663"
               examples:
                 auth/refresh:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"accessToken\"\
-                    \ : \"<jwtToken>\",\r\n    \"tokenType\" : \"Bearer\",\r\n   \
-                    \ \"accessTokenExpiresIn\" : 900,\r\n    \"refreshTokenExpiresIn\"\
-                    \ : 1209600\r\n  },\r\n  \"error\" : null\r\n}"
+                    \ : \"<jwtToken>\",\r\n    \"tokenType\" : \"Bearer\"\r\n  },\r\
+                    \n  \"error\" : null\r\n}"
         "401":
           description: "401"
           content:
@@ -207,13 +207,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-auth-signin-1587270936"
+                $ref: "#/components/schemas/api-v1-auth-signin640759275"
               examples:
                 auth/signin:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"accessToken\"\
-                    \ : \"<jwtToken>\",\r\n    \"tokenType\" : \"Bearer\",\r\n   \
-                    \ \"accessTokenExpiresIn\" : 900,\r\n    \"refreshTokenExpiresIn\"\
-                    \ : 1209600\r\n  },\r\n  \"error\" : null\r\n}"
+                    \ : \"<jwtToken>\",\r\n    \"tokenType\" : \"Bearer\"\r\n  },\r\
+                    \n  \"error\" : null\r\n}"
         "401":
           description: "401"
           content:
@@ -256,10 +255,10 @@ paths:
             examples:
               email-verification/confirm:
                 value: "{\r\n  \"email\" : \"confirm-success@pangyeori.com\",\r\n\
-                  \  \"code\" : \"751750\"\r\n}"
+                  \  \"code\" : \"285881\"\r\n}"
               email-verification/confirm-already-verified:
                 value: "{\r\n  \"email\" : \"confirm-already-verified@pangyeori.com\"\
-                  ,\r\n  \"code\" : \"277591\"\r\n}"
+                  ,\r\n  \"code\" : \"543938\"\r\n}"
               email-verification/confirm-invalid-code:
                 value: "{\r\n  \"email\" : \"confirm-invalid-code@pangyeori.com\"\
                   ,\r\n  \"code\" : \"abc\"\r\n}"
@@ -355,7 +354,7 @@ paths:
               examples:
                 users/get-my-info:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RBZJGFWPBW7Y\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
+                    \ : \"0RC2N6C51Z87T\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"마이페이지사용자\",\r\n    \"profileImageUrl\"\
                     \ : \"https://example.com/profile.png\"\r\n  },\r\n  \"error\"\
                     \ : null\r\n}"
@@ -402,7 +401,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-1728058300"
+                $ref: "#/components/schemas/api-v1-users-nickname-duplicate-1728058300"
               examples:
                 users/check-nickname-duplicate-missing-nickname:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -454,6 +453,32 @@ components:
               type: object
               description: 에러 메시지
           description: 에러 정보
+    api-v1-auth-refresh1572681663:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - accessToken
+          - tokenType
+          type: object
+          properties:
+            tokenType:
+              type: object
+              description: 인증 헤더 타입
+            accessToken:
+              type: object
+              description: API 인증에 사용하는 Access Token
+          description: 재발급된 인증 토큰
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
     api-v1-email-verifications1872144117:
       required:
       - email
@@ -574,74 +599,6 @@ components:
         email:
           type: string
           description: 인증하지 않은 이메일
-    api-v1-auth-signin-1587270936:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          required:
-          - accessToken
-          - accessTokenExpiresIn
-          - refreshTokenExpiresIn
-          - tokenType
-          type: object
-          properties:
-            refreshTokenExpiresIn:
-              type: object
-              description: Refresh Token 만료 시간(초)
-            accessTokenExpiresIn:
-              type: object
-              description: Access Token 만료 시간(초)
-            tokenType:
-              type: object
-              description: 인증 헤더 타입
-            accessToken:
-              type: object
-              description: API 인증에 사용하는 Access Token
-          description: 발급된 인증 토큰
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
-    api-v1-auth-refresh-767426548:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          required:
-          - accessToken
-          - accessTokenExpiresIn
-          - refreshTokenExpiresIn
-          - tokenType
-          type: object
-          properties:
-            refreshTokenExpiresIn:
-              type: object
-              description: Refresh Token 만료 시간(초)
-            accessTokenExpiresIn:
-              type: object
-              description: Access Token 만료 시간(초)
-            tokenType:
-              type: object
-              description: 인증 헤더 타입
-            accessToken:
-              type: object
-              description: API 인증에 사용하는 Access Token
-          description: 재발급된 인증 토큰
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
     api-v1-users-nickname-duplicate-1986113649:
       required:
       - data
@@ -736,7 +693,33 @@ components:
         email:
           type: string
           description: 가입되지 않은 사용자 이메일
-    api-v1-users-1728058300:
+    api-v1-auth-signin640759275:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - accessToken
+          - tokenType
+          type: object
+          properties:
+            tokenType:
+              type: object
+              description: 인증 헤더 타입
+            accessToken:
+              type: object
+              description: API 인증에 사용하는 Access Token
+          description: 발급된 인증 토큰
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-users-nickname-duplicate-1728058300:
       required:
       - error
       - success
