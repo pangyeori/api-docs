@@ -69,6 +69,75 @@ paths:
                     error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_RATE_LIMITED\"\
                     ,\r\n    \"message\" : \"인증 코드는 60초마다 한 번만 요청할 수 있습니다.\",\r\n\
                     \    \"details\" : null\r\n  }\r\n}"
+  /api/v1/password-resets:
+    post:
+      tags:
+      - PasswordReset
+      summary: 비밀번호 재설정 토큰 발급
+      description: 비밀번호 재설정 토큰 발급
+      operationId: password-reset/issue
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-password-resets-286140802"
+            examples:
+              password-reset/issue:
+                value: "{\r\n  \"email\" : \"issue-success@pangyeori.com\"\r\n}"
+              password-reset/issue-invalid-email:
+                value: "{\r\n  \"email\" : \"invalid-email\"\r\n}"
+              password-reset/issue-not-verified:
+                value: "{\r\n  \"email\" : \"not-verified@pangyeori.com\"\r\n}"
+              password-reset/issue-user-not-found:
+                value: "{\r\n  \"email\" : \"issue-unknown@pangyeori.com\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-password-resets-1389490358"
+              examples:
+                password-reset/issue:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"passwordResetToken\"\
+                    \ : \"<passwordResetToken>\"\r\n  },\r\n  \"error\" : null\r\n\
+                    }"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
+              examples:
+                password-reset/issue-invalid-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"올바른 이메일 형식이 아닙니다\
+                    .\"\r\n    } ]\r\n  }\r\n}"
+        "422":
+          description: "422"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-refresh1852456402"
+              examples:
+                password-reset/issue-not-verified:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_NOT_VERIFIED\",\r\n    \"\
+                    message\" : \"이메일 인증이 완료되지 않았습니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+        "404":
+          description: "404"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-refresh1852456402"
+              examples:
+                password-reset/issue-user-not-found:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"USER_NOT_FOUND\",\r\n    \"message\"\
+                    \ : \"존재하지 않는 사용자입니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
   /api/v1/users:
     post:
       tags:
@@ -255,10 +324,10 @@ paths:
             examples:
               email-verification/confirm:
                 value: "{\r\n  \"email\" : \"confirm-success@pangyeori.com\",\r\n\
-                  \  \"code\" : \"285881\"\r\n}"
+                  \  \"code\" : \"477849\"\r\n}"
               email-verification/confirm-already-verified:
                 value: "{\r\n  \"email\" : \"confirm-already-verified@pangyeori.com\"\
-                  ,\r\n  \"code\" : \"543938\"\r\n}"
+                  ,\r\n  \"code\" : \"538873\"\r\n}"
               email-verification/confirm-invalid-code:
                 value: "{\r\n  \"email\" : \"confirm-invalid-code@pangyeori.com\"\
                   ,\r\n  \"code\" : \"abc\"\r\n}"
@@ -337,6 +406,72 @@ paths:
                     error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_CODE_NOT_FOUND\"\
                     ,\r\n    \"message\" : \"인증 코드가 존재하지 않거나 만료되었습니다.\",\r\n    \"\
                     details\" : null\r\n  }\r\n}"
+  /api/v1/password-resets/confirm:
+    post:
+      tags:
+      - PasswordReset
+      summary: 비밀번호 재설정
+      description: 비밀번호 재설정
+      operationId: password-reset/confirm
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-password-resets-confirm-572788914"
+            examples:
+              password-reset/confirm:
+                value: "{\r\n  \"passwordResetToken\" : \"<passwordResetToken>\",\r\
+                  \n  \"newPassword\" : \"newPassword123!\"\r\n}"
+              password-reset/confirm-already-used:
+                value: "{\r\n  \"passwordResetToken\" : \"<passwordResetToken>\",\r\
+                  \n  \"newPassword\" : \"anotherPassword123!\"\r\n}"
+              password-reset/confirm-invalid-password:
+                value: "{\r\n  \"passwordResetToken\" : \"some-token\",\r\n  \"newPassword\"\
+                  \ : \"short\"\r\n}"
+              password-reset/confirm-token-not-found:
+                value: "{\r\n  \"passwordResetToken\" : \"invalid-or-expired-token\"\
+                  ,\r\n  \"newPassword\" : \"newPassword123!\"\r\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-password-resets-confirm-954225372"
+              examples:
+                password-reset/confirm:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
+                    error\" : null\r\n}"
+        "422":
+          description: "422"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-refresh1852456402"
+              examples:
+                password-reset/confirm-already-used:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"PASSWORD_RESET_TOKEN_NOT_FOUND\"\
+                    ,\r\n    \"message\" : \"재설정 토큰이 존재하지 않거나 만료되었습니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
+                password-reset/confirm-token-not-found:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"PASSWORD_RESET_TOKEN_NOT_FOUND\"\
+                    ,\r\n    \"message\" : \"재설정 토큰이 존재하지 않거나 만료되었습니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
+              examples:
+                password-reset/confirm-invalid-password:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 8자 이\
+                    상 64자 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
   /api/v1/users/me:
     get:
       tags:
@@ -354,7 +489,7 @@ paths:
               examples:
                 users/get-my-info:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RC2N6C51Z87T\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
+                    \ : \"0RCDPH9EXE46W\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"마이페이지사용자\",\r\n    \"profileImageUrl\"\
                     \ : \"https://example.com/profile.png\"\r\n  },\r\n  \"error\"\
                     \ : null\r\n}"
@@ -487,6 +622,28 @@ components:
         email:
           type: string
           description: 인증 코드를 받을 이메일
+    api-v1-password-resets-1389490358:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - passwordResetToken
+          type: object
+          properties:
+            passwordResetToken:
+              type: object
+              description: 비밀번호 재설정에 사용할 토큰
+          description: 발급된 재설정 토큰
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
     api-v1-email-verifications2114211361:
       required:
       - error
@@ -599,6 +756,56 @@ components:
         email:
           type: string
           description: 인증하지 않은 이메일
+    api-v1-password-resets-confirm845673417:
+      required:
+      - error
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          required:
+          - code
+          - details
+          - message
+          type: object
+          properties:
+            code:
+              type: object
+              description: 오류 코드
+            details:
+              type: array
+              description: 필드별 검증 오류 목록
+              items:
+                required:
+                - field
+                - message
+                type: object
+                properties:
+                  field:
+                    type: object
+                    description: 오류가 발생한 필드명
+                  message:
+                    type: object
+                    description: 필드 오류 메시지
+            message:
+              type: object
+              description: 오류 메시지
+          description: 오류 정보
+    api-v1-password-resets-286140802:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+          description: 가입되지 않은 이메일
     api-v1-users-nickname-duplicate-1986113649:
       required:
       - data
@@ -621,6 +828,18 @@ components:
           type: object
           description: 에러 정보
           nullable: true
+    api-v1-password-resets-confirm-572788914:
+      required:
+      - newPassword
+      - passwordResetToken
+      type: object
+      properties:
+        newPassword:
+          type: string
+          description: 새로 설정할 비밀번호
+        passwordResetToken:
+          type: string
+          description: 존재하지 않거나 만료된 토큰
     api-v1-auth-refresh1852456402:
       required:
       - error
@@ -712,6 +931,22 @@ components:
               type: object
               description: API 인증에 사용하는 Access Token
           description: 발급된 인증 토큰
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-password-resets-confirm-954225372:
+      required:
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
         success:
           type: object
           description: 처리 성공 여부
