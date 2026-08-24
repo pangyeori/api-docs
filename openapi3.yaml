@@ -185,15 +185,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-nickname-duplicate-1728058300"
+                $ref: "#/components/schemas/api-v1-users-1728058300"
               examples:
                 users/create-invalid-input:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
-                    field\" : \"password\",\r\n      \"message\" : \"비밀번호는 필수입니다.\"\
-                    \r\n    }, {\r\n      \"field\" : \"nickname\",\r\n      \"message\"\
-                    \ : \"닉네임은 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"email\"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 필수입니다.\"\
+                    \r\n    }, {\r\n      \"field\" : \"password\",\r\n      \"message\"\
+                    \ : \"비밀번호는 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"email\"\
                     ,\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n    } ]\r\n  }\r\n\
                     }"
         "422":
@@ -324,10 +324,10 @@ paths:
             examples:
               email-verification/confirm:
                 value: "{\r\n  \"email\" : \"confirm-success@pangyeori.com\",\r\n\
-                  \  \"code\" : \"477849\"\r\n}"
+                  \  \"code\" : \"684975\"\r\n}"
               email-verification/confirm-already-verified:
                 value: "{\r\n  \"email\" : \"confirm-already-verified@pangyeori.com\"\
-                  ,\r\n  \"code\" : \"538873\"\r\n}"
+                  ,\r\n  \"code\" : \"572385\"\r\n}"
               email-verification/confirm-invalid-code:
                 value: "{\r\n  \"email\" : \"confirm-invalid-code@pangyeori.com\"\
                   ,\r\n  \"code\" : \"abc\"\r\n}"
@@ -485,14 +485,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me983907394"
+                $ref: "#/components/schemas/api-v1-users-me1115387239"
               examples:
                 users/get-my-info:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RCDPH9EXE46W\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
+                    \ : \"0RDA0ESXKSW3N\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"마이페이지사용자\",\r\n    \"profileImageUrl\"\
-                    \ : \"https://example.com/profile.png\"\r\n  },\r\n  \"error\"\
-                    \ : null\r\n}"
+                    \ : \"https://example.com/profile.png\",\r\n    \"joinedAt\" :\
+                    \ \"2026-08-24T19:54:58.5402732\"\r\n  },\r\n  \"error\" : null\r\
+                    \n}"
         "401":
           description: "401"
           content:
@@ -536,7 +537,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-nickname-duplicate-1728058300"
+                $ref: "#/components/schemas/api-v1-users-1728058300"
               examples:
                 users/check-nickname-duplicate-missing-nickname:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -701,40 +702,6 @@ components:
         error:
           type: object
           description: 에러 정보
-          nullable: true
-    api-v1-users-me983907394:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          required:
-          - email
-          - id
-          - nickname
-          type: object
-          properties:
-            nickname:
-              type: object
-              description: 사용자 닉네임
-            id:
-              type: object
-              description: 사용자 ID
-            profileImageUrl:
-              type: object
-              description: 프로필 이미지 URL
-              nullable: true
-            email:
-              type: object
-              description: 사용자 이메일
-          description: 로그인한 사용자 정보
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
           nullable: true
     api-v1-users-525347036:
       required:
@@ -954,7 +921,7 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-users-nickname-duplicate-1728058300:
+    api-v1-users-1728058300:
       required:
       - error
       - success
@@ -996,6 +963,44 @@ components:
               type: object
               description: 에러 메시지
           description: 에러 정보
+    api-v1-users-me1115387239:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - email
+          - id
+          - joinedAt
+          - nickname
+          type: object
+          properties:
+            joinedAt:
+              type: object
+              description: 가입일자
+            nickname:
+              type: object
+              description: 사용자 닉네임
+            id:
+              type: object
+              description: 사용자 ID
+            profileImageUrl:
+              type: object
+              description: 프로필 이미지 URL
+              nullable: true
+            email:
+              type: object
+              description: 사용자 이메일
+          description: 로그인한 사용자 정보
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
     api-v1-email-verifications-confirm-1686273376:
       required:
       - code
