@@ -161,6 +161,14 @@ paths:
                   \ : \"password123!\",\r\n  \"nickname\" : \"새사용자\"\r\n}"
               users/create-invalid-input:
                 value: "{ }"
+              users/create-invalid-nickname:
+                value: "{\r\n  \"email\" : \"invalid-nickname@pangyeori.com\",\r\n\
+                  \  \"password\" : \"password123!\",\r\n  \"nickname\" : \"판결이!\"\
+                  \r\n}"
+              users/create-invalid-password:
+                value: "{\r\n  \"email\" : \"invalid-password@pangyeori.com\",\r\n\
+                  \  \"password\" : \"password123\",\r\n  \"nickname\" : \"판결이\"\r\
+                  \n}"
               users/create-not-verified:
                 value: "{\r\n  \"email\" : \"not-verified@pangyeori.com\",\r\n  \"\
                   password\" : \"password123!\",\r\n  \"nickname\" : \"미인증사용자\"\r\n\
@@ -191,11 +199,23 @@ paths:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
-                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 필수입니다.\"\
-                    \r\n    }, {\r\n      \"field\" : \"password\",\r\n      \"message\"\
-                    \ : \"비밀번호는 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"email\"\
-                    ,\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n    } ]\r\n  }\r\n\
+                    field\" : \"password\",\r\n      \"message\" : \"비밀번호는 필수입니다.\"\
+                    \r\n    }, {\r\n      \"field\" : \"email\",\r\n      \"message\"\
+                    \ : \"이메일은 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"nickname\"\
+                    ,\r\n      \"message\" : \"닉네임은 필수입니다.\"\r\n    } ]\r\n  }\r\n\
                     }"
+                users/create-invalid-nickname:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 특수문자를 포함\
+                    할 수 없습니다.\"\r\n    } ]\r\n  }\r\n}"
+                users/create-invalid-password:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"password\",\r\n      \"message\" : \"비밀번호는 특수문자를 1개\
+                    \ 이상 포함해야 합니다.\"\r\n    } ]\r\n  }\r\n}"
         "422":
           description: "422"
           content:
@@ -324,10 +344,10 @@ paths:
             examples:
               email-verification/confirm:
                 value: "{\r\n  \"email\" : \"confirm-success@pangyeori.com\",\r\n\
-                  \  \"code\" : \"684975\"\r\n}"
+                  \  \"code\" : \"594210\"\r\n}"
               email-verification/confirm-already-verified:
                 value: "{\r\n  \"email\" : \"confirm-already-verified@pangyeori.com\"\
-                  ,\r\n  \"code\" : \"572385\"\r\n}"
+                  ,\r\n  \"code\" : \"634168\"\r\n}"
               email-verification/confirm-invalid-code:
                 value: "{\r\n  \"email\" : \"confirm-invalid-code@pangyeori.com\"\
                   ,\r\n  \"code\" : \"abc\"\r\n}"
@@ -428,6 +448,9 @@ paths:
               password-reset/confirm-invalid-password:
                 value: "{\r\n  \"passwordResetToken\" : \"some-token\",\r\n  \"newPassword\"\
                   \ : \"short\"\r\n}"
+              password-reset/confirm-password-no-special-char:
+                value: "{\r\n  \"passwordResetToken\" : \"some-token\",\r\n  \"newPassword\"\
+                  \ : \"newPassword123\"\r\n}"
               password-reset/confirm-token-not-found:
                 value: "{\r\n  \"passwordResetToken\" : \"invalid-or-expired-token\"\
                   ,\r\n  \"newPassword\" : \"newPassword123!\"\r\n}"
@@ -471,7 +494,15 @@ paths:
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
                     field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 8자 이\
-                    상 64자 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
+                    상 64자 이하여야 합니다.\"\r\n    }, {\r\n      \"field\" : \"newPassword\"\
+                    ,\r\n      \"message\" : \"비밀번호는 특수문자를 1개 이상 포함해야 합니다.\"\r\n \
+                    \   } ]\r\n  }\r\n}"
+                password-reset/confirm-password-no-special-char:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 특수문자\
+                    를 1개 이상 포함해야 합니다.\"\r\n    } ]\r\n  }\r\n}"
   /api/v1/users/me:
     get:
       tags:
@@ -489,10 +520,10 @@ paths:
               examples:
                 users/get-my-info:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RDA0ESXKSW3N\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
+                    \ : \"0RE11GM92J01T\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"마이페이지사용자\",\r\n    \"profileImageUrl\"\
                     \ : \"https://example.com/profile.png\",\r\n    \"joinedAt\" :\
-                    \ \"2026-08-24T19:54:58.5402732\"\r\n  },\r\n  \"error\" : null\r\
+                    \ \"2026-08-27T01:35:13.6086561\"\r\n  },\r\n  \"error\" : null\r\
                     \n}"
         "401":
           description: "401"
@@ -539,6 +570,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/api-v1-users-1728058300"
               examples:
+                users/check-nickname-duplicate-invalid-char:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 특수문자를 포함\
+                    할 수 없습니다.\"\r\n    } ]\r\n  }\r\n}"
                 users/check-nickname-duplicate-missing-nickname:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
@@ -549,13 +586,13 @@ paths:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
-                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 2자 이상 50자\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 2자 이상 12자\
                     \ 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
                 users/check-nickname-duplicate-too-short:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
-                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 2자 이상 50자\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 2자 이상 12자\
                     \ 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
 components:
   schemas:
@@ -905,22 +942,6 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-password-resets-confirm-954225372:
-      required:
-      - success
-      type: object
-      properties:
-        data:
-          type: object
-          description: 응답 데이터
-          nullable: true
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
     api-v1-users-1728058300:
       required:
       - error
@@ -963,6 +984,22 @@ components:
               type: object
               description: 에러 메시지
           description: 에러 정보
+    api-v1-password-resets-confirm-954225372:
+      required:
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
     api-v1-users-me1115387239:
       required:
       - data
