@@ -1,0 +1,200 @@
+{
+  "asyncapi" : "3.0.0",
+  "info" : {
+    "title" : "Pangyeori AsyncAPI",
+    "version" : "0.0.1"
+  },
+  "servers" : {
+    "production" : {
+      "host" : "localhost:8080",
+      "protocol" : "https"
+    }
+  },
+  "channels" : {
+    "debateStatusStream" : {
+      "address" : "/api/v1/debates/{debateId}/status/stream",
+      "description" : "토론 참여 상태 실시간 스트림. 발급받은 일회성 티켓을 쿼리 파라미터로 넘겨 인증한다",
+      "servers" : [ {
+        "$ref" : "#/servers/production"
+      } ],
+      "parameters" : {
+        "debateId" : {
+          "description" : "토론방 ID"
+        }
+      },
+      "messages" : {
+        "snapshot" : {
+          "name" : "DebateStatusResponse",
+          "contentType" : "application/json",
+          "summary" : "구독 직후 현재 참여 상태를 한 번 보낸다",
+          "payload" : {
+            "type" : "object",
+            "required" : [ "debateStatus" ],
+            "properties" : {
+              "debateStatus" : {
+                "type" : "string",
+                "description" : "토론방 상태"
+              },
+              "guestStatus" : {
+                "type" : "string",
+                "description" : "요청자의 참여 상태. 개설자로 구독하면 null, 게스트로 구독하면 자신의 상태"
+              },
+              "requestList" : {
+                "type" : "array",
+                "description" : "대기 중인 참여 요청 목록. 개설자로 구독할 때만 채워지고 게스트는 null"
+              }
+            }
+          },
+          "examples" : [ {
+            "name" : "status-stream-guest",
+            "payload" : {
+              "debateStatus" : "WAITING",
+              "guestStatus" : "PENDING",
+              "requestList" : null
+            }
+          }, {
+            "name" : "status-stream",
+            "payload" : {
+              "debateStatus" : "WAITING",
+              "guestStatus" : null,
+              "requestList" : [ {
+                "userId" : "0RM060XZRT02G",
+                "nickname" : "스트림게스트1",
+                "profileImageKey" : null,
+                "status" : "PENDING",
+                "requestedAt" : "2026-09-14T14:58:39.982501"
+              } ]
+            }
+          } ]
+        },
+        "guest-status-changed" : {
+          "name" : "GuestStatusChangedPayload",
+          "contentType" : "application/json",
+          "summary" : "본인의 참여 상태가 바뀌면 해당 게스트에게만 보낸다",
+          "payload" : {
+            "type" : "object",
+            "required" : [ "guestStatus" ],
+            "properties" : {
+              "guestStatus" : {
+                "type" : "string",
+                "description" : "변경된 참여 상태"
+              }
+            }
+          },
+          "examples" : [ {
+            "name" : "accepted",
+            "payload" : {
+              "guestStatus" : "ACCEPTED"
+            }
+          }, {
+            "name" : "rejected",
+            "payload" : {
+              "guestStatus" : "REJECTED"
+            }
+          } ]
+        },
+        "debate-status-changed" : {
+          "name" : "DebateStatusChangedPayload",
+          "contentType" : "application/json",
+          "summary" : "토론방 상태가 바뀌면 전체 구독자에게 보낸다. WAITING이 아니면 이 이벤트 뒤에 스트림이 닫힌다",
+          "payload" : {
+            "type" : "object",
+            "required" : [ "debateStatus" ],
+            "properties" : {
+              "debateStatus" : {
+                "type" : "string",
+                "description" : "변경된 토론방 상태"
+              }
+            }
+          },
+          "examples" : [ {
+            "name" : "status-stream-guest",
+            "payload" : {
+              "debateStatus" : "READY"
+            }
+          } ]
+        },
+        "queue-changed" : {
+          "name" : "QueueChangedPayload",
+          "contentType" : "application/json",
+          "summary" : "대기열이 바뀌면 개설자에게 갱신된 대기 목록을 보낸다",
+          "payload" : {
+            "type" : "object",
+            "required" : [ "requestList" ],
+            "properties" : {
+              "requestList" : {
+                "type" : "array",
+                "description" : "갱신된 대기 중인 참여 요청 목록"
+              }
+            }
+          },
+          "examples" : [ {
+            "name" : "status-stream",
+            "payload" : {
+              "requestList" : [ {
+                "userId" : "0RM060XZRT02G",
+                "nickname" : "스트림게스트1",
+                "profileImageKey" : null,
+                "status" : "PENDING",
+                "requestedAt" : "2026-09-14T14:58:39.982501"
+              }, {
+                "userId" : "0RM060Y8WT03Q",
+                "nickname" : "스트림게스트2",
+                "profileImageKey" : null,
+                "status" : "PENDING",
+                "requestedAt" : "2026-09-14T14:58:40.050762"
+              } ]
+            }
+          }, {
+            "name" : "queue-cleared",
+            "payload" : {
+              "requestList" : [ ]
+            }
+          } ]
+        }
+      }
+    }
+  },
+  "operations" : {
+    "debateStatusStream-snapshot" : {
+      "action" : "receive",
+      "channel" : {
+        "$ref" : "#/channels/debateStatusStream"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/debateStatusStream/messages/snapshot"
+      } ],
+      "summary" : "구독 직후 현재 참여 상태를 한 번 보낸다"
+    },
+    "debateStatusStream-guest-status-changed" : {
+      "action" : "receive",
+      "channel" : {
+        "$ref" : "#/channels/debateStatusStream"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/debateStatusStream/messages/guest-status-changed"
+      } ],
+      "summary" : "본인의 참여 상태가 바뀌면 해당 게스트에게만 보낸다"
+    },
+    "debateStatusStream-debate-status-changed" : {
+      "action" : "receive",
+      "channel" : {
+        "$ref" : "#/channels/debateStatusStream"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/debateStatusStream/messages/debate-status-changed"
+      } ],
+      "summary" : "토론방 상태가 바뀌면 전체 구독자에게 보낸다. WAITING이 아니면 이 이벤트 뒤에 스트림이 닫힌다"
+    },
+    "debateStatusStream-queue-changed" : {
+      "action" : "receive",
+      "channel" : {
+        "$ref" : "#/channels/debateStatusStream"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/debateStatusStream/messages/queue-changed"
+      } ],
+      "summary" : "대기열이 바뀌면 개설자에게 갱신된 대기 목록을 보낸다"
+    }
+  }
+}
