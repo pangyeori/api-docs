@@ -9,23 +9,23 @@
 
 <body>
     <div id="swagger-ui"></div>
-    <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="https://unpkg.com/swagger-ui-dist@5.32.15/swagger-ui-bundle.js"></script>
     <script>
+        const ui = SwaggerUIBundle({
+            url: "./openapi3.yaml",
+            dom_id: '#swagger-ui',
+            presets: [SwaggerUIBundle.presets.apis, SwaggerUIBundle.SwaggerUIStandalonePreset],
+            layout: "BaseLayout",
+            supportedSubmitMethods: []
+        });
+
         fetch("./openapi3.yaml")
             .then((res) => res.text())
             .then((text) => {
-                const spec = jsyaml.load(text);
-                delete spec.servers;
-
-                const ui = SwaggerUIBundle({
-                    spec: spec,
-                    dom_id: '#swagger-ui',
-                    presets: [SwaggerUIBundle.presets.apis, SwaggerUIBundle.SwaggerUIStandalonePreset],
-                    layout: "BaseLayout",
-                    supportedSubmitMethods: []
-                });
-                ui.specActions.updateUrl("./openapi3.yaml");
+                const blobUrl = URL.createObjectURL(
+                    new Blob([text], { type: "text/yaml; charset=utf-8" })
+                );
+                ui.specActions.updateUrl(blobUrl);
             });
     </script>
 </body>
