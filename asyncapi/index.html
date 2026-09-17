@@ -12,15 +12,33 @@
     <div id="asyncapi"></div>
     <script src="https://unpkg.com/@asyncapi/react-component@3.1.8/browser/standalone/index.js"></script>
     <script>
-        AsyncApiStandalone.render({
-            schema: {
-                url: "./asyncapi.json",
-                options: { method: "GET" },
-            },
-            config: {
-                show: { sidebar: true, errors: true },
-            },
-        }, document.getElementById("asyncapi"));
+        fetch("./asyncapi.json")
+            .then((res) => res.json())
+            .then((spec) => {
+                spec.info.description = "[asyncapi.json](./asyncapi.json)";
+                const blobUrl = URL.createObjectURL(
+                    new Blob([JSON.stringify(spec)], { type: "application/json" })
+                );
+
+                AsyncApiStandalone.render({
+                    schema: {
+                        url: blobUrl,
+                        options: { method: "GET" },
+                    },
+                    config: {
+                        show: { sidebar: true, errors: true },
+                    },
+                }, document.getElementById("asyncapi"));
+
+                const observer = new MutationObserver(() => {
+                    const link = document.querySelector('a[href="./asyncapi.json"]');
+                    if (link && link.getAttribute("target") !== "_blank") {
+                        link.setAttribute("target", "_blank");
+                        link.setAttribute("rel", "noopener");
+                    }
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+            });
     </script>
 </body>
 
