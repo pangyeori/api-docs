@@ -10,29 +10,27 @@
 <body>
     <div id="swagger-ui"></div>
     <script src="https://unpkg.com/swagger-ui-dist@5.32.15/swagger-ui-bundle.js"></script>
-    <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script>
+        SwaggerUIBundle({
+            url: "./openapi3.yaml",
+            dom_id: '#swagger-ui',
+            presets: [SwaggerUIBundle.presets.apis, SwaggerUIBundle.SwaggerUIStandalonePreset],
+            layout: "BaseLayout",
+            supportedSubmitMethods: []
+        });
+
         fetch("./openapi3.yaml")
             .then((res) => res.text())
             .then((text) => {
-                const spec = jsyaml.load(text);
                 const blobUrl = URL.createObjectURL(
                     new Blob([text], { type: "text/yaml; charset=utf-8" })
                 );
-
-                const ui = SwaggerUIBundle({
-                    spec: spec,
-                    dom_id: '#swagger-ui',
-                    presets: [SwaggerUIBundle.presets.apis, SwaggerUIBundle.SwaggerUIStandalonePreset],
-                    layout: "BaseLayout",
-                    supportedSubmitMethods: []
-                });
-                ui.specActions.updateUrl(blobUrl);
-
                 const container = document.getElementById("swagger-ui");
                 const observer = new MutationObserver(() => {
                     const label = container.querySelector(".info .url");
-                    if (label && label.textContent.trim() !== "openapi3.yaml") {
+                    const link = label ? label.closest("a") : null;
+                    if (link && link.getAttribute("href") !== blobUrl) {
+                        link.setAttribute("href", blobUrl);
                         label.textContent = "openapi3.yaml";
                     }
                 });
