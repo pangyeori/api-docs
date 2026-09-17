@@ -1,4 +1,4 @@
-openapi: 3.0.1
+﻿openapi: 3.0.1
 info:
   title: REST Docs Kotlin DSL API
   version: 0.0.1
@@ -46,18 +46,18 @@ paths:
               examples:
                 debates/create:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RN1T3PYKJ44J\",\r\n    \"title\" : \"AI는 인간을 대체할 것인가\"\
+                    \ : \"0RN2HTEZ5646V\",\r\n    \"title\" : \"AI는 인간을 대체할 것인가\"\
                     ,\r\n    \"description\" : \"AI 기술의 영향을 토론합니다.\",\r\n    \"hostPosition\"\
                     \ : \"PROS\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"status\"\
                     \ : \"WAITING\",\r\n    \"turnTimeSeconds\" : 180,\r\n    \"freeDebateTimeSeconds\"\
-                    \ : 600,\r\n    \"inviteToken\" : \"ea1d7223-c677-4a23-b236-1fd8e7ea83df\"\
+                    \ : 600,\r\n    \"inviteToken\" : \"8dc47c55-487a-4f3d-a55f-4cbb73c707b6\"\
                     \r\n  },\r\n  \"error\" : null\r\n}"
         "400":
           description: "400"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
+                $ref: "#/components/schemas/api-v1-debates845673417"
               examples:
                 debates/create-invalid-free-debate-time:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -106,7 +106,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications478885324"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm478885324"
               examples:
                 email-verification/send:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
@@ -116,7 +116,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm2114211361"
               examples:
                 email-verification/send-invalid-email:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -135,7 +135,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/send-rate-limited:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -180,7 +180,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
+                $ref: "#/components/schemas/api-v1-debates845673417"
               examples:
                 password-reset/issue-invalid-email:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -421,24 +421,26 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debate-invitations-token-1218321461"
+                $ref: "#/components/schemas/api-v1-debate-invitations-token-1234697103"
               examples:
                 debate-invitations/get:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
-                    \ : \"0RN1T3VWZJ42P\",\r\n    \"title\" : \"초대 정보 조회 토론\",\r\n\
+                    \ : \"0RN2HTMN9640T\",\r\n    \"title\" : \"초대 정보 조회 토론\",\r\n\
                     \    \"description\" : null,\r\n    \"hostNickname\" : \"초대조회방\
                     장\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"debateStatus\"\
                     \ : \"WAITING\",\r\n    \"guestStatus\" : null,\r\n    \"turnTimeSeconds\"\
-                    \ : 180,\r\n    \"freeDebateTimeSeconds\" : 600\r\n  },\r\n  \"\
-                    error\" : null\r\n}"
+                    \ : 180,\r\n    \"freeDebateTimeSeconds\" : 600,\r\n    \"createdAt\"\
+                    \ : \"2026-09-17T23:03:46.7302261\"\r\n  },\r\n  \"error\" : null\r\
+                    \n}"
                 debate-invitations/get-guest-cancelled:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
-                    \ : \"0RN1T3T0VJ43V\",\r\n    \"title\" : \"초대 취소 후 재조회 토론\",\r\
-                    \n    \"description\" : null,\r\n    \"hostNickname\" : \"초대취소\
-                    방장\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"debateStatus\"\
+                    \ : \"0RN2HTJMH646N\",\r\n    \"title\" : \"참여 취소 후 초대 재조회 토론\"\
+                    ,\r\n    \"description\" : null,\r\n    \"hostNickname\" : \"참\
+                    여취소방장\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"debateStatus\"\
                     \ : \"WAITING\",\r\n    \"guestStatus\" : \"CANCELLED\",\r\n \
                     \   \"turnTimeSeconds\" : 180,\r\n    \"freeDebateTimeSeconds\"\
-                    \ : 600\r\n  },\r\n  \"error\" : null\r\n}"
+                    \ : 600,\r\n    \"createdAt\" : \"2026-09-17T23:03:46.21206\"\r\
+                    \n  },\r\n  \"error\" : null\r\n}"
         "409":
           description: "409"
           content:
@@ -494,10 +496,10 @@ paths:
             examples:
               email-verification/confirm:
                 value: "{\r\n  \"email\" : \"confirm-success@pangyeori.com\",\r\n\
-                  \  \"code\" : \"925928\"\r\n}"
+                  \  \"code\" : \"588628\"\r\n}"
               email-verification/confirm-already-verified:
                 value: "{\r\n  \"email\" : \"confirm-already-verified@pangyeori.com\"\
-                  ,\r\n  \"code\" : \"729211\"\r\n}"
+                  ,\r\n  \"code\" : \"066350\"\r\n}"
               email-verification/confirm-invalid-code:
                 value: "{\r\n  \"email\" : \"confirm-invalid-code@pangyeori.com\"\
                   ,\r\n  \"code\" : \"abc\"\r\n}"
@@ -517,7 +519,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications478885324"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm478885324"
               examples:
                 email-verification/confirm:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
@@ -527,7 +529,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/confirm-already-verified:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -539,7 +541,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm2114211361"
               examples:
                 email-verification/confirm-invalid-code:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -564,7 +566,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/confirm-mismatch:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -637,16 +639,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
+                $ref: "#/components/schemas/api-v1-debates845673417"
               examples:
                 password-reset/confirm-invalid-password:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
-                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 특수문자\
-                    를 1개 이상 포함해야 합니다.\"\r\n    }, {\r\n      \"field\" : \"newPassword\"\
-                    ,\r\n      \"message\" : \"비밀번호는 8자 이상 64자 이하여야 합니다.\"\r\n   \
-                    \ } ]\r\n  }\r\n}"
+                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 8자 이\
+                    상 64자 이하여야 합니다.\"\r\n    }, {\r\n      \"field\" : \"newPassword\"\
+                    ,\r\n      \"message\" : \"비밀번호는 특수문자를 1개 이상 포함해야 합니다.\"\r\n \
+                    \   } ]\r\n  }\r\n}"
                 password-reset/confirm-password-no-special-char:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
@@ -696,8 +698,8 @@ paths:
               examples:
                 storage/create-upload-url:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"objectKey\"\
-                    \ : \"profile-images/2026/09/0RN1T56AD3WXB.png\",\r\n    \"uploadUrl\"\
-                    \ : \"https://fake.s3/profile-images/2026/09/0RN1T56AD3WXB.png\"\
+                    \ : \"profile-images/2026/09/0RN2HW2EB0M34.png\",\r\n    \"uploadUrl\"\
+                    \ : \"https://fake.s3/profile-images/2026/09/0RN2HW2EB0M34.png\"\
                     ,\r\n    \"expiresInSeconds\" : 300\r\n  },\r\n  \"error\" : null\r\
                     \n}"
         "422":
@@ -732,10 +734,10 @@ paths:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"contentType\",\r\n      \"message\" : \"콘텐츠 타입은 필수\
+                    입니다.\"\r\n    }, {\r\n      \"field\" : \"contentLength\",\r\n\
+                    \      \"message\" : \"파일 크기는 필수입니다.\"\r\n    }, {\r\n      \"\
                     field\" : \"category\",\r\n      \"message\" : \"카테고리는 필수입니다.\"\
-                    \r\n    }, {\r\n      \"field\" : \"contentLength\",\r\n     \
-                    \ \"message\" : \"파일 크기는 필수입니다.\"\r\n    }, {\r\n      \"field\"\
-                    \ : \"contentType\",\r\n      \"message\" : \"콘텐츠 타입은 필수입니다.\"\
                     \r\n    } ]\r\n  }\r\n}"
                 storage/create-upload-url-non-positive-length:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -816,9 +818,9 @@ paths:
               examples:
                 users/get-my-info:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RN1T5GCVJ45G\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
+                    \ : \"0RN2HWDH9643V\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"테스트사용자\",\r\n    \"profileImageKey\"\
-                    \ : null,\r\n    \"joinedAt\" : \"2026-09-17T21:20:24.2942876\"\
+                    \ : null,\r\n    \"joinedAt\" : \"2026-09-17T23:04:01.2907003\"\
                     \r\n  },\r\n  \"error\" : null\r\n}"
         "401":
           description: "401"
@@ -897,16 +899,16 @@ paths:
               examples:
                 users/update-profile:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RN1T5C2BJ41X\",\r\n    \"email\" : \"update-nickname@pangyeori.com\"\
+                    \ : \"0RN2HW8Y1646Y\",\r\n    \"email\" : \"update-nickname@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"새로운닉네임\",\r\n    \"profileImageKey\"\
-                    \ : null,\r\n    \"joinedAt\" : \"2026-09-17T21:20:23.1864579\"\
+                    \ : null,\r\n    \"joinedAt\" : \"2026-09-17T23:04:00.1129319\"\
                     \r\n  },\r\n  \"error\" : null\r\n}"
                 users/update-profile-image:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RN1T5FQQJ41M\",\r\n    \"email\" : \"update-image@pangyeori.com\"\
+                    \ : \"0RN2HWCVN642Z\",\r\n    \"email\" : \"update-image@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"테스트사용자\",\r\n    \"profileImageKey\"\
                     \ : \"profile-images/2026/09/0000000000001.png\",\r\n    \"joinedAt\"\
-                    \ : \"2026-09-17T21:20:24.1256076\"\r\n  },\r\n  \"error\" : null\r\
+                    \ : \"2026-09-17T23:04:01.1178863\"\r\n  },\r\n  \"error\" : null\r\
                     \n}"
         "409":
           description: "409"
@@ -978,9 +980,9 @@ paths:
                 debates/get-status:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateStatus\"\
                     \ : \"WAITING\",\r\n    \"guestStatus\" : null,\r\n    \"requestList\"\
-                    \ : [ {\r\n      \"userId\" : \"0RN1T374ZJ47K\",\r\n      \"nickname\"\
+                    \ : [ {\r\n      \"userId\" : \"0RN2HSY8D646Y\",\r\n      \"nickname\"\
                     \ : \"상태목록게스트\",\r\n      \"profileImageKey\" : null,\r\n    \
-                    \  \"status\" : \"PENDING\",\r\n      \"requestedAt\" : \"2026-09-17T21:20:05.6291173\"\
+                    \  \"status\" : \"PENDING\",\r\n      \"requestedAt\" : \"2026-09-17T23:03:41.0861207\"\
                     \r\n    } ]\r\n  },\r\n  \"error\" : null\r\n}"
                 debates/get-status-guest:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateStatus\"\
@@ -1155,7 +1157,7 @@ paths:
               $ref: "#/components/schemas/api-v1-debates-debateId-guest-accept172970270"
             examples:
               debates/accept-guest:
-                value: "{\r\n  \"userId\" : \"0RN1T3MX7J46H\"\r\n}"
+                value: "{\r\n  \"userId\" : \"0RN2HTCWN643X\"\r\n}"
               debates/accept-guest-forbidden:
                 value: "{\r\n  \"userId\" : \"0000000000000\"\r\n}"
               debates/accept-guest-invalid-user-id:
@@ -1174,7 +1176,7 @@ paths:
               examples:
                 debates/accept-guest:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
-                    \ : \"0RN1T3N63J44M\",\r\n    \"status\" : \"READY\"\r\n  },\r\
+                    \ : \"0RN2HTD5X646W\",\r\n    \"status\" : \"READY\"\r\n  },\r\
                     \n  \"error\" : null\r\n}"
         "403":
           description: "403"
@@ -1251,7 +1253,7 @@ paths:
               examples:
                 debates/request-participation:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
-                    \ : \"0RN1T3HAVJ45H\",\r\n    \"position\" : \"CONS\"\r\n  },\r\
+                    \ : \"0RN2HT925641G\",\r\n    \"position\" : \"CONS\"\r\n  },\r\
                     \n  \"error\" : null\r\n}"
         "409":
           description: "409"
@@ -1453,7 +1455,7 @@ paths:
       - bearerAuthJWT: []
 components:
   schemas:
-    api-v1-email-verifications-1546988534:
+    api-v1-email-verifications-confirm-1546988534:
       required:
       - error
       - success
@@ -1581,7 +1583,7 @@ components:
               type: object
               description: 오류 메시지
           description: 오류 정보
-    api-v1-email-verifications478885324:
+    api-v1-email-verifications-confirm478885324:
       required:
       - success
       type: object
@@ -1839,6 +1841,64 @@ components:
           type: object
           description: 오류 정보
           nullable: true
+    api-v1-debate-invitations-token-1234697103:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - createdAt
+          - debateId
+          - debateStatus
+          - freeDebateTimeSeconds
+          - guestPosition
+          - hostNickname
+          - title
+          - turnTimeSeconds
+          type: object
+          properties:
+            createdAt:
+              type: object
+              description: 토론방 생성 시각
+            hostNickname:
+              type: object
+              description: 방장 닉네임
+            turnTimeSeconds:
+              type: object
+              description: 발언 턴 제한 시간(초)
+            freeDebateTimeSeconds:
+              type: object
+              description: 자유 토론 제한 시간(초)
+            debateStatus:
+              type: object
+              description: 토론방 상태
+            description:
+              type: object
+              description: 토론 설명
+              nullable: true
+            guestStatus:
+              type: object
+              description: 요청자의 참여 상태
+              nullable: true
+            title:
+              type: object
+              description: 토론 주제
+            guestPosition:
+              type: object
+              description: 게스트 포지션
+            debateId:
+              type: object
+              description: 토론방 ID
+          description: 초대 정보
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
     api-v1-auth-signin536610982:
       required:
       - email
@@ -1971,7 +2031,7 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-email-verifications2114211361:
+    api-v1-email-verifications-confirm2114211361:
       required:
       - error
       - success
@@ -2070,60 +2130,6 @@ components:
               type: object
               description: 오류 메시지
           description: 오류 정보
-    api-v1-debate-invitations-token-1218321461:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          required:
-          - debateId
-          - debateStatus
-          - freeDebateTimeSeconds
-          - guestPosition
-          - hostNickname
-          - title
-          - turnTimeSeconds
-          type: object
-          properties:
-            hostNickname:
-              type: object
-              description: 방장 닉네임
-            turnTimeSeconds:
-              type: object
-              description: 발언 턴 제한 시간(초)
-            freeDebateTimeSeconds:
-              type: object
-              description: 자유 토론 제한 시간(초)
-            debateStatus:
-              type: object
-              description: 토론방 상태
-            description:
-              type: object
-              description: 토론 설명
-              nullable: true
-            guestStatus:
-              type: object
-              description: 요청자의 참여 상태
-              nullable: true
-            title:
-              type: object
-              description: 토론 주제
-            guestPosition:
-              type: object
-              description: 게스트 포지션
-            debateId:
-              type: object
-              description: 토론방 ID
-          description: 초대 정보
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
     api-v1-users-1440468465:
       required:
       - email
@@ -2140,7 +2146,7 @@ components:
         email:
           type: string
           description: 인증하지 않은 이메일
-    api-v1-password-resets-confirm845673417:
+    api-v1-debates845673417:
       required:
       - error
       - success
