@@ -58,7 +58,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
+                $ref: "#/components/schemas/api-v1-debates845673417"
               examples:
                 debates/create-invalid-free-debate-time:
                   value: |-
@@ -114,7 +114,7 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "id" : "0RQ5C1EHW6M2N",
+                        "id" : "0RS6XXJF1QW5P",
                         "title" : "AI는 인간을 대체할 것인가",
                         "description" : "AI 기술의 영향을 토론합니다.",
                         "hostPosition" : "PROS",
@@ -122,7 +122,7 @@ paths:
                         "status" : "WAITING",
                         "turnTimeSeconds" : 180,
                         "freeDebateTimeSeconds" : 600,
-                        "inviteToken" : "c43b96c1-a171-43de-8527-387c5b41350c"
+                        "inviteToken" : "c2685dda-3b28-4193-99f5-01e18949d97c"
                       },
                       "error" : null
                     }
@@ -164,7 +164,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/send-rate-limited:
                   value: |-
@@ -182,7 +182,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm2114211361"
               examples:
                 email-verification/send-invalid-email:
                   value: |-
@@ -217,7 +217,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications478885324"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm478885324"
               examples:
                 email-verification/send:
                   value: |-
@@ -260,19 +260,19 @@ paths:
                       "success" : true,
                       "data" : {
                         "items" : [ {
-                          "notificationId" : "0RQ5C2YER6M0K",
-                          "debateId" : "0RQ5C2YEM6M5K",
+                          "notificationId" : "0RS6XYHTHQW4X",
+                          "debateId" : "0RS6XYHTHQW4T",
                           "type" : "QUEUE_REQUEST_REMOVED",
                           "message" : "참가신청게스트님이 '내가 개설한 토론' 토론 참가 신청을 취소했습니다.",
                           "isRead" : false,
-                          "createdAt" : "2026-09-24T10:45:58.64638"
+                          "createdAt" : "2026-09-30T19:31:40.756904"
                         }, {
-                          "notificationId" : "0RQ5C2YER6M0J",
-                          "debateId" : "0RQ5C2YEM6M5K",
+                          "notificationId" : "0RS6XYHTHQW4W",
+                          "debateId" : "0RS6XYHTHQW4T",
                           "type" : "QUEUE_REQUEST_ADDED",
                           "message" : "참가신청게스트님이 '내가 개설한 토론' 토론 참가를 신청했습니다.",
                           "isRead" : false,
-                          "createdAt" : "2026-09-24T10:45:58.646338"
+                          "createdAt" : "2026-09-30T19:31:40.756861"
                         } ],
                         "nextCursor" : null,
                         "hasNext" : false
@@ -285,26 +285,26 @@ paths:
                       "success" : true,
                       "data" : {
                         "items" : [ {
-                          "notificationId" : "0RQ5C2TV06M6R",
-                          "debateId" : "0RQ5C2TTW6M4Y",
+                          "notificationId" : "0RS6XYFK1QW40",
+                          "debateId" : "0RS6XYFK1QW3Y",
                           "type" : "DEBATE_CANCELLED",
                           "message" : "'취소된 토론' 토론이 취소되었습니다.",
                           "isRead" : false,
-                          "createdAt" : "2026-09-24T10:45:57.720189"
+                          "createdAt" : "2026-09-30T19:31:40.184349"
                         }, {
-                          "notificationId" : "0RQ5C2T9R6M6T",
-                          "debateId" : "0RQ5C2T9R6M6R",
+                          "notificationId" : "0RS6XYF2XQW3R",
+                          "debateId" : "0RS6XYF2XQW3P",
                           "type" : "QUEUE_REQUEST_REJECTED",
                           "message" : "'내가 참가 거절된 토론' 토론 참가 요청이 거절되었습니다.",
                           "isRead" : false,
-                          "createdAt" : "2026-09-24T10:45:57.582531"
+                          "createdAt" : "2026-09-30T19:31:40.055824"
                         }, {
-                          "notificationId" : "0RQ5C2SSM6M60",
-                          "debateId" : "0RQ5C2SSM6M5Y",
+                          "notificationId" : "0RS6XYEK5QW6J",
+                          "debateId" : "0RS6XYEK5QW6G",
                           "type" : "QUEUE_REQUEST_ACCEPTED",
                           "message" : "'내가 참가 확정된 토론' 토론 참가가 확정되었습니다.",
                           "isRead" : false,
-                          "createdAt" : "2026-09-24T10:45:57.453956"
+                          "createdAt" : "2026-09-30T19:31:39.929506"
                         } ],
                         "nextCursor" : null,
                         "hasNext" : false
@@ -352,7 +352,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
+                $ref: "#/components/schemas/api-v1-debates845673417"
               examples:
                 password-reset/issue-invalid-email:
                   value: |-
@@ -373,7 +373,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 password-reset/issue-user-not-found:
                   value: |-
@@ -407,7 +407,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 password-reset/issue-not-verified:
                   value: |-
@@ -494,7 +494,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-nickname-duplicate-1728058300"
+                $ref: "#/components/schemas/api-v1-users-1728058300"
               examples:
                 users/create-invalid-nickname:
                   value: |-
@@ -522,11 +522,11 @@ paths:
                           "field" : "nickname",
                           "message" : "닉네임은 필수입니다."
                         }, {
-                          "field" : "password",
-                          "message" : "비밀번호는 필수입니다."
-                        }, {
                           "field" : "email",
                           "message" : "이메일은 필수입니다."
+                        }, {
+                          "field" : "password",
+                          "message" : "비밀번호는 필수입니다."
                         } ]
                       }
                     }
@@ -599,7 +599,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 auth/refresh-missing-cookie:
                   value: |-
@@ -671,7 +671,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 auth/signin-invalid-password:
                   value: |-
@@ -725,7 +725,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debate-invitations/get-expired:
                   value: |-
@@ -750,7 +750,7 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "debateId" : "0RQ5C1MK46M3N",
+                        "debateId" : "0RS6XXS9HQW3S",
                         "title" : "참여 취소 후 초대 재조회 토론",
                         "description" : null,
                         "hostNickname" : "참여취소방장",
@@ -759,7 +759,7 @@ paths:
                         "guestStatus" : "CANCELLED",
                         "turnTimeSeconds" : 180,
                         "freeDebateTimeSeconds" : 600,
-                        "createdAt" : "2026-09-24T10:45:47.929476"
+                        "createdAt" : "2026-09-30T19:31:34.476916"
                       },
                       "error" : null
                     }
@@ -768,7 +768,7 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "debateId" : "0RQ5C1P8C6M7S",
+                        "debateId" : "0RS6XXTZNQW2X",
                         "title" : "초대 정보 조회 토론",
                         "description" : null,
                         "hostNickname" : "초대조회방장",
@@ -777,7 +777,7 @@ paths:
                         "guestStatus" : null,
                         "turnTimeSeconds" : 180,
                         "freeDebateTimeSeconds" : 600,
-                        "createdAt" : "2026-09-24T10:45:48.355715"
+                        "createdAt" : "2026-09-30T19:31:34.909212"
                       },
                       "error" : null
                     }
@@ -786,7 +786,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debate-invitations/get-in_progress:
                   value: |-
@@ -907,7 +907,7 @@ paths:
                       "success" : true,
                       "data" : {
                         "items" : [ {
-                          "debateId" : "0RQ5C1DPG6M6G",
+                          "debateId" : "0RS6XXHRNQW5X",
                           "title" : "첫 번째 토론",
                           "description" : "[필터매칭] status=WAITING, role=HOST, keyword=필터매칭 조건에 모두 일치해 조회됩니다.",
                           "debateStatus" : "WAITING",
@@ -917,7 +917,7 @@ paths:
                           "opponent" : null,
                           "turnTimeSeconds" : 180,
                           "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-24T10:45:46.164206"
+                          "createdAt" : "2026-09-30T19:31:32.549633"
                         } ],
                         "nextCursor" : null,
                         "hasNext" : false
@@ -930,7 +930,7 @@ paths:
                       "success" : true,
                       "data" : {
                         "items" : [ {
-                          "debateId" : "0RQ5C0WX06M1G",
+                          "debateId" : "0RS6XWZPNQW0G",
                           "title" : "첫 번째 토론",
                           "description" : null,
                           "debateStatus" : "READY",
@@ -938,13 +938,13 @@ paths:
                           "myRole" : "HOST",
                           "myPosition" : "PROS",
                           "opponent" : {
-                            "userId" : "0RQ5C0VM46M2M",
+                            "userId" : "0RS6XWYFXQW6X",
                             "nickname" : "커서목록게스트1",
                             "profileImageKey" : null
                           },
                           "turnTimeSeconds" : 180,
                           "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-24T10:45:41.86422"
+                          "createdAt" : "2026-09-30T19:31:27.925639"
                         } ],
                         "nextCursor" : null,
                         "hasNext" : false
@@ -968,7 +968,7 @@ paths:
                       "success" : true,
                       "data" : {
                         "items" : [ {
-                          "debateId" : "0RQ5C1JT46M5V",
+                          "debateId" : "0RS6XXQMNQW2J",
                           "title" : "세 번째 토론",
                           "description" : null,
                           "debateStatus" : "READY",
@@ -976,15 +976,15 @@ paths:
                           "myRole" : "GUEST",
                           "myPosition" : "CONS",
                           "opponent" : {
-                            "userId" : "0RQ5C1JEG6M3Y",
+                            "userId" : "0RS6XXQ99QW6M",
                             "nickname" : "목록타방장",
                             "profileImageKey" : null
                           },
                           "turnTimeSeconds" : 180,
                           "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-24T10:45:47.474004"
+                          "createdAt" : "2026-09-30T19:31:34.053974"
                         }, {
-                          "debateId" : "0RQ5C1JRM6M0Z",
+                          "debateId" : "0RS6XXQK9QW3Q",
                           "title" : "두 번째 토론",
                           "description" : null,
                           "debateStatus" : "READY",
@@ -992,15 +992,15 @@ paths:
                           "myRole" : "HOST",
                           "myPosition" : "PROS",
                           "opponent" : {
-                            "userId" : "0RQ5C1HYW6M7R",
+                            "userId" : "0RS6XXPTHQW2T",
                             "nickname" : "목록게스트2",
                             "profileImageKey" : null
                           },
                           "turnTimeSeconds" : 180,
                           "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-24T10:45:47.461972"
+                          "createdAt" : "2026-09-30T19:31:34.042965"
                         } ],
-                        "nextCursor" : "0RQ5C1JRM6M0Z",
+                        "nextCursor" : "0RS6XXQK9QW3Q",
                         "hasNext" : true
                       },
                       "error" : null
@@ -1011,7 +1011,7 @@ paths:
                       "success" : true,
                       "data" : {
                         "items" : [ {
-                          "debateId" : "0RQ5C19WW6M4P",
+                          "debateId" : "0RS6XXEDSQW4V",
                           "title" : "아직 게스트를 선택하지 않은 토론",
                           "description" : "참여 요청이 들어왔지만 아직 게스트를 선택하지 않아도 개설자 목록에 조회됩니다.",
                           "debateStatus" : "WAITING",
@@ -1021,7 +1021,7 @@ paths:
                           "opponent" : null,
                           "turnTimeSeconds" : 180,
                           "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-24T10:45:45.1912"
+                          "createdAt" : "2026-09-30T19:31:31.694502"
                         } ],
                         "nextCursor" : null,
                         "hasNext" : false
@@ -1034,7 +1034,7 @@ paths:
                       "success" : true,
                       "data" : {
                         "items" : [ {
-                          "debateId" : "0RQ5C1GNW6M6N",
+                          "debateId" : "0RS6XXMGXQW4V",
                           "title" : "아직 선택되지 않은 토론",
                           "description" : "참여 요청은 보냈지만 호스트가 아직 게스트를 선택하지 않아도 목록에 조회됩니다.",
                           "debateStatus" : "WAITING",
@@ -1042,13 +1042,13 @@ paths:
                           "myRole" : "GUEST",
                           "myPosition" : "CONS",
                           "opponent" : {
-                            "userId" : "0RQ5C1GDM6M5J",
+                            "userId" : "0RS6XXM8XQW5G",
                             "nickname" : "대기방장",
                             "profileImageKey" : null
                           },
                           "turnTimeSeconds" : 180,
                           "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-24T10:45:46.927622"
+                          "createdAt" : "2026-09-30T19:31:33.255896"
                         } ],
                         "nextCursor" : null,
                         "hasNext" : false
@@ -1061,7 +1061,7 @@ paths:
                       "success" : true,
                       "data" : {
                         "items" : [ {
-                          "debateId" : "0RQ5C1BA86M0W",
+                          "debateId" : "0RS6XXFSXQW6R",
                           "title" : "매칭된 토론",
                           "description" : "[다중상태] status=WAITING&status=READY 중 READY에 해당해 조회됩니다.",
                           "debateStatus" : "READY",
@@ -1071,9 +1071,9 @@ paths:
                           "opponent" : null,
                           "turnTimeSeconds" : 180,
                           "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-24T10:45:45.554374"
+                          "createdAt" : "2026-09-30T19:31:32.047617"
                         }, {
-                          "debateId" : "0RQ5C1BA06M4W",
+                          "debateId" : "0RS6XXFSNQW6Z",
                           "title" : "대기 중인 토론",
                           "description" : "[다중상태] status=WAITING&status=READY 중 WAITING에 해당해 조회됩니다.",
                           "debateStatus" : "WAITING",
@@ -1083,12 +1083,88 @@ paths:
                           "opponent" : null,
                           "turnTimeSeconds" : 180,
                           "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-24T10:45:45.552485"
+                          "createdAt" : "2026-09-30T19:31:32.045742"
                         } ],
                         "nextCursor" : null,
                         "hasNext" : false
                       },
                       "error" : null
+                    }
+      security:
+      - bearerAuthJWT: []
+  /api/v1/debates/{debateId}:
+    get:
+      tags:
+      - Debates
+      summary: 토론방 단건 조회
+      description: 토론방 단건 조회
+      operationId: debates/get
+      parameters:
+      - name: debateId
+        in: path
+        description: 토론방 ID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-debates-debateId168903303"
+              examples:
+                debates/get-guest:
+                  value: |-
+                    {
+                      "success" : true,
+                      "data" : {
+                        "id" : "0RS6XXNJXQW4G",
+                        "title" : "토론방 단건 조회 게스트 검증",
+                        "description" : null,
+                        "hostPosition" : "PROS",
+                        "guestPosition" : "CONS",
+                        "status" : "WAITING",
+                        "turnTimeSeconds" : 180,
+                        "freeDebateTimeSeconds" : 600,
+                        "inviteToken" : null
+                      },
+                      "error" : null
+                    }
+                debates/get:
+                  value: |-
+                    {
+                      "success" : true,
+                      "data" : {
+                        "id" : "0RS6XX0W1QW3H",
+                        "title" : "토론방 단건 조회 검증",
+                        "description" : "토론방 단건 조회 설명",
+                        "hostPosition" : "PROS",
+                        "guestPosition" : "CONS",
+                        "status" : "WAITING",
+                        "turnTimeSeconds" : 180,
+                        "freeDebateTimeSeconds" : 600,
+                        "inviteToken" : "75bb844f-21e7-406d-bf1e-2277faf3a215"
+                      },
+                      "error" : null
+                    }
+        "403":
+          description: "403"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+              examples:
+                debates/get-forbidden:
+                  value: |-
+                    {
+                      "success" : false,
+                      "data" : null,
+                      "error" : {
+                        "code" : "UNAUTHORIZED_ACCESS",
+                        "message" : "접근 권한이 없습니다.",
+                        "details" : null
+                      }
                     }
       security:
       - bearerAuthJWT: []
@@ -1132,13 +1208,13 @@ paths:
                 value: |-
                   {
                     "email" : "confirm-success@pangyeori.com",
-                    "code" : "742253"
+                    "code" : "806592"
                   }
               email-verification/confirm-already-verified:
                 value: |-
                   {
                     "email" : "confirm-already-verified@pangyeori.com",
-                    "code" : "898898"
+                    "code" : "347829"
                   }
               email-verification/confirm-missing-code:
                 value: |-
@@ -1151,7 +1227,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm2114211361"
               examples:
                 email-verification/confirm-invalid-code:
                   value: |-
@@ -1200,7 +1276,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/confirm-mismatch:
                   value: |-
@@ -1229,7 +1305,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications478885324"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm478885324"
               examples:
                 email-verification/confirm:
                   value: |-
@@ -1243,7 +1319,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/confirm-already-verified:
                   value: |-
@@ -1269,7 +1345,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm-954225372"
+                $ref: "#/components/schemas/api-v1-notifications-read-all-954225372"
               examples:
                 notifications/read-all:
                   value: |-
@@ -1326,7 +1402,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 notifications/delete-not-found:
                   value: |-
@@ -1392,7 +1468,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
+                $ref: "#/components/schemas/api-v1-debates845673417"
               examples:
                 password-reset/confirm-password-no-special-char:
                   value: |-
@@ -1418,10 +1494,10 @@ paths:
                         "message" : "입력값이 올바르지 않습니다.",
                         "details" : [ {
                           "field" : "newPassword",
-                          "message" : "비밀번호는 8자 이상 64자 이하여야 합니다."
+                          "message" : "비밀번호는 특수문자를 1개 이상 포함해야 합니다."
                         }, {
                           "field" : "newPassword",
-                          "message" : "비밀번호는 특수문자를 1개 이상 포함해야 합니다."
+                          "message" : "비밀번호는 8자 이상 64자 이하여야 합니다."
                         } ]
                       }
                     }
@@ -1430,7 +1506,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm-954225372"
+                $ref: "#/components/schemas/api-v1-notifications-read-all-954225372"
               examples:
                 password-reset/confirm:
                   value: |-
@@ -1444,7 +1520,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 password-reset/confirm-token-not-found:
                   value: |-
@@ -1538,8 +1614,8 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "objectKey" : "profile-images/2026/09/0RQ5C346G40YA.png",
-                        "uploadUrl" : "https://fake.s3/profile-images/2026/09/0RQ5C346G40YA.png",
+                        "objectKey" : "profile-images/2026/09/0RS6XYPRD15ZM.png",
+                        "uploadUrl" : "https://fake.s3/profile-images/2026/09/0RS6XYPRD15ZM.png",
                         "expiresInSeconds" : 300
                       },
                       "error" : null
@@ -1549,7 +1625,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 storage/create-upload-url-file-too-large:
                   value: |-
@@ -1630,7 +1706,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 storage/create-upload-url-unauthorized:
                   value: |-
@@ -1713,7 +1789,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/get-my-info-unauthorized:
                   value: |-
@@ -1738,11 +1814,11 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "id" : "0RQ5C3EF46M3Y",
+                        "id" : "0RS6XZ145QW4P",
                         "email" : "mypage@pangyeori.com",
                         "nickname" : "테스트사용자",
                         "profileImageKey" : null,
-                        "joinedAt" : "2026-09-24T10:46:02.745603"
+                        "joinedAt" : "2026-09-30T19:31:44.673594"
                       },
                       "error" : null
                     }
@@ -1758,7 +1834,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/withdraw-unauthorized:
                   value: |-
@@ -1833,11 +1909,11 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "id" : "0RQ5C39DR6M4J",
+                        "id" : "0RS6XYW39QW5V",
                         "email" : "update-nickname@pangyeori.com",
                         "nickname" : "새로운닉네임",
                         "profileImageKey" : null,
-                        "joinedAt" : "2026-09-24T10:46:01.454202"
+                        "joinedAt" : "2026-09-30T19:31:43.386846"
                       },
                       "error" : null
                     }
@@ -1846,11 +1922,11 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "id" : "0RQ5C3DXM6M1G",
+                        "id" : "0RS6XZ0J9QW5K",
                         "email" : "update-image@pangyeori.com",
                         "nickname" : "테스트사용자",
                         "profileImageKey" : "profile-images/2026/09/0000000000001.png",
-                        "joinedAt" : "2026-09-24T10:46:02.60565"
+                        "joinedAt" : "2026-09-30T19:31:44.530968"
                       },
                       "error" : null
                     }
@@ -1859,7 +1935,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/update-profile-unauthorized:
                   value: |-
@@ -1877,7 +1953,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/update-profile-duplicate-nickname:
                   value: |-
@@ -1968,11 +2044,11 @@ paths:
                         "debateStatus" : "WAITING",
                         "guestStatus" : null,
                         "requestList" : [ {
-                          "userId" : "0RQ5C0SAG6M5V",
+                          "userId" : "0RS6XWW6DQW4T",
                           "nickname" : "상태목록게스트",
                           "profileImageKey" : null,
                           "status" : "PENDING",
-                          "requestedAt" : "2026-09-24T10:45:41.025892"
+                          "requestedAt" : "2026-09-30T19:31:27.10554"
                         } ]
                       },
                       "error" : null
@@ -1982,7 +2058,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/get-status-forbidden:
                   value: |-
@@ -2017,7 +2093,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-password-resets-confirm-954225372"
+                $ref: "#/components/schemas/api-v1-notifications-read-all-954225372"
               examples:
                 notifications/read:
                   value: |-
@@ -2031,7 +2107,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 notifications/read-not-found:
                   value: |-
@@ -2083,7 +2159,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/change-password-invalid-current:
                   value: |-
@@ -2137,7 +2213,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/remove-profile-image-unauthorized:
                   value: |-
@@ -2172,7 +2248,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-nickname-duplicate-1728058300"
+                $ref: "#/components/schemas/api-v1-users-1728058300"
               examples:
                 users/check-nickname-duplicate-too-short:
                   value: |-
@@ -2286,7 +2362,7 @@ paths:
               debates/accept-guest:
                 value: |-
                   {
-                    "userId" : "0RQ5C1AF86M6G"
+                    "userId" : "0RS6XXEZNQW2K"
                   }
       responses:
         "404":
@@ -2294,7 +2370,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/accept-guest-not-in-queue:
                   value: |-
@@ -2333,7 +2409,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/accept-guest-forbidden:
                   value: |-
@@ -2351,7 +2427,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/accept-guest-not-waiting:
                   value: |-
@@ -2376,7 +2452,7 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "debateId" : "0RQ5C1AQG6M0T",
+                        "debateId" : "0RS6XXF7HQW7S",
                         "status" : "READY"
                       },
                       "error" : null
@@ -2403,7 +2479,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/request-participation-cancelled:
                   value: |-
@@ -2494,7 +2570,7 @@ paths:
                     {
                       "success" : true,
                       "data" : {
-                        "debateId" : "0RQ5C14MG6M5H",
+                        "debateId" : "0RS6XX85HQW4Y",
                         "position" : "CONS"
                       },
                       "error" : null
@@ -2504,7 +2580,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/request-participation-expired:
                   value: |-
@@ -2522,7 +2598,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/request-participation-self:
                   value: |-
@@ -2556,7 +2632,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/cancel-participation-not-pending:
                   value: |-
@@ -2599,7 +2675,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/stream-status-missing-ticket:
                   value: |-
@@ -2671,7 +2747,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/issue-stream-ticket-forbidden:
                   value: |-
@@ -2759,7 +2835,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/verify-password-unauthorized:
                   value: |-
@@ -2851,7 +2927,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/verify-password-mismatch:
                   value: |-
@@ -2868,7 +2944,7 @@ paths:
           description: "204"
 components:
   schemas:
-    api-v1-email-verifications-1546988534:
+    api-v1-email-verifications-confirm-1546988534:
       required:
       - error
       - success
@@ -2996,7 +3072,7 @@ components:
               type: object
               description: 오류 메시지
           description: 오류 정보
-    api-v1-email-verifications478885324:
+    api-v1-email-verifications-confirm478885324:
       required:
       - success
       type: object
@@ -3012,6 +3088,22 @@ components:
           type: object
           description: 에러 정보
           nullable: true
+    api-v1-storage-upload-urls795460846:
+      required:
+      - category
+      - contentLength
+      - contentType
+      type: object
+      properties:
+        contentLength:
+          type: number
+          description: 0 이하의 잘못된 파일 크기
+        category:
+          type: string
+          description: 업로드 용도
+        contentType:
+          type: string
+          description: 업로드할 파일의 콘텐츠 타입
     api-v1-debates-debateId-guest-accept1072356205:
       required:
       - data
@@ -3038,22 +3130,6 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-storage-upload-urls795460846:
-      required:
-      - category
-      - contentLength
-      - contentType
-      type: object
-      properties:
-        contentLength:
-          type: number
-          description: 0 이하의 잘못된 파일 크기
-        category:
-          type: string
-          description: 업로드 용도
-        contentType:
-          type: string
-          description: 업로드할 파일의 콘텐츠 타입
     api-v1-debates-debateId-status-stream-33084672:
       type: object
     api-v1-users-me182886190:
@@ -3288,6 +3364,60 @@ components:
         email:
           type: string
           description: 인증하지 않은 이메일
+    api-v1-debates-debateId168903303:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - freeDebateTimeSeconds
+          - guestPosition
+          - hostPosition
+          - id
+          - status
+          - title
+          - turnTimeSeconds
+          type: object
+          properties:
+            hostPosition:
+              type: object
+              description: 개설자 포지션
+            inviteToken:
+              type: object
+              description: "초대 토큰. 개설자 본인에게만 노출되고, 그 외에는 null"
+              nullable: true
+            turnTimeSeconds:
+              type: object
+              description: 턴당 발언 제한 시간
+            freeDebateTimeSeconds:
+              type: object
+              description: 자유 토론 제한 시간
+            description:
+              type: object
+              description: 토론 설명
+              nullable: true
+            id:
+              type: object
+              description: 토론방 ID
+            title:
+              type: object
+              description: 토론 주제
+            guestPosition:
+              type: object
+              description: 게스트 포지션
+            status:
+              type: object
+              description: 토론방 상태
+          description: 토론방 정보
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
     api-v1-users-me-527830575:
       required:
       - data
@@ -3494,6 +3624,18 @@ components:
         email:
           type: string
           description: 인증 코드를 받을 이메일
+    api-v1-email-verifications-confirm316398335:
+      required:
+      - code
+      - email
+      type: object
+      properties:
+        code:
+          type: string
+          description: 이미 사용된 인증 코드
+        email:
+          type: string
+          description: 인증 대상 이메일
     api-v1-password-resets-1389490358:
       required:
       - data
@@ -3516,19 +3658,7 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-email-verifications-confirm316398335:
-      required:
-      - code
-      - email
-      type: object
-      properties:
-        code:
-          type: string
-          description: 이미 사용된 인증 코드
-        email:
-          type: string
-          description: 인증 대상 이메일
-    api-v1-email-verifications2114211361:
+    api-v1-email-verifications-confirm2114211361:
       required:
       - error
       - success
@@ -3611,7 +3741,7 @@ components:
               type: object
               description: 오류 메시지
           description: 오류 정보
-    api-v1-password-resets-confirm845673417:
+    api-v1-debates845673417:
       required:
       - error
       - success
@@ -3825,7 +3955,7 @@ components:
           oneOf:
           - type: string
           - null
-    api-v1-debates-debateId-invitations-request1852456402:
+    api-v1-storage-upload-urls1852456402:
       required:
       - error
       - success
@@ -3907,23 +4037,7 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-password-resets-confirm-954225372:
-      required:
-      - success
-      type: object
-      properties:
-        data:
-          type: object
-          description: 응답 데이터
-          nullable: true
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
-    api-v1-users-nickname-duplicate-1728058300:
+    api-v1-users-1728058300:
       required:
       - error
       - success
@@ -3965,6 +4079,22 @@ components:
               type: object
               description: 에러 메시지
           description: 에러 정보
+    api-v1-notifications-read-all-954225372:
+      required:
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
     api-v1-users-1262708799:
       required:
       - email
