@@ -5,17 +5,83 @@
     "version" : "0.0.1"
   },
   "servers" : {
-    "production" : {
-      "host" : "localhost:8080",
-      "protocol" : "https"
+    "sse" : {
+      "host" : "api.pangyeori.com",
+      "protocol" : "https",
+      "description" : "REST API와 SSE 상태 스트림이 올라가는 서버"
+    },
+    "stomp" : {
+      "host" : "api.pangyeori.com",
+      "protocol" : "wss",
+      "pathname" : "/ws",
+      "description" : "STOMP WebSocket 연결 엔드포인트. CONNECT 프레임의 Authorization 헤더에 Bearer 액세스 토큰을 실어 인증한다"
     }
   },
   "channels" : {
+    "subDebatesDebateId" : {
+      "address" : "/sub/debates/{debateId}",
+      "description" : "토론방 입장, 이탈, 시작 이벤트. 먼저 STOMP WebSocket으로 연결한 뒤 이 목적지를 구독한다. 클라이언트는 이 채널에 메시지를 보내지 않고 구독만 한다",
+      "servers" : [ {
+        "$ref" : "#/servers/stomp"
+      } ],
+      "parameters" : {
+        "debateId" : {
+          "description" : "토론방 ID"
+        }
+      },
+      "messages" : {
+        "DebateConnectionEvent" : {
+          "name" : "DebateConnectionEvent",
+          "contentType" : "application/json",
+          "summary" : "개설자가 입장하면 자신의 입장 이벤트를 받는다",
+          "payload" : {
+            "type" : "object",
+            "required" : [ "debateId", "type" ],
+            "properties" : {
+              "debateId" : {
+                "type" : "string",
+                "description" : "토론방 ID"
+              },
+              "type" : {
+                "type" : "string",
+                "description" : "이벤트 종류 (ENTERED, LEFT, STARTED)"
+              },
+              "role" : {
+                "type" : "string",
+                "description" : "입장 또는 이탈한 참여자의 역할 (시작 이벤트에는 없음)"
+              }
+            }
+          },
+          "examples" : [ {
+            "name" : "개설자 입장",
+            "payload" : {
+              "debateId" : "0RVRQGXX65M5Y",
+              "type" : "ENTERED",
+              "role" : "HOST"
+            }
+          }, {
+            "name" : "게스트 입장",
+            "payload" : {
+              "debateId" : "0RVRQGXX65M5Y",
+              "type" : "ENTERED",
+              "role" : "GUEST"
+            }
+          }, {
+            "name" : "토론 시작",
+            "payload" : {
+              "debateId" : "0RVRQGXX65M5Y",
+              "type" : "STARTED",
+              "role" : null
+            }
+          } ]
+        }
+      }
+    },
     "debateStatusStream" : {
       "address" : "/api/v1/debates/{debateId}/status/stream",
       "description" : "토론 참여 상태 실시간 스트림. 발급받은 일회성 티켓을 쿼리 파라미터로 넘겨 인증한다",
       "servers" : [ {
-        "$ref" : "#/servers/production"
+        "$ref" : "#/servers/sse"
       } ],
       "parameters" : {
         "debateId" : {
@@ -58,11 +124,11 @@
               "debateStatus" : "WAITING",
               "guestStatus" : null,
               "requestList" : [ {
-                "userId" : "0RM060XZRT02G",
+                "userId" : "0RVRQFYE65M4Q",
                 "nickname" : "스트림게스트1",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-09-14T14:58:39.982501"
+                "requestedAt" : "2026-10-08T18:07:54.222877"
               } ]
             }
           } ]
@@ -132,17 +198,17 @@
             "name" : "status-stream",
             "payload" : {
               "requestList" : [ {
-                "userId" : "0RM060XZRT02G",
+                "userId" : "0RVRQFYE65M4Q",
                 "nickname" : "스트림게스트1",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-09-14T14:58:39.982501"
+                "requestedAt" : "2026-10-08T18:07:54.222877"
               }, {
-                "userId" : "0RM060Y8WT03Q",
+                "userId" : "0RVRQFYRE5M4H",
                 "nickname" : "스트림게스트2",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-09-14T14:58:40.050762"
+                "requestedAt" : "2026-10-08T18:07:54.305057"
               } ]
             }
           }, {
@@ -156,6 +222,16 @@
     }
   },
   "operations" : {
+    "subDebatesDebateId-DebateConnectionEvent" : {
+      "action" : "receive",
+      "channel" : {
+        "$ref" : "#/channels/subDebatesDebateId"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/subDebatesDebateId/messages/DebateConnectionEvent"
+      } ],
+      "summary" : "개설자가 입장하면 자신의 입장 이벤트를 받는다"
+    },
     "debateStatusStream-snapshot" : {
       "action" : "receive",
       "channel" : {
