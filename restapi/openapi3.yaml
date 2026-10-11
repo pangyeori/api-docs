@@ -1,6 +1,6 @@
 ﻿openapi: 3.0.1
 info:
-  title: REST Docs Kotlin DSL API
+  title: Pangyeori REST API
   version: 0.0.1
 servers:
 - url: http://localhost:8080
@@ -17,91 +17,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-debates-1897433133"
+              $ref: "#/components/schemas/api-v1-debates1449686951"
             examples:
-              debates/create-invalid-free-debate-time:
-                value: |-
-                  {
-                    "title" : "시간 검증 토론",
-                    "hostPosition" : "PROS",
-                    "turnTimeSeconds" : 180,
-                    "freeDebateTimeSeconds" : 1801
-                  }
-              debates/create-invalid-position:
-                value: |-
-                  {
-                    "title" : "포지션 검증 토론",
-                    "hostPosition" : "INVALID",
-                    "turnTimeSeconds" : 180,
-                    "freeDebateTimeSeconds" : 600
-                  }
-              debates/create-invalid-turn-time:
-                value: |-
-                  {
-                    "title" : "시간 검증 토론",
-                    "hostPosition" : "CONS",
-                    "turnTimeSeconds" : 29,
-                    "freeDebateTimeSeconds" : 600
-                  }
               debates/create:
-                value: |-
-                  {
-                    "title" : "AI는 인간을 대체할 것인가",
-                    "description" : "AI 기술의 영향을 토론합니다.",
-                    "hostPosition" : "PROS",
-                    "turnTimeSeconds" : 180,
-                    "freeDebateTimeSeconds" : 600
-                  }
+                value: "{\r\n  \"title\" : \"AI는 인간을 대체할 것인가\",\r\n  \"description\"\
+                  \ : \"AI 기술의 영향을 토론합니다.\",\r\n  \"hostPosition\" : \"PROS\",\r\n\
+                  \  \"turnTimeSeconds\" : 180,\r\n  \"freeDebateTimeSeconds\" : 600\r\
+                  \n}"
+              debates/create-invalid-free-debate-time:
+                value: "{\r\n  \"title\" : \"시간 검증 토론\",\r\n  \"hostPosition\" : \"\
+                  PROS\",\r\n  \"turnTimeSeconds\" : 180,\r\n  \"freeDebateTimeSeconds\"\
+                  \ : 1801\r\n}"
+              debates/create-invalid-position:
+                value: "{\r\n  \"title\" : \"포지션 검증 토론\",\r\n  \"hostPosition\" :\
+                  \ \"INVALID\",\r\n  \"turnTimeSeconds\" : 180,\r\n  \"freeDebateTimeSeconds\"\
+                  \ : 600\r\n}"
+              debates/create-invalid-turn-time:
+                value: "{\r\n  \"title\" : \"시간 검증 토론\",\r\n  \"hostPosition\" : \"\
+                  CONS\",\r\n  \"turnTimeSeconds\" : 29,\r\n  \"freeDebateTimeSeconds\"\
+                  \ : 600\r\n}"
       responses:
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-debates845673417"
-              examples:
-                debates/create-invalid-free-debate-time:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "freeDebateTimeSeconds",
-                          "message" : "자유 토론 시간은 60초 이상 1800초 이하여야 합니다."
-                        } ]
-                      }
-                    }
-                debates/create-invalid-position:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "hostPosition",
-                          "message" : "유효하지 않은 포지션입니다."
-                        } ]
-                      }
-                    }
-                debates/create-invalid-turn-time:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "turnTimeSeconds",
-                          "message" : "턴 시간은 30초 이상 600초 이하여야 합니다."
-                        } ]
-                      }
-                    }
         "201":
           description: "201"
           content:
@@ -110,22 +45,38 @@ paths:
                 $ref: "#/components/schemas/api-v1-debates-277545979"
               examples:
                 debates/create:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "id" : "0RS6XXJF1QW5P",
-                        "title" : "AI는 인간을 대체할 것인가",
-                        "description" : "AI 기술의 영향을 토론합니다.",
-                        "hostPosition" : "PROS",
-                        "guestPosition" : "CONS",
-                        "status" : "WAITING",
-                        "turnTimeSeconds" : 180,
-                        "freeDebateTimeSeconds" : 600,
-                        "inviteToken" : "c2685dda-3b28-4193-99f5-01e18949d97c"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
+                    \ : \"0RWRWCKD1X41K\",\r\n    \"title\" : \"AI는 인간을 대체할 것인가\"\
+                    ,\r\n    \"description\" : \"AI 기술의 영향을 토론합니다.\",\r\n    \"hostPosition\"\
+                    \ : \"PROS\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"status\"\
+                    \ : \"WAITING\",\r\n    \"turnTimeSeconds\" : 180,\r\n    \"freeDebateTimeSeconds\"\
+                    \ : 600,\r\n    \"inviteToken\" : \"eb9c1b93-68ce-48cd-abda-ae05211a7397\"\
+                    \r\n  },\r\n  \"error\" : null\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-debates-debateId-histories845673417"
+              examples:
+                debates/create-invalid-free-debate-time:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"freeDebateTimeSeconds\",\r\n      \"message\" : \"\
+                    자유 토론 시간은 60초 이상 1800초 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
+                debates/create-invalid-position:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"hostPosition\",\r\n      \"message\" : \"유효하지 않은 포\
+                    지션입니다.\"\r\n    } ]\r\n  }\r\n}"
+                debates/create-invalid-turn-time:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"turnTimeSeconds\",\r\n      \"message\" : \"턴 시간은\
+                    \ 30초 이상 600초 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/email-verifications:
@@ -141,91 +92,56 @@ paths:
             schema:
               $ref: "#/components/schemas/api-v1-email-verifications1872144117"
             examples:
-              email-verification/send-rate-limited:
-                value: |-
-                  {
-                    "email" : "rate-limited@pangyeori.com"
-                  }
+              email-verification/send:
+                value: "{\r\n  \"email\" : \"send-success@pangyeori.com\"\r\n}"
               email-verification/send-invalid-email:
-                value: |-
-                  {
-                    "email" : "invalid-email"
-                  }
+                value: "{\r\n  \"email\" : \"invalid-email\"\r\n}"
               email-verification/send-missing-email:
                 value: "{ }"
-              email-verification/send:
-                value: |-
-                  {
-                    "email" : "send-success@pangyeori.com"
-                  }
+              email-verification/send-rate-limited:
+                value: "{\r\n  \"email\" : \"rate-limited@pangyeori.com\"\r\n}"
       responses:
-        "429":
-          description: "429"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
-              examples:
-                email-verification/send-rate-limited:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "EMAIL_VERIFICATION_RATE_LIMITED",
-                        "message" : "인증 코드는 60초마다 한 번만 요청할 수 있습니다.",
-                        "details" : null
-                      }
-                    }
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-confirm2114211361"
-              examples:
-                email-verification/send-invalid-email:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "email",
-                          "message" : "올바른 이메일 형식이 아닙니다."
-                        } ]
-                      }
-                    }
-                email-verification/send-missing-email:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "email",
-                          "message" : "이메일은 필수입니다."
-                        } ]
-                      }
-                    }
         "200":
           description: "200"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-confirm478885324"
+                $ref: "#/components/schemas/api-v1-email-verifications478885324"
               examples:
                 email-verification/send:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : { },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
+                    error\" : null\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+              examples:
+                email-verification/send-invalid-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"올바른 이메일 형식이 아닙니다\
+                    .\"\r\n    } ]\r\n  }\r\n}"
+                email-verification/send-missing-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n\
+                    \    } ]\r\n  }\r\n}"
+        "429":
+          description: "429"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+              examples:
+                email-verification/send-rate-limited:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_RATE_LIMITED\"\
+                    ,\r\n    \"message\" : \"인증 코드는 60초마다 한 번만 요청할 수 있습니다.\",\r\n\
+                    \    \"details\" : null\r\n  }\r\n}"
   /api/v1/notifications:
     get:
       tags:
@@ -252,65 +168,40 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-notifications-775396230"
+                $ref: "#/components/schemas/api-v1-notifications-133349874"
               examples:
-                notifications/get-my-list-host:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ {
-                          "notificationId" : "0RS6XYHTHQW4X",
-                          "debateId" : "0RS6XYHTHQW4T",
-                          "type" : "QUEUE_REQUEST_REMOVED",
-                          "message" : "참가신청게스트님이 '내가 개설한 토론' 토론 참가 신청을 취소했습니다.",
-                          "isRead" : false,
-                          "createdAt" : "2026-09-30T19:31:40.756904"
-                        }, {
-                          "notificationId" : "0RS6XYHTHQW4W",
-                          "debateId" : "0RS6XYHTHQW4T",
-                          "type" : "QUEUE_REQUEST_ADDED",
-                          "message" : "참가신청게스트님이 '내가 개설한 토론' 토론 참가를 신청했습니다.",
-                          "isRead" : false,
-                          "createdAt" : "2026-09-30T19:31:40.756861"
-                        } ],
-                        "nextCursor" : null,
-                        "hasNext" : false
-                      },
-                      "error" : null
-                    }
                 notifications/get-my-list-guest:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ {
-                          "notificationId" : "0RS6XYFK1QW40",
-                          "debateId" : "0RS6XYFK1QW3Y",
-                          "type" : "DEBATE_CANCELLED",
-                          "message" : "'취소된 토론' 토론이 취소되었습니다.",
-                          "isRead" : false,
-                          "createdAt" : "2026-09-30T19:31:40.184349"
-                        }, {
-                          "notificationId" : "0RS6XYF2XQW3R",
-                          "debateId" : "0RS6XYF2XQW3P",
-                          "type" : "QUEUE_REQUEST_REJECTED",
-                          "message" : "'내가 참가 거절된 토론' 토론 참가 요청이 거절되었습니다.",
-                          "isRead" : false,
-                          "createdAt" : "2026-09-30T19:31:40.055824"
-                        }, {
-                          "notificationId" : "0RS6XYEK5QW6J",
-                          "debateId" : "0RS6XYEK5QW6G",
-                          "type" : "QUEUE_REQUEST_ACCEPTED",
-                          "message" : "'내가 참가 확정된 토론' 토론 참가가 확정되었습니다.",
-                          "isRead" : false,
-                          "createdAt" : "2026-09-30T19:31:39.929506"
-                        } ],
-                        "nextCursor" : null,
-                        "hasNext" : false
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ {\r\n      \"notificationId\" : \"0RWRWFA0XX41W\",\r\n \
+                    \     \"debateId\" : \"0RWRWFA0XX41T\",\r\n      \"type\" : \"\
+                    DEBATE_CANCELLED\",\r\n      \"message\" : \"'취소된 토론' 토론이 취소되었\
+                    습니다.\",\r\n      \"isRead\" : false,\r\n      \"createdAt\" :\
+                    \ \"2026-10-11T21:03:35.0477665\"\r\n    }, {\r\n      \"notificationId\"\
+                    \ : \"0RWRWF9G9X47J\",\r\n      \"debateId\" : \"0RWRWF9G5X45P\"\
+                    ,\r\n      \"type\" : \"QUEUE_REQUEST_REJECTED\",\r\n      \"\
+                    message\" : \"'내가 참가 거절된 토론' 토론 참가 요청이 거절되었습니다.\",\r\n      \"\
+                    isRead\" : false,\r\n      \"createdAt\" : \"2026-10-11T21:03:34.9147467\"\
+                    \r\n    }, {\r\n      \"notificationId\" : \"0RWRWF8ZHX46Y\",\r\
+                    \n      \"debateId\" : \"0RWRWF8ZDX40X\",\r\n      \"type\" :\
+                    \ \"QUEUE_REQUEST_ACCEPTED\",\r\n      \"message\" : \"'내가 참가\
+                    \ 확정된 토론' 토론 참가가 확정되었습니다.\",\r\n      \"isRead\" : false,\r\n\
+                    \      \"createdAt\" : \"2026-10-11T21:03:34.780253\"\r\n    }\
+                    \ ],\r\n    \"nextCursor\" : null,\r\n    \"hasNext\" : false\r\
+                    \n  },\r\n  \"error\" : null\r\n}"
+                notifications/get-my-list-host:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ {\r\n      \"notificationId\" : \"0RWRWFCR9X42J\",\r\n \
+                    \     \"debateId\" : \"0RWRWFCR5X45Q\",\r\n      \"type\" : \"\
+                    QUEUE_REQUEST_REMOVED\",\r\n      \"message\" : \"참가신청게스트님이 '내\
+                    가 개설한 토론' 토론 참가 신청을 취소했습니다.\",\r\n      \"isRead\" : false,\r\n\
+                    \      \"createdAt\" : \"2026-10-11T21:03:35.7461846\"\r\n   \
+                    \ }, {\r\n      \"notificationId\" : \"0RWRWFCR5X45S\",\r\n  \
+                    \    \"debateId\" : \"0RWRWFCR5X45Q\",\r\n      \"type\" : \"\
+                    QUEUE_REQUEST_ADDED\",\r\n      \"message\" : \"참가신청게스트님이 '내가\
+                    \ 개설한 토론' 토론 참가를 신청했습니다.\",\r\n      \"isRead\" : false,\r\n \
+                    \     \"createdAt\" : \"2026-10-11T21:03:35.7456596\"\r\n    }\
+                    \ ],\r\n    \"nextCursor\" : null,\r\n    \"hasNext\" : false\r\
+                    \n  },\r\n  \"error\" : null\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/password-resets:
@@ -324,68 +215,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-password-resets-2041925858"
+              $ref: "#/components/schemas/api-v1-password-resets-286140802"
             examples:
-              password-reset/issue-invalid-email:
-                value: |-
-                  {
-                    "email" : "invalid-email"
-                  }
-              password-reset/issue-user-not-found:
-                value: |-
-                  {
-                    "email" : "issue-unknown@pangyeori.com"
-                  }
               password-reset/issue:
-                value: |-
-                  {
-                    "email" : "issue-success@pangyeori.com"
-                  }
+                value: "{\r\n  \"email\" : \"issue-success@pangyeori.com\"\r\n}"
+              password-reset/issue-invalid-email:
+                value: "{\r\n  \"email\" : \"invalid-email\"\r\n}"
               password-reset/issue-not-verified:
-                value: |-
-                  {
-                    "email" : "not-verified@pangyeori.com"
-                  }
+                value: "{\r\n  \"email\" : \"not-verified@pangyeori.com\"\r\n}"
+              password-reset/issue-user-not-found:
+                value: "{\r\n  \"email\" : \"issue-unknown@pangyeori.com\"\r\n}"
       responses:
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-debates845673417"
-              examples:
-                password-reset/issue-invalid-email:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "email",
-                          "message" : "올바른 이메일 형식이 아닙니다."
-                        } ]
-                      }
-                    }
-        "404":
-          description: "404"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                password-reset/issue-user-not-found:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "USER_NOT_FOUND",
-                        "message" : "존재하지 않는 사용자입니다.",
-                        "details" : null
-                      }
-                    }
         "200":
           description: "200"
           content:
@@ -394,32 +234,45 @@ paths:
                 $ref: "#/components/schemas/api-v1-password-resets-1389490358"
               examples:
                 password-reset/issue:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "passwordResetToken" : "<passwordResetToken>"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"passwordResetToken\"\
+                    \ : \"<passwordResetToken>\"\r\n  },\r\n  \"error\" : null\r\n\
+                    }"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-debates-debateId-histories845673417"
+              examples:
+                password-reset/issue-invalid-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"올바른 이메일 형식이 아닙니다\
+                    .\"\r\n    } ]\r\n  }\r\n}"
         "422":
           description: "422"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 password-reset/issue-not-verified:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "EMAIL_NOT_VERIFIED",
-                        "message" : "이메일 인증이 완료되지 않았습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_NOT_VERIFIED\",\r\n    \"\
+                    message\" : \"이메일 인증이 완료되지 않았습니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+        "404":
+          description: "404"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                password-reset/issue-user-not-found:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"USER_NOT_FOUND\",\r\n    \"message\"\
+                    \ : \"존재하지 않는 사용자입니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
   /api/v1/users:
     post:
       tags:
@@ -431,46 +284,32 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-users-1262708799"
+              $ref: "#/components/schemas/api-v1-users-1440468465"
             examples:
+              users/create:
+                value: "{\r\n  \"email\" : \"signup-success@pangyeori.com\",\r\n \
+                  \ \"password\" : \"password123!\",\r\n  \"nickname\" : \"판결이\"\r\
+                  \n}"
               users/create-duplicate-email:
-                value: |-
-                  {
-                    "email" : "duplicate@pangyeori.com",
-                    "password" : "password123!",
-                    "nickname" : "새사용자"
-                  }
-              users/create-invalid-nickname:
-                value: |-
-                  {
-                    "email" : "invalid-nickname@pangyeori.com",
-                    "password" : "password123!",
-                    "nickname" : "판결이!"
-                  }
+                value: "{\r\n  \"email\" : \"duplicate@pangyeori.com\",\r\n  \"password\"\
+                  \ : \"password123!\",\r\n  \"nickname\" : \"새사용자\"\r\n}"
               users/create-invalid-input:
                 value: "{ }"
-              users/create-not-verified:
-                value: |-
-                  {
-                    "email" : "not-verified@pangyeori.com",
-                    "password" : "password123!",
-                    "nickname" : "미인증사용자"
-                  }
+              users/create-invalid-nickname:
+                value: "{\r\n  \"email\" : \"invalid-nickname@pangyeori.com\",\r\n\
+                  \  \"password\" : \"password123!\",\r\n  \"nickname\" : \"판결이!\"\
+                  \r\n}"
               users/create-invalid-password:
-                value: |-
-                  {
-                    "email" : "invalid-password@pangyeori.com",
-                    "password" : "password123",
-                    "nickname" : "판결이"
-                  }
-              users/create:
-                value: |-
-                  {
-                    "email" : "signup-success@pangyeori.com",
-                    "password" : "password123!",
-                    "nickname" : "판결이"
-                  }
+                value: "{\r\n  \"email\" : \"invalid-password@pangyeori.com\",\r\n\
+                  \  \"password\" : \"password123\",\r\n  \"nickname\" : \"판결이\"\r\
+                  \n}"
+              users/create-not-verified:
+                value: "{\r\n  \"email\" : \"not-verified@pangyeori.com\",\r\n  \"\
+                  password\" : \"password123!\",\r\n  \"nickname\" : \"미인증사용자\"\r\n\
+                  }"
       responses:
+        "201":
+          description: "201"
         "409":
           description: "409"
           content:
@@ -479,16 +318,10 @@ paths:
                 $ref: "#/components/schemas/api-v1-users-962038704"
               examples:
                 users/create-duplicate-email:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "EMAIL_ALREADY_EXISTS",
-                        "message" : "이미 가입된 이메일입니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_ALREADY_EXISTS\",\r\n  \
+                    \  \"message\" : \"이미 가입된 이메일입니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
         "400":
           description: "400"
           content:
@@ -496,54 +329,27 @@ paths:
               schema:
                 $ref: "#/components/schemas/api-v1-users-1728058300"
               examples:
-                users/create-invalid-nickname:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "nickname",
-                          "message" : "닉네임은 특수문자를 포함할 수 없습니다."
-                        } ]
-                      }
-                    }
                 users/create-invalid-input:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "nickname",
-                          "message" : "닉네임은 필수입니다."
-                        }, {
-                          "field" : "email",
-                          "message" : "이메일은 필수입니다."
-                        }, {
-                          "field" : "password",
-                          "message" : "비밀번호는 필수입니다."
-                        } ]
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n\
+                    \    }, {\r\n      \"field\" : \"password\",\r\n      \"message\"\
+                    \ : \"비밀번호는 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"nickname\"\
+                    ,\r\n      \"message\" : \"닉네임은 필수입니다.\"\r\n    } ]\r\n  }\r\n\
+                    }"
+                users/create-invalid-nickname:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 특수문자를 포함\
+                    할 수 없습니다.\"\r\n    } ]\r\n  }\r\n}"
                 users/create-invalid-password:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "password",
-                          "message" : "비밀번호는 특수문자를 1개 이상 포함해야 합니다."
-                        } ]
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"password\",\r\n      \"message\" : \"비밀번호는 특수문자를 1개\
+                    \ 이상 포함해야 합니다.\"\r\n    } ]\r\n  }\r\n}"
         "422":
           description: "422"
           content:
@@ -552,18 +358,10 @@ paths:
                 $ref: "#/components/schemas/api-v1-users-962038704"
               examples:
                 users/create-not-verified:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "EMAIL_NOT_VERIFIED",
-                        "message" : "이메일 인증이 완료되지 않았습니다.",
-                        "details" : null
-                      }
-                    }
-        "201":
-          description: "201"
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_NOT_VERIFIED\",\r\n    \"\
+                    message\" : \"이메일 인증이 완료되지 않았습니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
   /api/v1/auth/refresh:
     post:
       tags:
@@ -585,33 +383,20 @@ paths:
                 $ref: "#/components/schemas/api-v1-auth-refresh1572681663"
               examples:
                 auth/refresh:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "accessToken" : "<jwtToken>",
-                        "tokenType" : "Bearer"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"accessToken\"\
+                    \ : \"<jwtToken>\",\r\n    \"tokenType\" : \"Bearer\"\r\n  },\r\
+                    \n  \"error\" : null\r\n}"
         "401":
           description: "401"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 auth/refresh-missing-cookie:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_TOKEN",
-                        "message" : "유효하지 않은 토큰입니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_TOKEN\",\r\n    \"message\"\
+                    \ : \"유효하지 않은 토큰입니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
   /api/v1/auth/signin:
     post:
       tags:
@@ -626,23 +411,14 @@ paths:
               $ref: "#/components/schemas/api-v1-auth-signin536610982"
             examples:
               auth/signin:
-                value: |-
-                  {
-                    "email" : "signin@pangyeori.com",
-                    "password" : "password123!"
-                  }
+                value: "{\r\n  \"email\" : \"signin@pangyeori.com\",\r\n  \"password\"\
+                  \ : \"password123!\"\r\n}"
               auth/signin-invalid-password:
-                value: |-
-                  {
-                    "email" : "wrong-password@pangyeori.com",
-                    "password" : "wrong-password"
-                  }
+                value: "{\r\n  \"email\" : \"wrong-password@pangyeori.com\",\r\n \
+                  \ \"password\" : \"wrong-password\"\r\n}"
               auth/signin-unknown-email:
-                value: |-
-                  {
-                    "email" : "unknown@pangyeori.com",
-                    "password" : "password123!"
-                  }
+                value: "{\r\n  \"email\" : \"unknown@pangyeori.com\",\r\n  \"password\"\
+                  \ : \"password123!\"\r\n}"
       responses:
         "200":
           description: "200"
@@ -657,44 +433,26 @@ paths:
                 $ref: "#/components/schemas/api-v1-auth-signin640759275"
               examples:
                 auth/signin:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "accessToken" : "<jwtToken>",
-                        "tokenType" : "Bearer"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"accessToken\"\
+                    \ : \"<jwtToken>\",\r\n    \"tokenType\" : \"Bearer\"\r\n  },\r\
+                    \n  \"error\" : null\r\n}"
         "401":
           description: "401"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 auth/signin-invalid-password:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_CREDENTIALS",
-                        "message" : "이메일 또는 비밀번호가 올바르지 않습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_CREDENTIALS\",\r\n   \
+                    \ \"message\" : \"이메일 또는 비밀번호가 올바르지 않습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
                 auth/signin-unknown-email:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_CREDENTIALS",
-                        "message" : "이메일 또는 비밀번호가 올바르지 않습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_CREDENTIALS\",\r\n   \
+                    \ \"message\" : \"이메일 또는 비밀번호가 올바르지 않습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
   /api/v1/auth/signout:
     post:
       tags:
@@ -715,29 +473,11 @@ paths:
       parameters:
       - name: token
         in: path
-        description: 만료되거나 존재하지 않는 초대 토큰
+        description: 초대 토큰
         required: true
         schema:
           type: string
       responses:
-        "410":
-          description: "410"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                debate-invitations/get-expired:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVITE_TOKEN_EXPIRED",
-                        "message" : "초대 링크가 만료되었습니다.",
-                        "details" : null
-                      }
-                    }
         "200":
           description: "200"
           content:
@@ -745,93 +485,62 @@ paths:
               schema:
                 $ref: "#/components/schemas/api-v1-debate-invitations-token-1234697103"
               examples:
-                debate-invitations/get-guest-cancelled:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "debateId" : "0RS6XXS9HQW3S",
-                        "title" : "참여 취소 후 초대 재조회 토론",
-                        "description" : null,
-                        "hostNickname" : "참여취소방장",
-                        "guestPosition" : "CONS",
-                        "debateStatus" : "WAITING",
-                        "guestStatus" : "CANCELLED",
-                        "turnTimeSeconds" : 180,
-                        "freeDebateTimeSeconds" : 600,
-                        "createdAt" : "2026-09-30T19:31:34.476916"
-                      },
-                      "error" : null
-                    }
                 debate-invitations/get:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "debateId" : "0RS6XXTZNQW2X",
-                        "title" : "초대 정보 조회 토론",
-                        "description" : null,
-                        "hostNickname" : "초대조회방장",
-                        "guestPosition" : "CONS",
-                        "debateStatus" : "WAITING",
-                        "guestStatus" : null,
-                        "turnTimeSeconds" : 180,
-                        "freeDebateTimeSeconds" : 600,
-                        "createdAt" : "2026-09-30T19:31:34.909212"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
+                    \ : \"0RWRWD7MDX42M\",\r\n    \"title\" : \"초대 정보 조회 토론\",\r\n\
+                    \    \"description\" : null,\r\n    \"hostNickname\" : \"초대조회방\
+                    장\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"debateStatus\"\
+                    \ : \"WAITING\",\r\n    \"guestStatus\" : null,\r\n    \"turnTimeSeconds\"\
+                    \ : 180,\r\n    \"freeDebateTimeSeconds\" : 600,\r\n    \"createdAt\"\
+                    \ : \"2026-10-11T21:03:18.0512868\"\r\n  },\r\n  \"error\" : null\r\
+                    \n}"
+                debate-invitations/get-guest-cancelled:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
+                    \ : \"0RWRWD5GDX46Z\",\r\n    \"title\" : \"참여 취소 후 초대 재조회 토론\"\
+                    ,\r\n    \"description\" : null,\r\n    \"hostNickname\" : \"참\
+                    여취소방장\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"debateStatus\"\
+                    \ : \"WAITING\",\r\n    \"guestStatus\" : \"CANCELLED\",\r\n \
+                    \   \"turnTimeSeconds\" : 180,\r\n    \"freeDebateTimeSeconds\"\
+                    \ : 600,\r\n    \"createdAt\" : \"2026-10-11T21:03:17.5076101\"\
+                    \r\n  },\r\n  \"error\" : null\r\n}"
         "409":
           description: "409"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
-                debate-invitations/get-in_progress:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_IN_PROGRESS",
-                        "message" : "이미 시작된 토론입니다.",
-                        "details" : null
-                      }
-                    }
-                debate-invitations/get-ready:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_ALREADY_MATCHED",
-                        "message" : "이미 상대방이 매칭되었습니다.",
-                        "details" : null
-                      }
-                    }
                 debate-invitations/get-cancelled:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_CANCELLED",
-                        "message" : "취소된 토론방입니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_CANCELLED\",\r\n    \"\
+                    message\" : \"취소된 토론방입니다.\",\r\n    \"details\" : null\r\n  }\r\
+                    \n}"
                 debate-invitations/get-finished:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_FINISHED",
-                        "message" : "이미 종료된 토론입니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_FINISHED\",\r\n    \"message\"\
+                    \ : \"이미 종료된 토론입니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
+                debate-invitations/get-in_progress:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_IN_PROGRESS\",\r\n    \"\
+                    message\" : \"이미 시작된 토론입니다.\",\r\n    \"details\" : null\r\n \
+                    \ }\r\n}"
+                debate-invitations/get-ready:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_ALREADY_MATCHED\",\r\n\
+                    \    \"message\" : \"이미 상대방이 매칭되었습니다.\",\r\n    \"details\" :\
+                    \ null\r\n  }\r\n}"
+        "410":
+          description: "410"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debate-invitations/get-expired:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVITE_TOKEN_EXPIRED\",\r\n  \
+                    \  \"message\" : \"초대 링크가 만료되었습니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/debates/me:
@@ -844,8 +553,8 @@ paths:
       parameters:
       - name: status
         in: query
-        description: 유효하지 않은 토론방 상태
-        required: true
+        description: "토론방 상태 필터 (WAITING, READY, IN_PROGRESS, PAUSED, FINISHED, CANCELLED)"
+        required: false
         schema:
           type: string
       - name: role
@@ -873,223 +582,122 @@ paths:
         schema:
           type: string
       responses:
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-users-me-1621929492"
-              examples:
-                debates/get-my-list-invalid-status:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "status",
-                          "message" : "유효하지 않은 토론방 상태입니다."
-                        } ]
-                      }
-                    }
         "200":
           description: "200"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-me1630477281"
+                $ref: "#/components/schemas/api-v1-debates-me1834144389"
               examples:
-                debates/get-my-list-filtered:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ {
-                          "debateId" : "0RS6XXHRNQW5X",
-                          "title" : "첫 번째 토론",
-                          "description" : "[필터매칭] status=WAITING, role=HOST, keyword=필터매칭 조건에 모두 일치해 조회됩니다.",
-                          "debateStatus" : "WAITING",
-                          "currentStage" : "NONE",
-                          "myRole" : "HOST",
-                          "myPosition" : "PROS",
-                          "opponent" : null,
-                          "turnTimeSeconds" : 180,
-                          "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-30T19:31:32.549633"
-                        } ],
-                        "nextCursor" : null,
-                        "hasNext" : false
-                      },
-                      "error" : null
-                    }
-                debates/get-my-list-next-page:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ {
-                          "debateId" : "0RS6XWZPNQW0G",
-                          "title" : "첫 번째 토론",
-                          "description" : null,
-                          "debateStatus" : "READY",
-                          "currentStage" : "NONE",
-                          "myRole" : "HOST",
-                          "myPosition" : "PROS",
-                          "opponent" : {
-                            "userId" : "0RS6XWYFXQW6X",
-                            "nickname" : "커서목록게스트1",
-                            "profileImageKey" : null
-                          },
-                          "turnTimeSeconds" : 180,
-                          "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-30T19:31:27.925639"
-                        } ],
-                        "nextCursor" : null,
-                        "hasNext" : false
-                      },
-                      "error" : null
-                    }
-                debates/get-my-list-empty:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ ],
-                        "nextCursor" : null,
-                        "hasNext" : false
-                      },
-                      "error" : null
-                    }
                 debates/get-my-list:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ {
-                          "debateId" : "0RS6XXQMNQW2J",
-                          "title" : "세 번째 토론",
-                          "description" : null,
-                          "debateStatus" : "READY",
-                          "currentStage" : "NONE",
-                          "myRole" : "GUEST",
-                          "myPosition" : "CONS",
-                          "opponent" : {
-                            "userId" : "0RS6XXQ99QW6M",
-                            "nickname" : "목록타방장",
-                            "profileImageKey" : null
-                          },
-                          "turnTimeSeconds" : 180,
-                          "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-30T19:31:34.053974"
-                        }, {
-                          "debateId" : "0RS6XXQK9QW3Q",
-                          "title" : "두 번째 토론",
-                          "description" : null,
-                          "debateStatus" : "READY",
-                          "currentStage" : "NONE",
-                          "myRole" : "HOST",
-                          "myPosition" : "PROS",
-                          "opponent" : {
-                            "userId" : "0RS6XXPTHQW2T",
-                            "nickname" : "목록게스트2",
-                            "profileImageKey" : null
-                          },
-                          "turnTimeSeconds" : 180,
-                          "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-30T19:31:34.042965"
-                        } ],
-                        "nextCursor" : "0RS6XXQK9QW3Q",
-                        "hasNext" : true
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ {\r\n      \"debateId\" : \"0RWRWCSQXX41J\",\r\n      \"\
+                    title\" : \"세 번째 토론\",\r\n      \"description\" : null,\r\n  \
+                    \    \"debateStatus\" : \"READY\",\r\n      \"currentStage\" :\
+                    \ \"NONE\",\r\n      \"myRole\" : \"GUEST\",\r\n      \"myPosition\"\
+                    \ : \"CONS\",\r\n      \"opponent\" : {\r\n        \"userId\"\
+                    \ : \"0RWRWCS8HX46G\",\r\n        \"nickname\" : \"목록타방장\",\r\n\
+                    \        \"profileImageKey\" : null\r\n      },\r\n      \"turnTimeSeconds\"\
+                    \ : 180,\r\n      \"freeDebateTimeSeconds\" : 600,\r\n      \"\
+                    createdAt\" : \"2026-10-11T21:03:14.4952711\"\r\n    }, {\r\n\
+                    \      \"debateId\" : \"0RWRWCSM9X46T\",\r\n      \"title\" :\
+                    \ \"두 번째 토론\",\r\n      \"description\" : null,\r\n      \"debateStatus\"\
+                    \ : \"READY\",\r\n      \"currentStage\" : \"NONE\",\r\n     \
+                    \ \"myRole\" : \"HOST\",\r\n      \"myPosition\" : \"PROS\",\r\
+                    \n      \"opponent\" : {\r\n        \"userId\" : \"0RWRWCRQDX42Z\"\
+                    ,\r\n        \"nickname\" : \"목록게스트2\",\r\n        \"profileImageKey\"\
+                    \ : null\r\n      },\r\n      \"turnTimeSeconds\" : 180,\r\n \
+                    \     \"freeDebateTimeSeconds\" : 600,\r\n      \"createdAt\"\
+                    \ : \"2026-10-11T21:03:14.4666817\"\r\n    } ],\r\n    \"nextCursor\"\
+                    \ : \"0RWRWCSM9X46T\",\r\n    \"hasNext\" : true\r\n  },\r\n \
+                    \ \"error\" : null\r\n}"
+                debates/get-my-list-empty:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ ],\r\n    \"nextCursor\" : null,\r\n    \"hasNext\" : false\r\
+                    \n  },\r\n  \"error\" : null\r\n}"
+                debates/get-my-list-filtered:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ {\r\n      \"debateId\" : \"0RWRWCJGDX45T\",\r\n      \"\
+                    title\" : \"첫 번째 토론\",\r\n      \"description\" : \"[필터매칭] status=WAITING,\
+                    \ role=HOST, keyword=필터매칭 조건에 모두 일치해 조회됩니다.\",\r\n      \"debateStatus\"\
+                    \ : \"WAITING\",\r\n      \"currentStage\" : \"NONE\",\r\n   \
+                    \   \"myRole\" : \"HOST\",\r\n      \"myPosition\" : \"PROS\"\
+                    ,\r\n      \"opponent\" : null,\r\n      \"turnTimeSeconds\" :\
+                    \ 180,\r\n      \"freeDebateTimeSeconds\" : 600,\r\n      \"createdAt\"\
+                    \ : \"2026-10-11T21:03:12.6434578\"\r\n    } ],\r\n    \"nextCursor\"\
+                    \ : null,\r\n    \"hasNext\" : false\r\n  },\r\n  \"error\" :\
+                    \ null\r\n}"
                 debates/get-my-list-host-pending:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ {
-                          "debateId" : "0RS6XXEDSQW4V",
-                          "title" : "아직 게스트를 선택하지 않은 토론",
-                          "description" : "참여 요청이 들어왔지만 아직 게스트를 선택하지 않아도 개설자 목록에 조회됩니다.",
-                          "debateStatus" : "WAITING",
-                          "currentStage" : "NONE",
-                          "myRole" : "HOST",
-                          "myPosition" : "PROS",
-                          "opponent" : null,
-                          "turnTimeSeconds" : 180,
-                          "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-30T19:31:31.694502"
-                        } ],
-                        "nextCursor" : null,
-                        "hasNext" : false
-                      },
-                      "error" : null
-                    }
-                debates/get-my-list-pending:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ {
-                          "debateId" : "0RS6XXMGXQW4V",
-                          "title" : "아직 선택되지 않은 토론",
-                          "description" : "참여 요청은 보냈지만 호스트가 아직 게스트를 선택하지 않아도 목록에 조회됩니다.",
-                          "debateStatus" : "WAITING",
-                          "currentStage" : "NONE",
-                          "myRole" : "GUEST",
-                          "myPosition" : "CONS",
-                          "opponent" : {
-                            "userId" : "0RS6XXM8XQW5G",
-                            "nickname" : "대기방장",
-                            "profileImageKey" : null
-                          },
-                          "turnTimeSeconds" : 180,
-                          "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-30T19:31:33.255896"
-                        } ],
-                        "nextCursor" : null,
-                        "hasNext" : false
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ {\r\n      \"debateId\" : \"0RWRWCE8SX47R\",\r\n      \"\
+                    title\" : \"아직 게스트를 선택하지 않은 토론\",\r\n      \"description\" : \"\
+                    참여 요청이 들어왔지만 아직 게스트를 선택하지 않아도 개설자 목록에 조회됩니다.\",\r\n      \"debateStatus\"\
+                    \ : \"WAITING\",\r\n      \"currentStage\" : \"NONE\",\r\n   \
+                    \   \"myRole\" : \"HOST\",\r\n      \"myPosition\" : \"PROS\"\
+                    ,\r\n      \"opponent\" : null,\r\n      \"turnTimeSeconds\" :\
+                    \ 180,\r\n      \"freeDebateTimeSeconds\" : 600,\r\n      \"createdAt\"\
+                    \ : \"2026-10-11T21:03:11.558465\"\r\n    } ],\r\n    \"nextCursor\"\
+                    \ : null,\r\n    \"hasNext\" : false\r\n  },\r\n  \"error\" :\
+                    \ null\r\n}"
                 debates/get-my-list-multi-status:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "items" : [ {
-                          "debateId" : "0RS6XXFSXQW6R",
-                          "title" : "매칭된 토론",
-                          "description" : "[다중상태] status=WAITING&status=READY 중 READY에 해당해 조회됩니다.",
-                          "debateStatus" : "READY",
-                          "currentStage" : "NONE",
-                          "myRole" : "HOST",
-                          "myPosition" : "PROS",
-                          "opponent" : null,
-                          "turnTimeSeconds" : 180,
-                          "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-30T19:31:32.047617"
-                        }, {
-                          "debateId" : "0RS6XXFSNQW6Z",
-                          "title" : "대기 중인 토론",
-                          "description" : "[다중상태] status=WAITING&status=READY 중 WAITING에 해당해 조회됩니다.",
-                          "debateStatus" : "WAITING",
-                          "currentStage" : "NONE",
-                          "myRole" : "HOST",
-                          "myPosition" : "PROS",
-                          "opponent" : null,
-                          "turnTimeSeconds" : 180,
-                          "freeDebateTimeSeconds" : 600,
-                          "createdAt" : "2026-09-30T19:31:32.045742"
-                        } ],
-                        "nextCursor" : null,
-                        "hasNext" : false
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ {\r\n      \"debateId\" : \"0RWRWCG4SX44M\",\r\n      \"\
+                    title\" : \"매칭된 토론\",\r\n      \"description\" : \"[다중상태] status=WAITING&status=READY\
+                    \ 중 READY에 해당해 조회됩니다.\",\r\n      \"debateStatus\" : \"READY\"\
+                    ,\r\n      \"currentStage\" : \"NONE\",\r\n      \"myRole\" :\
+                    \ \"HOST\",\r\n      \"myPosition\" : \"PROS\",\r\n      \"opponent\"\
+                    \ : null,\r\n      \"turnTimeSeconds\" : 180,\r\n      \"freeDebateTimeSeconds\"\
+                    \ : 600,\r\n      \"createdAt\" : \"2026-10-11T21:03:12.0380955\"\
+                    \r\n    }, {\r\n      \"debateId\" : \"0RWRWCG4DX44G\",\r\n  \
+                    \    \"title\" : \"대기 중인 토론\",\r\n      \"description\" : \"[다\
+                    중상태] status=WAITING&status=READY 중 WAITING에 해당해 조회됩니다.\",\r\n\
+                    \      \"debateStatus\" : \"WAITING\",\r\n      \"currentStage\"\
+                    \ : \"NONE\",\r\n      \"myRole\" : \"HOST\",\r\n      \"myPosition\"\
+                    \ : \"PROS\",\r\n      \"opponent\" : null,\r\n      \"turnTimeSeconds\"\
+                    \ : 180,\r\n      \"freeDebateTimeSeconds\" : 600,\r\n      \"\
+                    createdAt\" : \"2026-10-11T21:03:12.0359874\"\r\n    } ],\r\n\
+                    \    \"nextCursor\" : null,\r\n    \"hasNext\" : false\r\n  },\r\
+                    \n  \"error\" : null\r\n}"
+                debates/get-my-list-next-page:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ {\r\n      \"debateId\" : \"0RWRWBVDNX46H\",\r\n      \"\
+                    title\" : \"첫 번째 토론\",\r\n      \"description\" : null,\r\n  \
+                    \    \"debateStatus\" : \"READY\",\r\n      \"currentStage\" :\
+                    \ \"NONE\",\r\n      \"myRole\" : \"HOST\",\r\n      \"myPosition\"\
+                    \ : \"PROS\",\r\n      \"opponent\" : {\r\n        \"userId\"\
+                    \ : \"0RWRWBT1DX47M\",\r\n        \"nickname\" : \"커서목록게스트1\"\
+                    ,\r\n        \"profileImageKey\" : null\r\n      },\r\n      \"\
+                    turnTimeSeconds\" : 180,\r\n      \"freeDebateTimeSeconds\" :\
+                    \ 600,\r\n      \"createdAt\" : \"2026-10-11T21:03:06.7338427\"\
+                    \r\n    } ],\r\n    \"nextCursor\" : null,\r\n    \"hasNext\"\
+                    \ : false\r\n  },\r\n  \"error\" : null\r\n}"
+                debates/get-my-list-pending:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
+                    \ : [ {\r\n      \"debateId\" : \"0RWRWCNX9X47Y\",\r\n      \"\
+                    title\" : \"아직 선택되지 않은 토론\",\r\n      \"description\" : \"참여 요\
+                    청은 보냈지만 호스트가 아직 게스트를 선택하지 않아도 목록에 조회됩니다.\",\r\n      \"debateStatus\"\
+                    \ : \"WAITING\",\r\n      \"currentStage\" : \"NONE\",\r\n   \
+                    \   \"myRole\" : \"GUEST\",\r\n      \"myPosition\" : \"CONS\"\
+                    ,\r\n      \"opponent\" : {\r\n        \"userId\" : \"0RWRWCNMHX42H\"\
+                    ,\r\n        \"nickname\" : \"대기방장\",\r\n        \"profileImageKey\"\
+                    \ : null\r\n      },\r\n      \"turnTimeSeconds\" : 180,\r\n \
+                    \     \"freeDebateTimeSeconds\" : 600,\r\n      \"createdAt\"\
+                    \ : \"2026-10-11T21:03:13.5149358\"\r\n    } ],\r\n    \"nextCursor\"\
+                    \ : null,\r\n    \"hasNext\" : false\r\n  },\r\n  \"error\" :\
+                    \ null\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-storage-view-urls-1621929492"
+              examples:
+                debates/get-my-list-invalid-status:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"status\",\r\n      \"message\" : \"유효하지 않은 토론방 상태입\
+                    니다.\"\r\n    } ]\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/debates/{debateId}:
@@ -1112,60 +720,39 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId168903303"
+                $ref: "#/components/schemas/api-v1-debates-debateId959508381"
               examples:
-                debates/get-guest:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "id" : "0RS6XXNJXQW4G",
-                        "title" : "토론방 단건 조회 게스트 검증",
-                        "description" : null,
-                        "hostPosition" : "PROS",
-                        "guestPosition" : "CONS",
-                        "status" : "WAITING",
-                        "turnTimeSeconds" : 180,
-                        "freeDebateTimeSeconds" : 600,
-                        "inviteToken" : null
-                      },
-                      "error" : null
-                    }
                 debates/get:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "id" : "0RS6XX0W1QW3H",
-                        "title" : "토론방 단건 조회 검증",
-                        "description" : "토론방 단건 조회 설명",
-                        "hostPosition" : "PROS",
-                        "guestPosition" : "CONS",
-                        "status" : "WAITING",
-                        "turnTimeSeconds" : 180,
-                        "freeDebateTimeSeconds" : 600,
-                        "inviteToken" : "75bb844f-21e7-406d-bf1e-2277faf3a215"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
+                    \ : \"0RWRWBX3HX43R\",\r\n    \"title\" : \"토론방 단건 조회 검증\",\r\n\
+                    \    \"description\" : \"토론방 단건 조회 설명\",\r\n    \"hostPosition\"\
+                    \ : \"PROS\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"status\"\
+                    \ : \"WAITING\",\r\n    \"currentStage\" : \"NONE\",\r\n    \"\
+                    turnEndsAt\" : null,\r\n    \"turnTimeSeconds\" : 180,\r\n   \
+                    \ \"freeDebateTimeSeconds\" : 600,\r\n    \"inviteToken\" : \"\
+                    80540f12-48b0-4083-a2b6-bbb6c0313957\"\r\n  },\r\n  \"error\"\
+                    \ : null\r\n}"
+                debates/get-guest:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
+                    \ : \"0RWRWCQ8SX45T\",\r\n    \"title\" : \"토론방 단건 조회 게스트 검증\"\
+                    ,\r\n    \"description\" : null,\r\n    \"hostPosition\" : \"\
+                    PROS\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"status\"\
+                    \ : \"WAITING\",\r\n    \"currentStage\" : \"NONE\",\r\n    \"\
+                    turnEndsAt\" : null,\r\n    \"turnTimeSeconds\" : 180,\r\n   \
+                    \ \"freeDebateTimeSeconds\" : 600,\r\n    \"inviteToken\" : null\r\
+                    \n  },\r\n  \"error\" : null\r\n}"
         "403":
           description: "403"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 debates/get-forbidden:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "UNAUTHORIZED_ACCESS",
-                        "message" : "접근 권한이 없습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"UNAUTHORIZED_ACCESS\",\r\n   \
+                    \ \"message\" : \"접근 권한이 없습니다.\",\r\n    \"details\" : null\r\n\
+                    \  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/email-verifications/confirm:
@@ -1179,159 +766,92 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-email-verifications-confirm316398335"
+              $ref: "#/components/schemas/api-v1-email-verifications-confirm-1686273376"
             examples:
-              email-verification/confirm-invalid-code:
-                value: |-
-                  {
-                    "email" : "confirm-invalid-code@pangyeori.com",
-                    "code" : "abc"
-                  }
-              email-verification/confirm-missing-email:
-                value: |-
-                  {
-                    "code" : "123456"
-                  }
-              email-verification/confirm-mismatch:
-                value: |-
-                  {
-                    "email" : "confirm-mismatch@pangyeori.com",
-                    "code" : "000000"
-                  }
-              email-verification/confirm-not-found:
-                value: |-
-                  {
-                    "email" : "never-sent@pangyeori.com",
-                    "code" : "123456"
-                  }
               email-verification/confirm:
-                value: |-
-                  {
-                    "email" : "confirm-success@pangyeori.com",
-                    "code" : "806592"
-                  }
+                value: "{\r\n  \"email\" : \"confirm-success@pangyeori.com\",\r\n\
+                  \  \"code\" : \"713148\"\r\n}"
               email-verification/confirm-already-verified:
-                value: |-
-                  {
-                    "email" : "confirm-already-verified@pangyeori.com",
-                    "code" : "347829"
-                  }
+                value: "{\r\n  \"email\" : \"confirm-already-verified@pangyeori.com\"\
+                  ,\r\n  \"code\" : \"175308\"\r\n}"
+              email-verification/confirm-invalid-code:
+                value: "{\r\n  \"email\" : \"confirm-invalid-code@pangyeori.com\"\
+                  ,\r\n  \"code\" : \"abc\"\r\n}"
+              email-verification/confirm-mismatch:
+                value: "{\r\n  \"email\" : \"confirm-mismatch@pangyeori.com\",\r\n\
+                  \  \"code\" : \"000000\"\r\n}"
               email-verification/confirm-missing-code:
-                value: |-
-                  {
-                    "email" : "missing-code@pangyeori.com"
-                  }
+                value: "{\r\n  \"email\" : \"missing-code@pangyeori.com\"\r\n}"
+              email-verification/confirm-missing-email:
+                value: "{\r\n  \"code\" : \"123456\"\r\n}"
+              email-verification/confirm-not-found:
+                value: "{\r\n  \"email\" : \"never-sent@pangyeori.com\",\r\n  \"code\"\
+                  \ : \"123456\"\r\n}"
       responses:
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-confirm2114211361"
-              examples:
-                email-verification/confirm-invalid-code:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "code",
-                          "message" : "인증 코드는 6자리 숫자입니다."
-                        } ]
-                      }
-                    }
-                email-verification/confirm-missing-email:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "email",
-                          "message" : "이메일은 필수입니다."
-                        } ]
-                      }
-                    }
-                email-verification/confirm-missing-code:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "code",
-                          "message" : "인증 코드는 필수입니다."
-                        } ]
-                      }
-                    }
-        "422":
-          description: "422"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
-              examples:
-                email-verification/confirm-mismatch:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "EMAIL_VERIFICATION_CODE_MISMATCH",
-                        "message" : "인증 코드가 일치하지 않습니다.",
-                        "details" : null
-                      }
-                    }
-                email-verification/confirm-not-found:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "EMAIL_VERIFICATION_CODE_NOT_FOUND",
-                        "message" : "인증 코드가 존재하지 않거나 만료되었습니다.",
-                        "details" : null
-                      }
-                    }
         "200":
           description: "200"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-confirm478885324"
+                $ref: "#/components/schemas/api-v1-email-verifications478885324"
               examples:
                 email-verification/confirm:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : { },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
+                    error\" : null\r\n}"
         "409":
           description: "409"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
               examples:
                 email-verification/confirm-already-verified:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "EMAIL_VERIFICATION_ALREADY_VERIFIED",
-                        "message" : "이미 인증이 완료된 이메일입니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_ALREADY_VERIFIED\"\
+                    ,\r\n    \"message\" : \"이미 인증이 완료된 이메일입니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+              examples:
+                email-verification/confirm-invalid-code:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"code\",\r\n      \"message\" : \"인증 코드는 6자리 숫자입니다\
+                    .\"\r\n    } ]\r\n  }\r\n}"
+                email-verification/confirm-missing-code:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"code\",\r\n      \"message\" : \"인증 코드는 필수입니다.\"\r\
+                    \n    } ]\r\n  }\r\n}"
+                email-verification/confirm-missing-email:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"email\",\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n\
+                    \    } ]\r\n  }\r\n}"
+        "422":
+          description: "422"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+              examples:
+                email-verification/confirm-mismatch:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_CODE_MISMATCH\"\
+                    ,\r\n    \"message\" : \"인증 코드가 일치하지 않습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
+                email-verification/confirm-not-found:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"EMAIL_VERIFICATION_CODE_NOT_FOUND\"\
+                    ,\r\n    \"message\" : \"인증 코드가 존재하지 않거나 만료되었습니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
   /api/v1/notifications/read-all:
     patch:
       tags:
@@ -1345,15 +865,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-notifications-read-all-954225372"
+                $ref: "#/components/schemas/api-v1-password-resets-confirm-954225372"
               examples:
                 notifications/read-all:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : { },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
+                    error\" : null\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/notifications/unread-count:
@@ -1372,14 +888,8 @@ paths:
                 $ref: "#/components/schemas/api-v1-notifications-unread-count-1275706612"
               examples:
                 notifications/get-unread-count:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "count" : 2
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"count\"\
+                    \ : 2\r\n  },\r\n  \"error\" : null\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/notifications/{notificationId}:
@@ -1397,26 +907,20 @@ paths:
         schema:
           type: string
       responses:
+        "204":
+          description: "204"
         "404":
           description: "404"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 notifications/delete-not-found:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "NOTIFICATION_NOT_FOUND",
-                        "message" : "존재하지 않는 알림입니다.",
-                        "details" : null
-                      }
-                    }
-        "204":
-          description: "204"
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"NOTIFICATION_NOT_FOUND\",\r\n\
+                    \    \"message\" : \"존재하지 않는 알림입니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/password-resets/confirm:
@@ -1430,120 +934,72 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-password-resets-confirm278996719"
+              $ref: "#/components/schemas/api-v1-password-resets-confirm-572788914"
             examples:
-              password-reset/confirm-password-no-special-char:
-                value: |-
-                  {
-                    "passwordResetToken" : "some-token",
-                    "newPassword" : "newPassword123"
-                  }
-              password-reset/confirm-invalid-password:
-                value: |-
-                  {
-                    "passwordResetToken" : "some-token",
-                    "newPassword" : "short"
-                  }
               password-reset/confirm:
-                value: |-
-                  {
-                    "passwordResetToken" : "<passwordResetToken>",
-                    "newPassword" : "newPassword123!"
-                  }
-              password-reset/confirm-token-not-found:
-                value: |-
-                  {
-                    "passwordResetToken" : "invalid-or-expired-token",
-                    "newPassword" : "newPassword123!"
-                  }
+                value: "{\r\n  \"passwordResetToken\" : \"<passwordResetToken>\",\r\
+                  \n  \"newPassword\" : \"newPassword123!\"\r\n}"
               password-reset/confirm-already-used:
-                value: |-
-                  {
-                    "passwordResetToken" : "<passwordResetToken>",
-                    "newPassword" : "anotherPassword123!"
-                  }
+                value: "{\r\n  \"passwordResetToken\" : \"<passwordResetToken>\",\r\
+                  \n  \"newPassword\" : \"anotherPassword123!\"\r\n}"
+              password-reset/confirm-invalid-password:
+                value: "{\r\n  \"passwordResetToken\" : \"some-token\",\r\n  \"newPassword\"\
+                  \ : \"short\"\r\n}"
+              password-reset/confirm-password-no-special-char:
+                value: "{\r\n  \"passwordResetToken\" : \"some-token\",\r\n  \"newPassword\"\
+                  \ : \"newPassword123\"\r\n}"
+              password-reset/confirm-token-not-found:
+                value: "{\r\n  \"passwordResetToken\" : \"invalid-or-expired-token\"\
+                  ,\r\n  \"newPassword\" : \"newPassword123!\"\r\n}"
       responses:
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-debates845673417"
-              examples:
-                password-reset/confirm-password-no-special-char:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "newPassword",
-                          "message" : "비밀번호는 특수문자를 1개 이상 포함해야 합니다."
-                        } ]
-                      }
-                    }
-                password-reset/confirm-invalid-password:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "newPassword",
-                          "message" : "비밀번호는 특수문자를 1개 이상 포함해야 합니다."
-                        }, {
-                          "field" : "newPassword",
-                          "message" : "비밀번호는 8자 이상 64자 이하여야 합니다."
-                        } ]
-                      }
-                    }
         "200":
           description: "200"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-notifications-read-all-954225372"
+                $ref: "#/components/schemas/api-v1-password-resets-confirm-954225372"
               examples:
                 password-reset/confirm:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : { },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
+                    error\" : null\r\n}"
         "422":
           description: "422"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
-                password-reset/confirm-token-not-found:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "PASSWORD_RESET_TOKEN_NOT_FOUND",
-                        "message" : "재설정 토큰이 존재하지 않거나 만료되었습니다.",
-                        "details" : null
-                      }
-                    }
                 password-reset/confirm-already-used:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "PASSWORD_RESET_TOKEN_NOT_FOUND",
-                        "message" : "재설정 토큰이 존재하지 않거나 만료되었습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"PASSWORD_RESET_TOKEN_NOT_FOUND\"\
+                    ,\r\n    \"message\" : \"재설정 토큰이 존재하지 않거나 만료되었습니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
+                password-reset/confirm-token-not-found:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"PASSWORD_RESET_TOKEN_NOT_FOUND\"\
+                    ,\r\n    \"message\" : \"재설정 토큰이 존재하지 않거나 만료되었습니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-debates-debateId-histories845673417"
+              examples:
+                password-reset/confirm-invalid-password:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 8자 이\
+                    상 64자 이하여야 합니다.\"\r\n    }, {\r\n      \"field\" : \"newPassword\"\
+                    ,\r\n      \"message\" : \"비밀번호는 특수문자를 1개 이상 포함해야 합니다.\"\r\n \
+                    \   } ]\r\n  }\r\n}"
+                password-reset/confirm-password-no-special-char:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 특수문자\
+                    를 1개 이상 포함해야 합니다.\"\r\n    } ]\r\n  }\r\n}"
   /api/v1/storage/upload-urls:
     post:
       tags:
@@ -1555,52 +1011,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-storage-upload-urls795460846"
+              $ref: "#/components/schemas/api-v1-storage-upload-urls-630601663"
             examples:
               storage/create-upload-url:
-                value: |-
-                  {
-                    "category" : "PROFILE_IMAGE",
-                    "contentType" : "image/png",
-                    "contentLength" : 5242880
-                  }
+                value: "{\r\n  \"category\" : \"PROFILE_IMAGE\",\r\n  \"contentType\"\
+                  \ : \"image/png\",\r\n  \"contentLength\" : 5242880\r\n}"
               storage/create-upload-url-file-too-large:
-                value: |-
-                  {
-                    "category" : "PROFILE_IMAGE",
-                    "contentType" : "image/png",
-                    "contentLength" : 5242881
-                  }
+                value: "{\r\n  \"category\" : \"PROFILE_IMAGE\",\r\n  \"contentType\"\
+                  \ : \"image/png\",\r\n  \"contentLength\" : 5242881\r\n}"
               storage/create-upload-url-invalid-category:
-                value: |-
-                  {
-                    "category" : "UNKNOWN",
-                    "contentType" : "image/png",
-                    "contentLength" : 5242880
-                  }
-              storage/create-upload-url-unauthorized:
-                value: |-
-                  {
-                    "category" : "PROFILE_IMAGE",
-                    "contentType" : "image/png",
-                    "contentLength" : 5242880
-                  }
-              storage/create-upload-url-unsupported-content-type:
-                value: |-
-                  {
-                    "category" : "PROFILE_IMAGE",
-                    "contentType" : "image/gif",
-                    "contentLength" : 5242880
-                  }
-              storage/create-upload-url-non-positive-length:
-                value: |-
-                  {
-                    "category" : "PROFILE_IMAGE",
-                    "contentType" : "image/png",
-                    "contentLength" : 0
-                  }
+                value: "{\r\n  \"category\" : \"UNKNOWN\",\r\n  \"contentType\" :\
+                  \ \"image/png\",\r\n  \"contentLength\" : 5242880\r\n}"
               storage/create-upload-url-missing-fields:
                 value: "{ }"
+              storage/create-upload-url-non-positive-length:
+                value: "{\r\n  \"category\" : \"PROFILE_IMAGE\",\r\n  \"contentType\"\
+                  \ : \"image/png\",\r\n  \"contentLength\" : 0\r\n}"
+              storage/create-upload-url-unauthorized:
+                value: "{\r\n  \"category\" : \"PROFILE_IMAGE\",\r\n  \"contentType\"\
+                  \ : \"image/png\",\r\n  \"contentLength\" : 5242880\r\n}"
+              storage/create-upload-url-unsupported-content-type:
+                value: "{\r\n  \"category\" : \"PROFILE_IMAGE\",\r\n  \"contentType\"\
+                  \ : \"image/gif\",\r\n  \"contentLength\" : 5242880\r\n}"
       responses:
         "200":
           description: "200"
@@ -1610,45 +1042,28 @@ paths:
                 $ref: "#/components/schemas/api-v1-storage-upload-urls-601372828"
               examples:
                 storage/create-upload-url:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "objectKey" : "profile-images/2026/09/0RS6XYPRD15ZM.png",
-                        "uploadUrl" : "https://fake.s3/profile-images/2026/09/0RS6XYPRD15ZM.png",
-                        "expiresInSeconds" : 300
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"objectKey\"\
+                    \ : \"profile-images/2026/10/0RWRWFV18QGCF.png\",\r\n    \"uploadUrl\"\
+                    \ : \"https://fake.s3/profile-images/2026/10/0RWRWFV18QGCF.png\"\
+                    ,\r\n    \"expiresInSeconds\" : 300\r\n  },\r\n  \"error\" : null\r\
+                    \n}"
         "422":
           description: "422"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 storage/create-upload-url-file-too-large:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "FILE_TOO_LARGE",
-                        "message" : "파일 크기가 허용 한도를 초과했습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"FILE_TOO_LARGE\",\r\n    \"message\"\
+                    \ : \"파일 크기가 허용 한도를 초과했습니다.\",\r\n    \"details\" : null\r\n \
+                    \ }\r\n}"
                 storage/create-upload-url-unsupported-content-type:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "UNSUPPORTED_CONTENT_TYPE",
-                        "message" : "지원하지 않는 파일 형식입니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"UNSUPPORTED_CONTENT_TYPE\",\r\n\
+                    \    \"message\" : \"지원하지 않는 파일 형식입니다.\",\r\n    \"details\" :\
+                    \ null\r\n  }\r\n}"
         "400":
           description: "400"
           content:
@@ -1657,68 +1072,36 @@ paths:
                 $ref: "#/components/schemas/api-v1-storage-upload-urls980964946"
               examples:
                 storage/create-upload-url-invalid-category:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : null
-                      }
-                    }
-                storage/create-upload-url-non-positive-length:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "contentLength",
-                          "message" : "파일 크기는 1 이상이어야 합니다."
-                        } ]
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
                 storage/create-upload-url-missing-fields:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "contentLength",
-                          "message" : "파일 크기는 필수입니다."
-                        }, {
-                          "field" : "contentType",
-                          "message" : "콘텐츠 타입은 필수입니다."
-                        }, {
-                          "field" : "category",
-                          "message" : "카테고리는 필수입니다."
-                        } ]
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"contentType\",\r\n      \"message\" : \"콘텐츠 타입은 필수\
+                    입니다.\"\r\n    }, {\r\n      \"field\" : \"contentLength\",\r\n\
+                    \      \"message\" : \"파일 크기는 필수입니다.\"\r\n    }, {\r\n      \"\
+                    field\" : \"category\",\r\n      \"message\" : \"카테고리는 필수입니다.\"\
+                    \r\n    } ]\r\n  }\r\n}"
+                storage/create-upload-url-non-positive-length:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"contentLength\",\r\n      \"message\" : \"파일 크기는 1\
+                    \ 이상이어야 합니다.\"\r\n    } ]\r\n  }\r\n}"
         "401":
           description: "401"
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 storage/create-upload-url-unauthorized:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "AUTHENTICATION_REQUIRED",
-                        "message" : "인증이 필요합니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"AUTHENTICATION_REQUIRED\",\r\n\
+                    \    \"message\" : \"인증이 필요합니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/storage/view-urls:
@@ -1731,32 +1114,11 @@ paths:
       parameters:
       - name: objectKey
         in: query
-        description: 형식이 잘못된 오브젝트 키
+        description: 조회할 오브젝트 키
         required: true
         schema:
           type: string
       responses:
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-users-me-1621929492"
-              examples:
-                storage/create-view-url-invalid-object-key:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "objectKey",
-                          "message" : "올바른 오브젝트 키 형식이 아닙니다."
-                        } ]
-                      }
-                    }
         "200":
           description: "200"
           content:
@@ -1765,15 +1127,23 @@ paths:
                 $ref: "#/components/schemas/api-v1-storage-view-urls429942355"
               examples:
                 storage/create-view-url:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "url" : "https://fake.s3/profile-images/2026/09/0000000000001.png",
-                        "expiresInSeconds" : 600
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"url\"\
+                    \ : \"https://fake.s3/profile-images/2026/09/0000000000001.png\"\
+                    ,\r\n    \"expiresInSeconds\" : 600\r\n  },\r\n  \"error\" : null\r\
+                    \n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-storage-view-urls-1621929492"
+              examples:
+                storage/create-view-url-invalid-object-key:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"objectKey\",\r\n      \"message\" : \"올바른 오브젝트 키 형\
+                    식이 아닙니다.\"\r\n    } ]\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/users/me:
@@ -1784,24 +1154,6 @@ paths:
       description: 내 정보 조회
       operationId: users/get-my-info
       responses:
-        "401":
-          description: "401"
-          content:
-            application/json;charset=UTF-8:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                users/get-my-info-unauthorized:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "AUTHENTICATION_REQUIRED",
-                        "message" : "인증이 필요합니다.",
-                        "details" : null
-                      }
-                    }
         "200":
           description: "200"
           content:
@@ -1810,18 +1162,25 @@ paths:
                 $ref: "#/components/schemas/api-v1-users-me182886190"
               examples:
                 users/get-my-info:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "id" : "0RS6XZ145QW4P",
-                        "email" : "mypage@pangyeori.com",
-                        "nickname" : "테스트사용자",
-                        "profileImageKey" : null,
-                        "joinedAt" : "2026-09-30T19:31:44.673594"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
+                    \ : \"0RWRWG7FNX44W\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
+                    ,\r\n    \"nickname\" : \"테스트사용자\",\r\n    \"profileImageKey\"\
+                    \ : null,\r\n    \"joinedAt\" : \"2026-10-11T21:03:42.5897812\"\
+                    \r\n  },\r\n  \"error\" : null\r\n}"
+        "401":
+          description: "401"
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                users/get-my-info-unauthorized:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"AUTHENTICATION_REQUIRED\",\r\n\
+                    \    \"message\" : \"인증이 필요합니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
     delete:
       tags:
       - Users
@@ -1829,24 +1188,6 @@ paths:
       description: 회원 탈퇴
       operationId: users/withdraw
       responses:
-        "401":
-          description: "401"
-          content:
-            application/json;charset=UTF-8:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                users/withdraw-unauthorized:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "AUTHENTICATION_REQUIRED",
-                        "message" : "인증이 필요합니다.",
-                        "details" : null
-                      }
-                    }
         "204":
           description: "204"
           headers:
@@ -1854,6 +1195,20 @@ paths:
               description: refresh token 만료 쿠키
               schema:
                 type: string
+        "401":
+          description: "401"
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                users/withdraw-unauthorized:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"AUTHENTICATION_REQUIRED\",\r\n\
+                    \    \"message\" : \"인증이 필요합니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
     patch:
       tags:
       - Users
@@ -1864,38 +1219,21 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-users-me-1790720323"
+              $ref: "#/components/schemas/api-v1-users-me-1476925149"
             examples:
               users/update-profile:
-                value: |-
-                  {
-                    "nickname" : "새로운닉네임"
-                  }
-              users/update-profile-unauthorized:
-                value: |-
-                  {
-                    "nickname" : "새로운닉네임"
-                  }
-              users/update-profile-image:
-                value: |-
-                  {
-                    "profileImageKey" : "profile-images/2026/09/0000000000001.png"
-                  }
+                value: "{\r\n  \"nickname\" : \"새로운닉네임\"\r\n}"
               users/update-profile-duplicate-nickname:
-                value: |-
-                  {
-                    "nickname" : "선점닉네임"
-                  }
-              users/update-profile-invalid-nickname:
-                value: |-
-                  {
-                    "nickname" : "판결이!"
-                  }
+                value: "{\r\n  \"nickname\" : \"선점닉네임\"\r\n}"
+              users/update-profile-image:
+                value: "{\r\n  \"profileImageKey\" : \"profile-images/2026/09/0000000000001.png\"\
+                  \r\n}"
               users/update-profile-invalid-key:
-                value: |-
-                  {
-                    "profileImageKey" : "documents/secret.png"
-                  }
+                value: "{\r\n  \"profileImageKey\" : \"documents/secret.png\"\r\n}"
+              users/update-profile-invalid-nickname:
+                value: "{\r\n  \"nickname\" : \"판결이!\"\r\n}"
+              users/update-profile-unauthorized:
+                value: "{\r\n  \"nickname\" : \"새로운닉네임\"\r\n}"
       responses:
         "200":
           description: "200"
@@ -1905,102 +1243,190 @@ paths:
                 $ref: "#/components/schemas/api-v1-users-me-527830575"
               examples:
                 users/update-profile:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "id" : "0RS6XYW39QW5V",
-                        "email" : "update-nickname@pangyeori.com",
-                        "nickname" : "새로운닉네임",
-                        "profileImageKey" : null,
-                        "joinedAt" : "2026-09-30T19:31:43.386846"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
+                    \ : \"0RWRWG1PHX43H\",\r\n    \"email\" : \"update-nickname@pangyeori.com\"\
+                    ,\r\n    \"nickname\" : \"새로운닉네임\",\r\n    \"profileImageKey\"\
+                    \ : null,\r\n    \"joinedAt\" : \"2026-10-11T21:03:41.1082404\"\
+                    \r\n  },\r\n  \"error\" : null\r\n}"
                 users/update-profile-image:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "id" : "0RS6XZ0J9QW5K",
-                        "email" : "update-image@pangyeori.com",
-                        "nickname" : "테스트사용자",
-                        "profileImageKey" : "profile-images/2026/09/0000000000001.png",
-                        "joinedAt" : "2026-09-30T19:31:44.530968"
-                      },
-                      "error" : null
-                    }
-        "401":
-          description: "401"
-          content:
-            application/json;charset=UTF-8:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                users/update-profile-unauthorized:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "AUTHENTICATION_REQUIRED",
-                        "message" : "인증이 필요합니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
+                    \ : \"0RWRWG6WXX40Y\",\r\n    \"email\" : \"update-image@pangyeori.com\"\
+                    ,\r\n    \"nickname\" : \"테스트사용자\",\r\n    \"profileImageKey\"\
+                    \ : \"profile-images/2026/09/0000000000001.png\",\r\n    \"joinedAt\"\
+                    \ : \"2026-10-11T21:03:42.43902\"\r\n  },\r\n  \"error\" : null\r\
+                    \n}"
         "409":
           description: "409"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 users/update-profile-duplicate-nickname:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "NICKNAME_ALREADY_EXISTS",
-                        "message" : "이미 사용 중인 닉네임입니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"NICKNAME_ALREADY_EXISTS\",\r\n\
+                    \    \"message\" : \"이미 사용 중인 닉네임입니다.\",\r\n    \"details\" :\
+                    \ null\r\n  }\r\n}"
         "400":
           description: "400"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me-1621929492"
+                $ref: "#/components/schemas/api-v1-storage-view-urls-1621929492"
               examples:
-                users/update-profile-invalid-nickname:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "nickname",
-                          "message" : "닉네임은 특수문자를 포함할 수 없습니다."
-                        } ]
-                      }
-                    }
                 users/update-profile-invalid-key:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "profileImageKey",
-                          "message" : "올바른 이미지 키 형식이 아닙니다."
-                        } ]
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"profileImageKey\",\r\n      \"message\" : \"올바른 이미\
+                    지 키 형식이 아닙니다.\"\r\n    } ]\r\n  }\r\n}"
+                users/update-profile-invalid-nickname:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 특수문자를 포함\
+                    할 수 없습니다.\"\r\n    } ]\r\n  }\r\n}"
+        "401":
+          description: "401"
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                users/update-profile-unauthorized:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"AUTHENTICATION_REQUIRED\",\r\n\
+                    \    \"message\" : \"인증이 필요합니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+  /api/v1/debates/{debateId}/histories:
+    get:
+      tags:
+      - Debates
+      summary: 발언 기록 조회
+      description: 발언 기록 조회
+      operationId: debate-histories/get
+      parameters:
+      - name: debateId
+        in: path
+        description: 토론방 ID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-debates-debateId-histories1733542838"
+              examples:
+                debate-histories/get:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : [ {\r\n    \"\
+                    id\" : \"0RWRWD46SX45R\",\r\n    \"stage\" : \"OPENING_PROS\"\
+                    ,\r\n    \"content\" : \"먼저 제출된 발언\",\r\n    \"createdAt\" : \"\
+                    2026-10-11T21:03:17.1744874\"\r\n  } ],\r\n  \"error\" : null\r\
+                    \n}"
+        "403":
+          description: "403"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debate-histories/get-forbidden:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"UNAUTHORIZED_ACCESS\",\r\n   \
+                    \ \"message\" : \"접근 권한이 없습니다.\",\r\n    \"details\" : null\r\n\
+                    \  }\r\n}"
+      security:
+      - bearerAuthJWT: []
+    post:
+      tags:
+      - Debates
+      summary: 발언 제출
+      description: 발언 제출
+      operationId: debate-histories/submit
+      parameters:
+      - name: debateId
+        in: path
+        description: 토론방 ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-debates-debateId-histories1738229092"
+            examples:
+              debate-histories/submit:
+                value: "{\r\n  \"content\" : \"저는 이 주제에 찬성합니다.\"\r\n}"
+              debate-histories/submit-already-submitted:
+                value: "{\r\n  \"content\" : \"다시 제출해봅니다.\"\r\n}"
+              debate-histories/submit-blank-content:
+                value: "{ }"
+              debate-histories/submit-not-ready:
+                value: "{\r\n  \"content\" : \"아직 시작 전인데 제출합니다.\"\r\n}"
+              debate-histories/submit-not-your-turn:
+                value: "{\r\n  \"content\" : \"아직 제 차례가 아닙니다.\"\r\n}"
+      responses:
+        "201":
+          description: "201"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-debates-debateId-histories-564571909"
+              examples:
+                debate-histories/submit:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
+                    \ : \"0RWRWD1DDX42J\",\r\n    \"stage\" : \"OPENING_PROS\",\r\n\
+                    \    \"content\" : \"저는 이 주제에 찬성합니다.\",\r\n    \"createdAt\" :\
+                    \ \"2026-10-11T21:03:16.4596857\"\r\n  },\r\n  \"error\" : null\r\
+                    \n}"
+        "409":
+          description: "409"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debate-histories/submit-already-submitted:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_HISTORY_ALREADY_SUBMITTED\"\
+                    ,\r\n    \"message\" : \"이미 이 단계의 발언을 제출했습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
+                debate-histories/submit-not-ready:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_NOT_READY\",\r\n    \"\
+                    message\" : \"입장할 수 있는 토론방 상태가 아닙니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-debates-debateId-histories845673417"
+              examples:
+                debate-histories/submit-blank-content:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"content\",\r\n      \"message\" : \"발언 내용은 필수입니다.\"\
+                    \r\n    } ]\r\n  }\r\n}"
+        "422":
+          description: "422"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debate-histories/submit-not-your-turn:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_NOT_YOUR_TURN\",\r\n  \
+                    \  \"message\" : \"지금은 발언할 차례가 아닙니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/debates/{debateId}/status:
@@ -2025,52 +1451,29 @@ paths:
               schema:
                 $ref: "#/components/schemas/api-v1-debates-debateId-status848228099"
               examples:
-                debates/get-status-guest:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "debateStatus" : "WAITING",
-                        "guestStatus" : "PENDING",
-                        "requestList" : null
-                      },
-                      "error" : null
-                    }
                 debates/get-status:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "debateStatus" : "WAITING",
-                        "guestStatus" : null,
-                        "requestList" : [ {
-                          "userId" : "0RS6XWW6DQW4T",
-                          "nickname" : "상태목록게스트",
-                          "profileImageKey" : null,
-                          "status" : "PENDING",
-                          "requestedAt" : "2026-09-30T19:31:27.10554"
-                        } ]
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateStatus\"\
+                    \ : \"WAITING\",\r\n    \"guestStatus\" : null,\r\n    \"requestList\"\
+                    \ : [ {\r\n      \"userId\" : \"0RWRWBQ2DX47T\",\r\n      \"nickname\"\
+                    \ : \"상태목록게스트\",\r\n      \"profileImageKey\" : null,\r\n    \
+                    \  \"status\" : \"PENDING\",\r\n      \"requestedAt\" : \"2026-10-11T21:03:05.7181571\"\
+                    \r\n    } ]\r\n  },\r\n  \"error\" : null\r\n}"
+                debates/get-status-guest:
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateStatus\"\
+                    \ : \"WAITING\",\r\n    \"guestStatus\" : \"PENDING\",\r\n   \
+                    \ \"requestList\" : null\r\n  },\r\n  \"error\" : null\r\n}"
         "403":
           description: "403"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 debates/get-status-forbidden:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "UNAUTHORIZED_ACCESS",
-                        "message" : "접근 권한이 없습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"UNAUTHORIZED_ACCESS\",\r\n   \
+                    \ \"message\" : \"접근 권한이 없습니다.\",\r\n    \"details\" : null\r\n\
+                    \  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/notifications/{notificationId}/read:
@@ -2093,33 +1496,23 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-notifications-read-all-954225372"
+                $ref: "#/components/schemas/api-v1-password-resets-confirm-954225372"
               examples:
                 notifications/read:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : { },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
+                    error\" : null\r\n}"
         "404":
           description: "404"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 notifications/read-not-found:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "NOTIFICATION_NOT_FOUND",
-                        "message" : "존재하지 않는 알림입니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"NOTIFICATION_NOT_FOUND\",\r\n\
+                    \    \"message\" : \"존재하지 않는 알림입니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/users/me/password:
@@ -2133,71 +1526,47 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-users-me-password1180645447"
+              $ref: "#/components/schemas/api-v1-users-me-password-1083788840"
             examples:
-              users/change-password-invalid-current:
-                value: |-
-                  {
-                    "currentPassword" : "wrongPassword1!",
-                    "newPassword" : "newPassword1!"
-                  }
-              users/change-password-invalid-new:
-                value: |-
-                  {
-                    "currentPassword" : "password123!",
-                    "newPassword" : "short"
-                  }
               users/change-password:
-                value: |-
-                  {
-                    "currentPassword" : "password123!",
-                    "newPassword" : "newPassword1!"
-                  }
+                value: "{\r\n  \"currentPassword\" : \"password123!\",\r\n  \"newPassword\"\
+                  \ : \"newPassword1!\"\r\n}"
+              users/change-password-invalid-current:
+                value: "{\r\n  \"currentPassword\" : \"wrongPassword1!\",\r\n  \"\
+                  newPassword\" : \"newPassword1!\"\r\n}"
+              users/change-password-invalid-new:
+                value: "{\r\n  \"currentPassword\" : \"password123!\",\r\n  \"newPassword\"\
+                  \ : \"short\"\r\n}"
       responses:
+        "204":
+          description: "204"
         "422":
           description: "422"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 users/change-password-invalid-current:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_CURRENT_PASSWORD",
-                        "message" : "현재 비밀번호가 올바르지 않습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_CURRENT_PASSWORD\",\r\n\
+                    \    \"message\" : \"현재 비밀번호가 올바르지 않습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
         "400":
           description: "400"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me-1621929492"
+                $ref: "#/components/schemas/api-v1-storage-view-urls-1621929492"
               examples:
                 users/change-password-invalid-new:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "newPassword",
-                          "message" : "비밀번호는 특수문자를 1개 이상 포함해야 합니다."
-                        }, {
-                          "field" : "newPassword",
-                          "message" : "비밀번호는 8자 이상 64자 이하여야 합니다."
-                        } ]
-                      }
-                    }
-        "204":
-          description: "204"
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 특수문자\
+                    를 1개 이상 포함해야 합니다.\"\r\n    }, {\r\n      \"field\" : \"newPassword\"\
+                    ,\r\n      \"message\" : \"비밀번호는 8자 이상 64자 이하여야 합니다.\"\r\n   \
+                    \ } ]\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/users/me/profile-image:
@@ -2208,26 +1577,22 @@ paths:
       description: 프로필 이미지 제거
       operationId: users/remove-profile-image
       responses:
+        "204":
+          description: "204"
         "401":
           description: "401"
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 users/remove-profile-image-unauthorized:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "AUTHENTICATION_REQUIRED",
-                        "message" : "인증이 필요합니다.",
-                        "details" : null
-                      }
-                    }
-        "204":
-          description: "204"
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"AUTHENTICATION_REQUIRED\",\r\n\
+                    \    \"message\" : \"인증이 필요합니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+      security:
+      - bearerAuthJWT: []
   /api/v1/users/nickname/duplicate:
     get:
       tags:
@@ -2238,74 +1603,11 @@ paths:
       parameters:
       - name: nickname
         in: query
-        description: 2자 미만의 닉네임
+        description: 중복 여부를 확인할 닉네임
         required: true
         schema:
           type: string
       responses:
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-users-1728058300"
-              examples:
-                users/check-nickname-duplicate-too-short:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "nickname",
-                          "message" : "닉네임은 2자 이상 12자 이하여야 합니다."
-                        } ]
-                      }
-                    }
-                users/check-nickname-duplicate-invalid-char:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "nickname",
-                          "message" : "닉네임은 특수문자를 포함할 수 없습니다."
-                        } ]
-                      }
-                    }
-                users/check-nickname-duplicate-missing-nickname:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "nickname",
-                          "message" : "닉네임은 필수입니다."
-                        } ]
-                      }
-                    }
-                users/check-nickname-duplicate-too-long:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "nickname",
-                          "message" : "닉네임은 2자 이상 12자 이하여야 합니다."
-                        } ]
-                      }
-                    }
         "200":
           description: "200"
           content:
@@ -2314,14 +1616,39 @@ paths:
                 $ref: "#/components/schemas/api-v1-users-nickname-duplicate-1986113649"
               examples:
                 users/check-nickname-duplicate:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "duplicated" : true
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"duplicated\"\
+                    \ : true\r\n  },\r\n  \"error\" : null\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-1728058300"
+              examples:
+                users/check-nickname-duplicate-invalid-char:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 특수문자를 포함\
+                    할 수 없습니다.\"\r\n    } ]\r\n  }\r\n}"
+                users/check-nickname-duplicate-missing-nickname:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 필수입니다.\"\
+                    \r\n    } ]\r\n  }\r\n}"
+                users/check-nickname-duplicate-too-long:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 2자 이상 12자\
+                    \ 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
+                users/check-nickname-duplicate-too-short:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"nickname\",\r\n      \"message\" : \"닉네임은 2자 이상 12자\
+                    \ 이하여야 합니다.\"\r\n    } ]\r\n  }\r\n}"
   /api/v1/debates/{debateId}/guest/accept:
     post:
       tags:
@@ -2342,104 +1669,17 @@ paths:
             schema:
               $ref: "#/components/schemas/api-v1-debates-debateId-guest-accept172970270"
             examples:
-              debates/accept-guest-not-in-queue:
-                value: |-
-                  {
-                    "userId" : "0000000000000"
-                  }
+              debates/accept-guest:
+                value: "{\r\n  \"userId\" : \"0RWRWCF1DX43Q\"\r\n}"
+              debates/accept-guest-forbidden:
+                value: "{\r\n  \"userId\" : \"0000000000000\"\r\n}"
               debates/accept-guest-invalid-user-id:
                 value: "{ }"
-              debates/accept-guest-forbidden:
-                value: |-
-                  {
-                    "userId" : "0000000000000"
-                  }
+              debates/accept-guest-not-in-queue:
+                value: "{\r\n  \"userId\" : \"0000000000000\"\r\n}"
               debates/accept-guest-not-waiting:
-                value: |-
-                  {
-                    "userId" : "0000000000000"
-                  }
-              debates/accept-guest:
-                value: |-
-                  {
-                    "userId" : "0RS6XXEZNQW2K"
-                  }
+                value: "{\r\n  \"userId\" : \"0000000000000\"\r\n}"
       responses:
-        "404":
-          description: "404"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                debates/accept-guest-not-in-queue:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "USER_NOT_FOUND_IN_QUEUE",
-                        "message" : "대기열에서 사용자를 찾을 수 없습니다.",
-                        "details" : null
-                      }
-                    }
-        "400":
-          description: "400"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-guest-accept-1066520533"
-              examples:
-                debates/accept-guest-invalid-user-id:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "userId",
-                          "message" : "사용자 ID는 필수입니다."
-                        } ]
-                      }
-                    }
-        "403":
-          description: "403"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                debates/accept-guest-forbidden:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "UNAUTHORIZED_ACCESS",
-                        "message" : "접근 권한이 없습니다.",
-                        "details" : null
-                      }
-                    }
-        "409":
-          description: "409"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                debates/accept-guest-not-waiting:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_NOT_WAITING",
-                        "message" : "참여자를 선택할 수 있는 토론방 상태가 아닙니다.",
-                        "details" : null
-                      }
-                    }
         "200":
           description: "200"
           content:
@@ -2448,15 +1688,58 @@ paths:
                 $ref: "#/components/schemas/api-v1-debates-debateId-guest-accept1072356205"
               examples:
                 debates/accept-guest:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "debateId" : "0RS6XXF7HQW7S",
-                        "status" : "READY"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
+                    \ : \"0RWRWCFASX47M\",\r\n    \"status\" : \"READY\"\r\n  },\r\
+                    \n  \"error\" : null\r\n}"
+        "403":
+          description: "403"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debates/accept-guest-forbidden:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"UNAUTHORIZED_ACCESS\",\r\n   \
+                    \ \"message\" : \"접근 권한이 없습니다.\",\r\n    \"details\" : null\r\n\
+                    \  }\r\n}"
+        "400":
+          description: "400"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-debates-debateId-guest-accept-1066520533"
+              examples:
+                debates/accept-guest-invalid-user-id:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"userId\",\r\n      \"message\" : \"사용자 ID는 필수입니다.\"\
+                    \r\n    } ]\r\n  }\r\n}"
+        "404":
+          description: "404"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debates/accept-guest-not-in-queue:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"USER_NOT_FOUND_IN_QUEUE\",\r\n\
+                    \    \"message\" : \"대기열에서 사용자를 찾을 수 없습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
+        "409":
+          description: "409"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debates/accept-guest-not-waiting:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_NOT_WAITING\",\r\n    \"\
+                    message\" : \"참여자를 선택할 수 있는 토론방 상태가 아닙니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/debates/{debateId}/invitations/request:
@@ -2474,90 +1757,6 @@ paths:
         schema:
           type: string
       responses:
-        "409":
-          description: "409"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                debates/request-participation-cancelled:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_CANCELLED",
-                        "message" : "취소된 토론방입니다.",
-                        "details" : null
-                      }
-                    }
-                debates/request-participation-finished:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_FINISHED",
-                        "message" : "이미 종료된 토론입니다.",
-                        "details" : null
-                      }
-                    }
-                debates/request-participation-in_progress:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_IN_PROGRESS",
-                        "message" : "이미 시작된 토론입니다.",
-                        "details" : null
-                      }
-                    }
-                debates/request-participation-ready:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_ALREADY_MATCHED",
-                        "message" : "이미 상대방이 매칭되었습니다.",
-                        "details" : null
-                      }
-                    }
-                debates/request-participation-already-pending:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "ALREADY_IN_QUEUE",
-                        "message" : "이미 참여 요청 대기 중입니다.",
-                        "details" : null
-                      }
-                    }
-                debates/request-participation-already-cancelled:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "ALREADY_CANCELLED",
-                        "message" : "이미 취소한 참여 요청입니다.",
-                        "details" : null
-                      }
-                    }
-                debates/request-participation-already-rejected:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "ALREADY_REJECTED",
-                        "message" : "이미 거절된 참여 요청입니다.",
-                        "details" : null
-                      }
-                    }
         "201":
           description: "201"
           content:
@@ -2566,51 +1765,74 @@ paths:
                 $ref: "#/components/schemas/api-v1-debates-debateId-invitations-request-276982433"
               examples:
                 debates/request-participation:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "debateId" : "0RS6XX85HQW4Y",
-                        "position" : "CONS"
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
+                    \ : \"0RWRWC66SX44Q\",\r\n    \"position\" : \"CONS\"\r\n  },\r\
+                    \n  \"error\" : null\r\n}"
+        "409":
+          description: "409"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debates/request-participation-already-cancelled:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"ALREADY_CANCELLED\",\r\n    \"\
+                    message\" : \"이미 취소한 참여 요청입니다.\",\r\n    \"details\" : null\r\n\
+                    \  }\r\n}"
+                debates/request-participation-already-pending:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"ALREADY_IN_QUEUE\",\r\n    \"\
+                    message\" : \"이미 참여 요청 대기 중입니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
+                debates/request-participation-already-rejected:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"ALREADY_REJECTED\",\r\n    \"\
+                    message\" : \"이미 거절된 참여 요청입니다.\",\r\n    \"details\" : null\r\n\
+                    \  }\r\n}"
+                debates/request-participation-cancelled:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_CANCELLED\",\r\n    \"\
+                    message\" : \"취소된 토론방입니다.\",\r\n    \"details\" : null\r\n  }\r\
+                    \n}"
+                debates/request-participation-finished:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_FINISHED\",\r\n    \"message\"\
+                    \ : \"이미 종료된 토론입니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
+                debates/request-participation-in_progress:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_IN_PROGRESS\",\r\n    \"\
+                    message\" : \"이미 시작된 토론입니다.\",\r\n    \"details\" : null\r\n \
+                    \ }\r\n}"
+                debates/request-participation-ready:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_ALREADY_MATCHED\",\r\n\
+                    \    \"message\" : \"이미 상대방이 매칭되었습니다.\",\r\n    \"details\" :\
+                    \ null\r\n  }\r\n}"
         "410":
           description: "410"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 debates/request-participation-expired:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVITE_TOKEN_EXPIRED",
-                        "message" : "초대 링크가 만료되었습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVITE_TOKEN_EXPIRED\",\r\n  \
+                    \  \"message\" : \"초대 링크가 만료되었습니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
         "422":
           description: "422"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 debates/request-participation-self:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "SELF_JOIN_NOT_ALLOWED",
-                        "message" : "본인이 만든 토론방에는 참여할 수 없습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"SELF_JOIN_NOT_ALLOWED\",\r\n \
+                    \   \"message\" : \"본인이 만든 토론방에는 참여할 수 없습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
     delete:
@@ -2627,26 +1849,20 @@ paths:
         schema:
           type: string
       responses:
+        "204":
+          description: "204"
         "409":
           description: "409"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 debates/cancel-participation-not-pending:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "NOT_IN_PENDING_STATUS",
-                        "message" : "대기 중인 참여 요청이 아닙니다.",
-                        "details" : null
-                      }
-                    }
-        "204":
-          description: "204"
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"NOT_IN_PENDING_STATUS\",\r\n \
+                    \   \"message\" : \"대기 중인 참여 요청이 아닙니다.\",\r\n    \"details\" :\
+                    \ null\r\n  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/debates/{debateId}/status/stream:
@@ -2654,7 +1870,8 @@ paths:
       tags:
       - Debates
       summary: 토론 상태 스트림 구독
-      description: 토론 상태 스트림 구독
+      description: 유효한 일회성 티켓으로 연결하면 200과 함께 text/event-stream으로 참여 상태 이벤트를 흘려보낸다.
+        이벤트 종류와 payload 스키마는 AsyncAPI 문서를 참고한다.
       operationId: debates/stream-status
       parameters:
       - name: debateId
@@ -2665,51 +1882,11 @@ paths:
           type: string
       - name: ticket
         in: query
-        description: 다른 토론방으로 발급된 티켓
+        description: 스트림 티켓 발급 API로 받은 일회성 티켓
         required: true
         schema:
           type: string
       responses:
-        "401":
-          description: "401"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                debates/stream-status-missing-ticket:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_STREAM_TICKET_INVALID",
-                        "message" : "유효하지 않거나 만료된 스트림 티켓입니다.",
-                        "details" : null
-                      }
-                    }
-                debates/stream-status-debate-mismatch:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_STREAM_TICKET_INVALID",
-                        "message" : "유효하지 않거나 만료된 스트림 티켓입니다.",
-                        "details" : null
-                      }
-                    }
-                debates/stream-status-invalid-ticket:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "DEBATE_STREAM_TICKET_INVALID",
-                        "message" : "유효하지 않거나 만료된 스트림 티켓입니다.",
-                        "details" : null
-                      }
-                    }
         "200":
           description: "200"
           content:
@@ -2727,6 +1904,28 @@ paths:
                     event:snapshot
                     data:{"debateStatus":"WAITING","guestStatus":"PENDING","requestList":null}
 
+        "401":
+          description: "401"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debates/stream-status-debate-mismatch:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_STREAM_TICKET_INVALID\"\
+                    ,\r\n    \"message\" : \"유효하지 않거나 만료된 스트림 티켓입니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
+                debates/stream-status-invalid-ticket:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_STREAM_TICKET_INVALID\"\
+                    ,\r\n    \"message\" : \"유효하지 않거나 만료된 스트림 티켓입니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
+                debates/stream-status-missing-ticket:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"DEBATE_STREAM_TICKET_INVALID\"\
+                    ,\r\n    \"message\" : \"유효하지 않거나 만료된 스트림 티켓입니다.\",\r\n    \"\
+                    details\" : null\r\n  }\r\n}"
   /api/v1/debates/{debateId}/status/stream-tickets:
     post:
       tags:
@@ -2742,24 +1941,6 @@ paths:
         schema:
           type: string
       responses:
-        "403":
-          description: "403"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                debates/issue-stream-ticket-forbidden:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "UNAUTHORIZED_ACCESS",
-                        "message" : "접근 권한이 없습니다.",
-                        "details" : null
-                      }
-                    }
         "201":
           description: "201"
           content:
@@ -2768,15 +1949,21 @@ paths:
                 $ref: "#/components/schemas/api-v1-debates-debateId-status-stream-tickets1569611631"
               examples:
                 debates/issue-stream-ticket:
-                  value: |-
-                    {
-                      "success" : true,
-                      "data" : {
-                        "ticket" : "<ticket>",
-                        "expiresInSeconds" : 60
-                      },
-                      "error" : null
-                    }
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"ticket\"\
+                    \ : \"<ticket>\",\r\n    \"expiresInSeconds\" : 60\r\n  },\r\n\
+                    \  \"error\" : null\r\n}"
+        "403":
+          description: "403"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                debates/issue-stream-ticket-forbidden:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"UNAUTHORIZED_ACCESS\",\r\n   \
+                    \ \"message\" : \"접근 권한이 없습니다.\",\r\n    \"details\" : null\r\n\
+                    \  }\r\n}"
       security:
       - bearerAuthJWT: []
   /api/v1/users/me/password/verify:
@@ -2792,159 +1979,89 @@ paths:
             schema:
               $ref: "#/components/schemas/api-v1-users-me-password-verify-672501089"
             examples:
-              users/verify-password-unauthorized:
-                value: |-
-                  {
-                    "currentPassword" : "password123!"
-                  }
-              users/verify-password-invalid-token:
-                value: |-
-                  {
-                    "currentPassword" : "password123!"
-                  }
               users/verify-password-blank:
-                value: |-
-                  {
-                    "currentPassword" : "   "
-                  }
-              users/verify-password-mismatch:
-                value: |-
-                  {
-                    "currentPassword" : "wrongPassword1!"
-                  }
-              users/verify-password-success:
-                value: |-
-                  {
-                    "currentPassword" : "password123!"
-                  }
-              users/verify-password-null:
-                value: |-
-                  {
-                    "currentPassword" : null
-                  }
+                value: "{\r\n  \"currentPassword\" : \"   \"\r\n}"
               users/verify-password-empty:
-                value: |-
-                  {
-                    "currentPassword" : ""
-                  }
+                value: "{\r\n  \"currentPassword\" : \"\"\r\n}"
+              users/verify-password-invalid-token:
+                value: "{\r\n  \"currentPassword\" : \"password123!\"\r\n}"
+              users/verify-password-mismatch:
+                value: "{\r\n  \"currentPassword\" : \"wrongPassword1!\"\r\n}"
               users/verify-password-missing:
                 value: "{ }"
+              users/verify-password-null:
+                value: "{\r\n  \"currentPassword\" : null\r\n}"
+              users/verify-password-success:
+                value: "{\r\n  \"currentPassword\" : \"password123!\"\r\n}"
+              users/verify-password-unauthorized:
+                value: "{\r\n  \"currentPassword\" : \"password123!\"\r\n}"
       responses:
-        "401":
-          description: "401"
-          content:
-            application/json;charset=UTF-8:
-              schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
-              examples:
-                users/verify-password-unauthorized:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "AUTHENTICATION_REQUIRED",
-                        "message" : "인증이 필요합니다.",
-                        "details" : null
-                      }
-                    }
-                users/verify-password-invalid-token:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_TOKEN",
-                        "message" : "유효하지 않은 토큰입니다.",
-                        "details" : null
-                      }
-                    }
         "400":
           description: "400"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me-1621929492"
+                $ref: "#/components/schemas/api-v1-storage-view-urls-1621929492"
               examples:
                 users/verify-password-blank:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "currentPassword",
-                          "message" : "현재 비밀번호는 필수입니다."
-                        } ]
-                      }
-                    }
-                users/verify-password-null:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "currentPassword",
-                          "message" : "현재 비밀번호는 필수입니다."
-                        } ]
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"currentPassword\",\r\n      \"message\" : \"현재 비밀번\
+                    호는 필수입니다.\"\r\n    } ]\r\n  }\r\n}"
                 users/verify-password-empty:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "currentPassword",
-                          "message" : "현재 비밀번호는 필수입니다."
-                        } ]
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"currentPassword\",\r\n      \"message\" : \"현재 비밀번\
+                    호는 필수입니다.\"\r\n    } ]\r\n  }\r\n}"
                 users/verify-password-missing:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_INPUT",
-                        "message" : "입력값이 올바르지 않습니다.",
-                        "details" : [ {
-                          "field" : "currentPassword",
-                          "message" : "현재 비밀번호는 필수입니다."
-                        } ]
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"currentPassword\",\r\n      \"message\" : \"현재 비밀번\
+                    호는 필수입니다.\"\r\n    } ]\r\n  }\r\n}"
+                users/verify-password-null:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
+                    \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
+                    field\" : \"currentPassword\",\r\n      \"message\" : \"현재 비밀번\
+                    호는 필수입니다.\"\r\n    } ]\r\n  }\r\n}"
+        "401":
+          description: "401"
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
+              examples:
+                users/verify-password-invalid-token:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_TOKEN\",\r\n    \"message\"\
+                    \ : \"유효하지 않은 토큰입니다.\",\r\n    \"details\" : null\r\n  }\r\n}"
+                users/verify-password-unauthorized:
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"AUTHENTICATION_REQUIRED\",\r\n\
+                    \    \"message\" : \"인증이 필요합니다.\",\r\n    \"details\" : null\r\
+                    \n  }\r\n}"
         "422":
           description: "422"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
+                $ref: "#/components/schemas/api-v1-users-me1852456402"
               examples:
                 users/verify-password-mismatch:
-                  value: |-
-                    {
-                      "success" : false,
-                      "data" : null,
-                      "error" : {
-                        "code" : "INVALID_CURRENT_PASSWORD",
-                        "message" : "현재 비밀번호가 올바르지 않습니다.",
-                        "details" : null
-                      }
-                    }
+                  value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
+                    error\" : {\r\n    \"code\" : \"INVALID_CURRENT_PASSWORD\",\r\n\
+                    \    \"message\" : \"현재 비밀번호가 올바르지 않습니다.\",\r\n    \"details\"\
+                    \ : null\r\n  }\r\n}"
         "204":
           description: "204"
+      security:
+      - bearerAuthJWT: []
 components:
   schemas:
-    api-v1-email-verifications-confirm-1546988534:
+    api-v1-email-verifications-1546988534:
       required:
       - error
       - success
@@ -2993,6 +2110,64 @@ components:
               type: object
               description: API 인증에 사용하는 Access Token
           description: 재발급된 인증 토큰
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-notifications-133349874:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - hasNext
+          - items
+          type: object
+          properties:
+            nextCursor:
+              type: object
+              description: 다음 페이지 커서
+              nullable: true
+            hasNext:
+              type: object
+              description: 다음 페이지 존재 여부
+            items:
+              type: array
+              description: "알림 목록 (호스트 입장: 참가 신청 접수·취소)"
+              items:
+                required:
+                - createdAt
+                - debateId
+                - isRead
+                - message
+                - notificationId
+                - type
+                type: object
+                properties:
+                  createdAt:
+                    type: object
+                    description: 알림 생성 시각
+                  isRead:
+                    type: object
+                    description: 읽음 여부
+                  notificationId:
+                    type: object
+                    description: 알림 ID
+                  message:
+                    type: object
+                    description: 알림 메시지
+                  type:
+                    type: object
+                    description: 알림 종류
+                  debateId:
+                    type: object
+                    description: 관련 토론방 ID
+          description: 내 알림 목록
         success:
           type: object
           description: 처리 성공 여부
@@ -3072,38 +2247,6 @@ components:
               type: object
               description: 오류 메시지
           description: 오류 정보
-    api-v1-email-verifications-confirm478885324:
-      required:
-      - success
-      type: object
-      properties:
-        data:
-          type: object
-          description: 응답 데이터
-          nullable: true
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 에러 정보
-          nullable: true
-    api-v1-storage-upload-urls795460846:
-      required:
-      - category
-      - contentLength
-      - contentType
-      type: object
-      properties:
-        contentLength:
-          type: number
-          description: 0 이하의 잘못된 파일 크기
-        category:
-          type: string
-          description: 업로드 용도
-        contentType:
-          type: string
-          description: 업로드할 파일의 콘텐츠 타입
     api-v1-debates-debateId-guest-accept1072356205:
       required:
       - data
@@ -3129,6 +2272,22 @@ components:
         error:
           type: object
           description: 오류 정보
+          nullable: true
+    api-v1-email-verifications478885324:
+      required:
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 에러 정보
           nullable: true
     api-v1-debates-debateId-status-stream-33084672:
       type: object
@@ -3223,7 +2382,80 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-password-resets-confirm278996719:
+    api-v1-debates1449686951:
+      required:
+      - freeDebateTimeSeconds
+      - hostPosition
+      - title
+      - turnTimeSeconds
+      type: object
+      properties:
+        hostPosition:
+          type: string
+          description: 개설자 포지션
+        turnTimeSeconds:
+          type: number
+          description: 최솟값보다 작은 턴 시간
+        freeDebateTimeSeconds:
+          type: number
+          description: 자유 토론 시간
+        description:
+          type: string
+          description: 토론 설명
+          nullable: true
+        title:
+          type: string
+          description: 토론 주제
+    api-v1-password-resets-286140802:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+          description: 가입되지 않은 이메일
+    api-v1-debates-debateId-guest-accept172970270:
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: string
+          description: 선택할 사용자 ID
+    api-v1-users-nickname-duplicate-1986113649:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - duplicated
+          type: object
+          properties:
+            duplicated:
+              type: object
+              description: 닉네임 중복 여부
+          description: 닉네임 중복 확인 결과
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 에러 정보
+          nullable: true
+    api-v1-users-me-1476925149:
+      type: object
+      properties:
+        nickname:
+          type: string
+          description: 변경할 닉네임
+          nullable: true
+        profileImageKey:
+          type: string
+          description: profile-images 계열이 아닌 키
+          nullable: true
+    api-v1-password-resets-confirm-572788914:
       required:
       - newPassword
       - passwordResetToken
@@ -3234,8 +2466,8 @@ components:
           description: 새로 설정할 비밀번호
         passwordResetToken:
           type: string
-          description: 이미 사용된 토큰
-    api-v1-debates-me1630477281:
+          description: 존재하지 않거나 만료된 토큰
+    api-v1-debates-me1834144389:
       required:
       - data
       - success
@@ -3298,7 +2530,7 @@ components:
                       userId:
                         type: object
                         description: 상대방 사용자 ID
-                    description: 상대방 정보 (아직 매칭되지 않았으면 null)
+                    description: 상대방 정보
                   freeDebateTimeSeconds:
                     type: object
                     description: 자유 토론 제한 시간
@@ -3319,98 +2551,6 @@ components:
                     type: object
                     description: 내 포지션
           description: 내 토론방 목록
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
-    api-v1-users-nickname-duplicate-1986113649:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          required:
-          - duplicated
-          type: object
-          properties:
-            duplicated:
-              type: object
-              description: 닉네임 중복 여부
-          description: 닉네임 중복 확인 결과
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 에러 정보
-          nullable: true
-    api-v1-debates-debateId-guest-accept172970270:
-      required:
-      - userId
-      type: object
-      properties:
-        userId:
-          type: string
-          description: 선택할 사용자 ID
-    api-v1-password-resets-2041925858:
-      required:
-      - email
-      type: object
-      properties:
-        email:
-          type: string
-          description: 인증하지 않은 이메일
-    api-v1-debates-debateId168903303:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          required:
-          - freeDebateTimeSeconds
-          - guestPosition
-          - hostPosition
-          - id
-          - status
-          - title
-          - turnTimeSeconds
-          type: object
-          properties:
-            hostPosition:
-              type: object
-              description: 개설자 포지션
-            inviteToken:
-              type: object
-              description: "초대 토큰. 개설자 본인에게만 노출되고, 그 외에는 null"
-              nullable: true
-            turnTimeSeconds:
-              type: object
-              description: 턴당 발언 제한 시간
-            freeDebateTimeSeconds:
-              type: object
-              description: 자유 토론 제한 시간
-            description:
-              type: object
-              description: 토론 설명
-              nullable: true
-            id:
-              type: object
-              description: 토론방 ID
-            title:
-              type: object
-              description: 토론 주제
-            guestPosition:
-              type: object
-              description: 게스트 포지션
-            status:
-              type: object
-              description: 토론방 상태
-          description: 토론방 정보
         success:
           type: object
           description: 처리 성공 여부
@@ -3456,18 +2596,6 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-users-me-password1180645447:
-      required:
-      - currentPassword
-      - newPassword
-      type: object
-      properties:
-        newPassword:
-          type: string
-          description: 새 비밀번호
-        currentPassword:
-          type: string
-          description: 현재 비밀번호
     api-v1-debate-invitations-token-1234697103:
       required:
       - data
@@ -3564,6 +2692,18 @@ components:
           type: object
           description: 오류 정보
           nullable: true
+    api-v1-email-verifications-confirm-1686273376:
+      required:
+      - code
+      - email
+      type: object
+      properties:
+        code:
+          type: string
+          description: 인증 코드
+        email:
+          type: string
+          description: 코드를 발송한 적 없는 이메일
     api-v1-debates-debateId-status-stream-tickets1569611631:
       required:
       - data
@@ -3583,6 +2723,40 @@ components:
               type: object
               description: 티켓 만료까지 남은 초
           description: 스트림 티켓
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-debates-debateId-histories-564571909:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - createdAt
+          - id
+          - stage
+          type: object
+          properties:
+            createdAt:
+              type: object
+              description: 제출 시각
+            stage:
+              type: object
+              description: 발언 단계
+            id:
+              type: object
+              description: 발언 기록 ID
+            content:
+              type: object
+              description: 발언 내용
+              nullable: true
+          description: 제출된 발언 기록
         success:
           type: object
           description: 처리 성공 여부
@@ -3624,18 +2798,6 @@ components:
         email:
           type: string
           description: 인증 코드를 받을 이메일
-    api-v1-email-verifications-confirm316398335:
-      required:
-      - code
-      - email
-      type: object
-      properties:
-        code:
-          type: string
-          description: 이미 사용된 인증 코드
-        email:
-          type: string
-          description: 인증 대상 이메일
     api-v1-password-resets-1389490358:
       required:
       - data
@@ -3658,7 +2820,43 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-email-verifications-confirm2114211361:
+    api-v1-debates-debateId-histories1733542838:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          type: array
+          description: 발언 기록 목록 (제출 시각순)
+          items:
+            required:
+            - createdAt
+            - id
+            - stage
+            type: object
+            properties:
+              createdAt:
+                type: object
+                description: 제출 시각
+              stage:
+                type: object
+                description: 발언 단계
+              id:
+                type: object
+                description: 발언 기록 ID
+              content:
+                type: object
+                description: 발언 내용. 시간 초과로 무응답 처리된 경우 null
+                nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-email-verifications2114211361:
       required:
       - error
       - success
@@ -3700,6 +2898,22 @@ components:
               type: object
               description: 에러 메시지
           description: 에러 정보
+    api-v1-storage-upload-urls-630601663:
+      required:
+      - category
+      - contentLength
+      - contentType
+      type: object
+      properties:
+        contentLength:
+          type: number
+          description: 업로드할 파일 크기 (바이트)
+        category:
+          type: string
+          description: 업로드 용도
+        contentType:
+          type: string
+          description: 카테고리가 허용하지 않는 콘텐츠 타입
     api-v1-storage-upload-urls980964946:
       required:
       - error
@@ -3741,7 +2955,85 @@ components:
               type: object
               description: 오류 메시지
           description: 오류 정보
-    api-v1-debates845673417:
+    api-v1-users-1440468465:
+      required:
+      - email
+      - nickname
+      - password
+      type: object
+      properties:
+        password:
+          type: string
+          description: 비밀번호
+        nickname:
+          type: string
+          description: 닉네임
+        email:
+          type: string
+          description: 인증하지 않은 이메일
+    api-v1-debates-debateId959508381:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - currentStage
+          - freeDebateTimeSeconds
+          - guestPosition
+          - hostPosition
+          - id
+          - status
+          - title
+          - turnTimeSeconds
+          type: object
+          properties:
+            hostPosition:
+              type: object
+              description: 개설자 포지션
+            currentStage:
+              type: object
+              description: 현재 진행 단계
+            inviteToken:
+              type: object
+              description: "초대 토큰. 개설자 본인에게만 노출되고, 그 외에는 null"
+              nullable: true
+            turnTimeSeconds:
+              type: object
+              description: 턴당 발언 제한 시간
+            turnEndsAt:
+              type: object
+              description: 현재 턴의 마감 시각. 시간 제한이 없는 단계에서는 null
+              nullable: true
+            freeDebateTimeSeconds:
+              type: object
+              description: 자유 토론 제한 시간
+            description:
+              type: object
+              description: 토론 설명
+              nullable: true
+            id:
+              type: object
+              description: 토론방 ID
+            title:
+              type: object
+              description: 토론 주제
+            guestPosition:
+              type: object
+              description: 게스트 포지션
+            status:
+              type: object
+              description: 토론방 상태
+          description: 토론방 정보
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-debates-debateId-histories845673417:
       required:
       - error
       - success
@@ -3837,64 +3129,6 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-notifications-775396230:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          required:
-          - hasNext
-          - items
-          type: object
-          properties:
-            nextCursor:
-              type: object
-              description: 다음 페이지 커서
-              nullable: true
-            hasNext:
-              type: object
-              description: 다음 페이지 존재 여부
-            items:
-              type: array
-              description: "알림 목록 (게스트 입장: 참가 확정·거절, 토론 취소)"
-              items:
-                required:
-                - createdAt
-                - debateId
-                - isRead
-                - message
-                - notificationId
-                - type
-                type: object
-                properties:
-                  createdAt:
-                    type: object
-                    description: 알림 생성 시각
-                  isRead:
-                    type: object
-                    description: 읽음 여부
-                  notificationId:
-                    type: object
-                    description: 알림 ID
-                  message:
-                    type: object
-                    description: 알림 메시지
-                  type:
-                    type: object
-                    description: 알림 종류
-                  debateId:
-                    type: object
-                    description: 관련 토론방 ID
-          description: 내 알림 목록
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
     api-v1-storage-view-urls429942355:
       required:
       - data
@@ -3921,30 +3155,6 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-debates-1897433133:
-      required:
-      - freeDebateTimeSeconds
-      - hostPosition
-      - title
-      - turnTimeSeconds
-      type: object
-      properties:
-        hostPosition:
-          type: string
-          description: "개설자 포지션: PROS 또는 CONS"
-        turnTimeSeconds:
-          type: number
-          description: 턴당 발언 제한 시간(30~600초)
-        freeDebateTimeSeconds:
-          type: number
-          description: 자유 토론 제한 시간(60~1800초)
-        description:
-          type: string
-          description: 토론 설명
-          nullable: true
-        title:
-          type: string
-          description: 토론 주제
     api-v1-users-me-password-verify-672501089:
       required:
       - currentPassword
@@ -3955,36 +3165,6 @@ components:
           oneOf:
           - type: string
           - null
-    api-v1-storage-upload-urls1852456402:
-      required:
-      - error
-      - success
-      type: object
-      properties:
-        data:
-          type: object
-          description: 응답 데이터
-          nullable: true
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          required:
-          - code
-          - message
-          type: object
-          properties:
-            code:
-              type: object
-              description: 오류 코드
-            details:
-              type: object
-              description: 필드별 검증 오류 목록
-              nullable: true
-            message:
-              type: object
-              description: 오류 메시지
-          description: 오류 정보
     api-v1-users-962038704:
       required:
       - error
@@ -4015,6 +3195,36 @@ components:
               type: object
               description: 에러 메시지
           description: 에러 정보
+    api-v1-users-me1852456402:
+      required:
+      - error
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          required:
+          - code
+          - message
+          type: object
+          properties:
+            code:
+              type: object
+              description: 오류 코드
+            details:
+              type: object
+              description: 필드별 검증 오류 목록
+              nullable: true
+            message:
+              type: object
+              description: 오류 메시지
+          description: 오류 정보
     api-v1-notifications-unread-count-1275706612:
       required:
       - data
@@ -4079,7 +3289,7 @@ components:
               type: object
               description: 에러 메시지
           description: 에러 정보
-    api-v1-notifications-read-all-954225372:
+    api-v1-password-resets-confirm-954225372:
       required:
       - success
       type: object
@@ -4095,34 +3305,19 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-users-1262708799:
+    api-v1-users-me-password-1083788840:
       required:
-      - email
-      - nickname
-      - password
+      - currentPassword
+      - newPassword
       type: object
       properties:
-        password:
+        newPassword:
           type: string
-          description: 8자 이상 64자 이하 비밀번호
-        nickname:
+          description: 특수문자 없고 8자 미만인 새 비밀번호
+        currentPassword:
           type: string
-          description: 사용할 닉네임
-        email:
-          type: string
-          description: 인증을 완료한 이메일
-    api-v1-users-me-1790720323:
-      type: object
-      properties:
-        nickname:
-          type: string
-          description: 특수문자가 포함된 닉네임
-          nullable: true
-        profileImageKey:
-          type: string
-          description: profile-images 계열이 아닌 키
-          nullable: true
-    api-v1-users-me-1621929492:
+          description: 현재 비밀번호
+    api-v1-storage-view-urls-1621929492:
       required:
       - error
       - success
@@ -4164,6 +3359,14 @@ components:
               type: object
               description: 오류 메시지
           description: 오류 정보
+    api-v1-debates-debateId-histories1738229092:
+      required:
+      - content
+      type: object
+      properties:
+        content:
+          type: string
+          description: 발언 내용(최대 1000자)
   securitySchemes:
     bearerAuthJWT:
       type: http
