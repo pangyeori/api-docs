@@ -49,29 +49,57 @@
               "role" : {
                 "type" : "string",
                 "description" : "입장 또는 이탈한 참여자의 역할 (시작 이벤트에는 없음)"
+              },
+              "stage" : {
+                "type" : "string",
+                "description" : "발언 제출/시간 초과 이벤트에서만 쓰는 토론 단계"
+              },
+              "content" : {
+                "type" : "string",
+                "description" : "발언 제출/시간 초과 이벤트에서만 쓰는 발언 내용"
+              },
+              "turnEndsAt" : {
+                "type" : "string",
+                "description" : "단계 전환 이벤트에서만 쓰는 다음 턴 마감 시각"
+              },
+              "submittedAt" : {
+                "type" : "string",
+                "description" : "발언 제출/시간 초과 이벤트에서만 쓰는 발언 제출 시각"
               }
             }
           },
           "examples" : [ {
             "name" : "개설자 입장",
             "payload" : {
-              "debateId" : "0RVRQGXX65M5Y",
+              "debateId" : "0RWRWF085X44M",
               "type" : "ENTERED",
-              "role" : "HOST"
+              "role" : "HOST",
+              "stage" : null,
+              "content" : null,
+              "turnEndsAt" : null,
+              "submittedAt" : null
             }
           }, {
             "name" : "게스트 입장",
             "payload" : {
-              "debateId" : "0RVRQGXX65M5Y",
+              "debateId" : "0RWRWF085X44M",
               "type" : "ENTERED",
-              "role" : "GUEST"
+              "role" : "GUEST",
+              "stage" : null,
+              "content" : null,
+              "turnEndsAt" : null,
+              "submittedAt" : null
             }
           }, {
             "name" : "토론 시작",
             "payload" : {
-              "debateId" : "0RVRQGXX65M5Y",
+              "debateId" : "0RWRWF085X44M",
               "type" : "STARTED",
-              "role" : null
+              "role" : null,
+              "stage" : null,
+              "content" : null,
+              "turnEndsAt" : null,
+              "submittedAt" : null
             }
           } ]
         }
@@ -124,11 +152,11 @@
               "debateStatus" : "WAITING",
               "guestStatus" : null,
               "requestList" : [ {
-                "userId" : "0RVRQFYE65M4Q",
+                "userId" : "0RWRWDZBXX41T",
                 "nickname" : "스트림게스트1",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-08T18:07:54.222877"
+                "requestedAt" : "2026-10-11T21:03:24.242354"
               } ]
             }
           } ]
@@ -198,17 +226,17 @@
             "name" : "status-stream",
             "payload" : {
               "requestList" : [ {
-                "userId" : "0RVRQFYE65M4Q",
+                "userId" : "0RWRWDZBXX41T",
                 "nickname" : "스트림게스트1",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-08T18:07:54.222877"
+                "requestedAt" : "2026-10-11T21:03:24.242354"
               }, {
-                "userId" : "0RVRQFYRE5M4H",
+                "userId" : "0RWRWDZNDX43Y",
                 "nickname" : "스트림게스트2",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-08T18:07:54.305057"
+                "requestedAt" : "2026-10-11T21:03:24.311719"
               } ]
             }
           }, {
