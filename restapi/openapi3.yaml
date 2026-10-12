@@ -46,18 +46,18 @@ paths:
               examples:
                 debates/create:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RWRWCKD1X41K\",\r\n    \"title\" : \"AI는 인간을 대체할 것인가\"\
+                    \ : \"0RX2V0RE7V03P\",\r\n    \"title\" : \"AI는 인간을 대체할 것인가\"\
                     ,\r\n    \"description\" : \"AI 기술의 영향을 토론합니다.\",\r\n    \"hostPosition\"\
                     \ : \"PROS\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"status\"\
                     \ : \"WAITING\",\r\n    \"turnTimeSeconds\" : 180,\r\n    \"freeDebateTimeSeconds\"\
-                    \ : 600,\r\n    \"inviteToken\" : \"eb9c1b93-68ce-48cd-abda-ae05211a7397\"\
+                    \ : 600,\r\n    \"inviteToken\" : \"b10d77d2-29e7-4448-8bb1-e15aa212623b\"\
                     \r\n  },\r\n  \"error\" : null\r\n}"
         "400":
           description: "400"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-histories845673417"
+                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
               examples:
                 debates/create-invalid-free-debate-time:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -106,7 +106,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications478885324"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm478885324"
               examples:
                 email-verification/send:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
@@ -116,7 +116,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm2114211361"
               examples:
                 email-verification/send-invalid-email:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -135,7 +135,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/send-rate-limited:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -172,34 +172,34 @@ paths:
               examples:
                 notifications/get-my-list-guest:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
-                    \ : [ {\r\n      \"notificationId\" : \"0RWRWFA0XX41W\",\r\n \
-                    \     \"debateId\" : \"0RWRWFA0XX41T\",\r\n      \"type\" : \"\
+                    \ : [ {\r\n      \"notificationId\" : \"0RX2V471FV04N\",\r\n \
+                    \     \"debateId\" : \"0RX2V471FV04K\",\r\n      \"type\" : \"\
                     DEBATE_CANCELLED\",\r\n      \"message\" : \"'취소된 토론' 토론이 취소되었\
                     습니다.\",\r\n      \"isRead\" : false,\r\n      \"createdAt\" :\
-                    \ \"2026-10-11T21:03:35.0477665\"\r\n    }, {\r\n      \"notificationId\"\
-                    \ : \"0RWRWF9G9X47J\",\r\n      \"debateId\" : \"0RWRWF9G5X45P\"\
+                    \ \"2026-10-12T20:15:48.1079146\"\r\n    }, {\r\n      \"notificationId\"\
+                    \ : \"0RX2V46BKV03V\",\r\n      \"debateId\" : \"0RX2V46BFV01W\"\
                     ,\r\n      \"type\" : \"QUEUE_REQUEST_REJECTED\",\r\n      \"\
                     message\" : \"'내가 참가 거절된 토론' 토론 참가 요청이 거절되었습니다.\",\r\n      \"\
-                    isRead\" : false,\r\n      \"createdAt\" : \"2026-10-11T21:03:34.9147467\"\
-                    \r\n    }, {\r\n      \"notificationId\" : \"0RWRWF8ZHX46Y\",\r\
-                    \n      \"debateId\" : \"0RWRWF8ZDX40X\",\r\n      \"type\" :\
+                    isRead\" : false,\r\n      \"createdAt\" : \"2026-10-12T20:15:47.9323258\"\
+                    \r\n    }, {\r\n      \"notificationId\" : \"0RX2V45SZV061\",\r\
+                    \n      \"debateId\" : \"0RX2V45SZV05Z\",\r\n      \"type\" :\
                     \ \"QUEUE_REQUEST_ACCEPTED\",\r\n      \"message\" : \"'내가 참가\
                     \ 확정된 토론' 토론 참가가 확정되었습니다.\",\r\n      \"isRead\" : false,\r\n\
-                    \      \"createdAt\" : \"2026-10-11T21:03:34.780253\"\r\n    }\
-                    \ ],\r\n    \"nextCursor\" : null,\r\n    \"hasNext\" : false\r\
+                    \      \"createdAt\" : \"2026-10-12T20:15:47.7916906\"\r\n   \
+                    \ } ],\r\n    \"nextCursor\" : null,\r\n    \"hasNext\" : false\r\
                     \n  },\r\n  \"error\" : null\r\n}"
                 notifications/get-my-list-host:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
-                    \ : [ {\r\n      \"notificationId\" : \"0RWRWFCR9X42J\",\r\n \
-                    \     \"debateId\" : \"0RWRWFCR5X45Q\",\r\n      \"type\" : \"\
+                    \ : [ {\r\n      \"notificationId\" : \"0RX2V49YFV00V\",\r\n \
+                    \     \"debateId\" : \"0RX2V49YBV06Y\",\r\n      \"type\" : \"\
                     QUEUE_REQUEST_REMOVED\",\r\n      \"message\" : \"참가신청게스트님이 '내\
                     가 개설한 토론' 토론 참가 신청을 취소했습니다.\",\r\n      \"isRead\" : false,\r\n\
-                    \      \"createdAt\" : \"2026-10-11T21:03:35.7461846\"\r\n   \
-                    \ }, {\r\n      \"notificationId\" : \"0RWRWFCR5X45S\",\r\n  \
-                    \    \"debateId\" : \"0RWRWFCR5X45Q\",\r\n      \"type\" : \"\
+                    \      \"createdAt\" : \"2026-10-12T20:15:48.8513867\"\r\n   \
+                    \ }, {\r\n      \"notificationId\" : \"0RX2V49YFV00T\",\r\n  \
+                    \    \"debateId\" : \"0RX2V49YBV06Y\",\r\n      \"type\" : \"\
                     QUEUE_REQUEST_ADDED\",\r\n      \"message\" : \"참가신청게스트님이 '내가\
                     \ 개설한 토론' 토론 참가를 신청했습니다.\",\r\n      \"isRead\" : false,\r\n \
-                    \     \"createdAt\" : \"2026-10-11T21:03:35.7456596\"\r\n    }\
+                    \     \"createdAt\" : \"2026-10-12T20:15:48.8513867\"\r\n    }\
                     \ ],\r\n    \"nextCursor\" : null,\r\n    \"hasNext\" : false\r\
                     \n  },\r\n  \"error\" : null\r\n}"
       security:
@@ -242,7 +242,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-histories845673417"
+                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
               examples:
                 password-reset/issue-invalid-email:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -255,7 +255,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 password-reset/issue-not-verified:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -267,7 +267,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 password-reset/issue-user-not-found:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -334,9 +334,9 @@ paths:
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
                     field\" : \"email\",\r\n      \"message\" : \"이메일은 필수입니다.\"\r\n\
-                    \    }, {\r\n      \"field\" : \"password\",\r\n      \"message\"\
-                    \ : \"비밀번호는 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"nickname\"\
-                    ,\r\n      \"message\" : \"닉네임은 필수입니다.\"\r\n    } ]\r\n  }\r\n\
+                    \    }, {\r\n      \"field\" : \"nickname\",\r\n      \"message\"\
+                    \ : \"닉네임은 필수입니다.\"\r\n    }, {\r\n      \"field\" : \"password\"\
+                    ,\r\n      \"message\" : \"비밀번호는 필수입니다.\"\r\n    } ]\r\n  }\r\n\
                     }"
                 users/create-invalid-nickname:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -391,7 +391,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 auth/refresh-missing-cookie:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -441,7 +441,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 auth/signin-invalid-password:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -487,28 +487,28 @@ paths:
               examples:
                 debate-invitations/get:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
-                    \ : \"0RWRWD7MDX42M\",\r\n    \"title\" : \"초대 정보 조회 토론\",\r\n\
+                    \ : \"0RX2V1CWZV00N\",\r\n    \"title\" : \"초대 정보 조회 토론\",\r\n\
                     \    \"description\" : null,\r\n    \"hostNickname\" : \"초대조회방\
                     장\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"debateStatus\"\
                     \ : \"WAITING\",\r\n    \"guestStatus\" : null,\r\n    \"turnTimeSeconds\"\
                     \ : 180,\r\n    \"freeDebateTimeSeconds\" : 600,\r\n    \"createdAt\"\
-                    \ : \"2026-10-11T21:03:18.0512868\"\r\n  },\r\n  \"error\" : null\r\
+                    \ : \"2026-10-12T20:15:25.0315083\"\r\n  },\r\n  \"error\" : null\r\
                     \n}"
                 debate-invitations/get-guest-cancelled:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
-                    \ : \"0RWRWD5GDX46Z\",\r\n    \"title\" : \"참여 취소 후 초대 재조회 토론\"\
+                    \ : \"0RX2V1AWFV05N\",\r\n    \"title\" : \"참여 취소 후 초대 재조회 토론\"\
                     ,\r\n    \"description\" : null,\r\n    \"hostNickname\" : \"참\
                     여취소방장\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"debateStatus\"\
                     \ : \"WAITING\",\r\n    \"guestStatus\" : \"CANCELLED\",\r\n \
                     \   \"turnTimeSeconds\" : 180,\r\n    \"freeDebateTimeSeconds\"\
-                    \ : 600,\r\n    \"createdAt\" : \"2026-10-11T21:03:17.5076101\"\
+                    \ : 600,\r\n    \"createdAt\" : \"2026-10-12T20:15:24.5158247\"\
                     \r\n  },\r\n  \"error\" : null\r\n}"
         "409":
           description: "409"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debate-invitations/get-cancelled:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -534,7 +534,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debate-invitations/get-expired:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -591,25 +591,25 @@ paths:
               examples:
                 debates/get-my-list:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
-                    \ : [ {\r\n      \"debateId\" : \"0RWRWCSQXX41J\",\r\n      \"\
+                    \ : [ {\r\n      \"debateId\" : \"0RX2V0Z03V01X\",\r\n      \"\
                     title\" : \"세 번째 토론\",\r\n      \"description\" : null,\r\n  \
                     \    \"debateStatus\" : \"READY\",\r\n      \"currentStage\" :\
                     \ \"NONE\",\r\n      \"myRole\" : \"GUEST\",\r\n      \"myPosition\"\
                     \ : \"CONS\",\r\n      \"opponent\" : {\r\n        \"userId\"\
-                    \ : \"0RWRWCS8HX46G\",\r\n        \"nickname\" : \"목록타방장\",\r\n\
+                    \ : \"0RX2V0YHVV00R\",\r\n        \"nickname\" : \"목록타방장\",\r\n\
                     \        \"profileImageKey\" : null\r\n      },\r\n      \"turnTimeSeconds\"\
                     \ : 180,\r\n      \"freeDebateTimeSeconds\" : 600,\r\n      \"\
-                    createdAt\" : \"2026-10-11T21:03:14.4952711\"\r\n    }, {\r\n\
-                    \      \"debateId\" : \"0RWRWCSM9X46T\",\r\n      \"title\" :\
+                    createdAt\" : \"2026-10-12T20:15:21.4729985\"\r\n    }, {\r\n\
+                    \      \"debateId\" : \"0RX2V0YXKV04W\",\r\n      \"title\" :\
                     \ \"두 번째 토론\",\r\n      \"description\" : null,\r\n      \"debateStatus\"\
                     \ : \"READY\",\r\n      \"currentStage\" : \"NONE\",\r\n     \
                     \ \"myRole\" : \"HOST\",\r\n      \"myPosition\" : \"PROS\",\r\
-                    \n      \"opponent\" : {\r\n        \"userId\" : \"0RWRWCRQDX42Z\"\
+                    \n      \"opponent\" : {\r\n        \"userId\" : \"0RX2V0Y0QV07P\"\
                     ,\r\n        \"nickname\" : \"목록게스트2\",\r\n        \"profileImageKey\"\
                     \ : null\r\n      },\r\n      \"turnTimeSeconds\" : 180,\r\n \
                     \     \"freeDebateTimeSeconds\" : 600,\r\n      \"createdAt\"\
-                    \ : \"2026-10-11T21:03:14.4666817\"\r\n    } ],\r\n    \"nextCursor\"\
-                    \ : \"0RWRWCSM9X46T\",\r\n    \"hasNext\" : true\r\n  },\r\n \
+                    \ : \"2026-10-12T20:15:21.4521656\"\r\n    } ],\r\n    \"nextCursor\"\
+                    \ : \"0RX2V0YXKV04W\",\r\n    \"hasNext\" : true\r\n  },\r\n \
                     \ \"error\" : null\r\n}"
                 debates/get-my-list-empty:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
@@ -617,72 +617,72 @@ paths:
                     \n  },\r\n  \"error\" : null\r\n}"
                 debates/get-my-list-filtered:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
-                    \ : [ {\r\n      \"debateId\" : \"0RWRWCJGDX45T\",\r\n      \"\
+                    \ : [ {\r\n      \"debateId\" : \"0RX2V0QDZV07G\",\r\n      \"\
                     title\" : \"첫 번째 토론\",\r\n      \"description\" : \"[필터매칭] status=WAITING,\
                     \ role=HOST, keyword=필터매칭 조건에 모두 일치해 조회됩니다.\",\r\n      \"debateStatus\"\
                     \ : \"WAITING\",\r\n      \"currentStage\" : \"NONE\",\r\n   \
                     \   \"myRole\" : \"HOST\",\r\n      \"myPosition\" : \"PROS\"\
                     ,\r\n      \"opponent\" : null,\r\n      \"turnTimeSeconds\" :\
                     \ 180,\r\n      \"freeDebateTimeSeconds\" : 600,\r\n      \"createdAt\"\
-                    \ : \"2026-10-11T21:03:12.6434578\"\r\n    } ],\r\n    \"nextCursor\"\
+                    \ : \"2026-10-12T20:15:19.5358802\"\r\n    } ],\r\n    \"nextCursor\"\
                     \ : null,\r\n    \"hasNext\" : false\r\n  },\r\n  \"error\" :\
                     \ null\r\n}"
                 debates/get-my-list-host-pending:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
-                    \ : [ {\r\n      \"debateId\" : \"0RWRWCE8SX47R\",\r\n      \"\
+                    \ : [ {\r\n      \"debateId\" : \"0RX2V0K6VV00H\",\r\n      \"\
                     title\" : \"아직 게스트를 선택하지 않은 토론\",\r\n      \"description\" : \"\
                     참여 요청이 들어왔지만 아직 게스트를 선택하지 않아도 개설자 목록에 조회됩니다.\",\r\n      \"debateStatus\"\
                     \ : \"WAITING\",\r\n      \"currentStage\" : \"NONE\",\r\n   \
                     \   \"myRole\" : \"HOST\",\r\n      \"myPosition\" : \"PROS\"\
                     ,\r\n      \"opponent\" : null,\r\n      \"turnTimeSeconds\" :\
                     \ 180,\r\n      \"freeDebateTimeSeconds\" : 600,\r\n      \"createdAt\"\
-                    \ : \"2026-10-11T21:03:11.558465\"\r\n    } ],\r\n    \"nextCursor\"\
+                    \ : \"2026-10-12T20:15:18.4541998\"\r\n    } ],\r\n    \"nextCursor\"\
                     \ : null,\r\n    \"hasNext\" : false\r\n  },\r\n  \"error\" :\
                     \ null\r\n}"
                 debates/get-my-list-multi-status:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
-                    \ : [ {\r\n      \"debateId\" : \"0RWRWCG4SX44M\",\r\n      \"\
+                    \ : [ {\r\n      \"debateId\" : \"0RX2V0N2VV00R\",\r\n      \"\
                     title\" : \"매칭된 토론\",\r\n      \"description\" : \"[다중상태] status=WAITING&status=READY\
                     \ 중 READY에 해당해 조회됩니다.\",\r\n      \"debateStatus\" : \"READY\"\
                     ,\r\n      \"currentStage\" : \"NONE\",\r\n      \"myRole\" :\
                     \ \"HOST\",\r\n      \"myPosition\" : \"PROS\",\r\n      \"opponent\"\
                     \ : null,\r\n      \"turnTimeSeconds\" : 180,\r\n      \"freeDebateTimeSeconds\"\
-                    \ : 600,\r\n      \"createdAt\" : \"2026-10-11T21:03:12.0380955\"\
-                    \r\n    }, {\r\n      \"debateId\" : \"0RWRWCG4DX44G\",\r\n  \
+                    \ : 600,\r\n      \"createdAt\" : \"2026-10-12T20:15:18.9341594\"\
+                    \r\n    }, {\r\n      \"debateId\" : \"0RX2V0N2BV01H\",\r\n  \
                     \    \"title\" : \"대기 중인 토론\",\r\n      \"description\" : \"[다\
                     중상태] status=WAITING&status=READY 중 WAITING에 해당해 조회됩니다.\",\r\n\
                     \      \"debateStatus\" : \"WAITING\",\r\n      \"currentStage\"\
                     \ : \"NONE\",\r\n      \"myRole\" : \"HOST\",\r\n      \"myPosition\"\
                     \ : \"PROS\",\r\n      \"opponent\" : null,\r\n      \"turnTimeSeconds\"\
                     \ : 180,\r\n      \"freeDebateTimeSeconds\" : 600,\r\n      \"\
-                    createdAt\" : \"2026-10-11T21:03:12.0359874\"\r\n    } ],\r\n\
+                    createdAt\" : \"2026-10-12T20:15:18.9310594\"\r\n    } ],\r\n\
                     \    \"nextCursor\" : null,\r\n    \"hasNext\" : false\r\n  },\r\
                     \n  \"error\" : null\r\n}"
                 debates/get-my-list-next-page:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
-                    \ : [ {\r\n      \"debateId\" : \"0RWRWBVDNX46H\",\r\n      \"\
+                    \ : [ {\r\n      \"debateId\" : \"0RX2V00A3V01H\",\r\n      \"\
                     title\" : \"첫 번째 토론\",\r\n      \"description\" : null,\r\n  \
                     \    \"debateStatus\" : \"READY\",\r\n      \"currentStage\" :\
                     \ \"NONE\",\r\n      \"myRole\" : \"HOST\",\r\n      \"myPosition\"\
                     \ : \"PROS\",\r\n      \"opponent\" : {\r\n        \"userId\"\
-                    \ : \"0RWRWBT1DX47M\",\r\n        \"nickname\" : \"커서목록게스트1\"\
+                    \ : \"0RX2TZYXQV01V\",\r\n        \"nickname\" : \"커서목록게스트1\"\
                     ,\r\n        \"profileImageKey\" : null\r\n      },\r\n      \"\
                     turnTimeSeconds\" : 180,\r\n      \"freeDebateTimeSeconds\" :\
-                    \ 600,\r\n      \"createdAt\" : \"2026-10-11T21:03:06.7338427\"\
+                    \ 600,\r\n      \"createdAt\" : \"2026-10-12T20:15:13.6164737\"\
                     \r\n    } ],\r\n    \"nextCursor\" : null,\r\n    \"hasNext\"\
                     \ : false\r\n  },\r\n  \"error\" : null\r\n}"
                 debates/get-my-list-pending:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"items\"\
-                    \ : [ {\r\n      \"debateId\" : \"0RWRWCNX9X47Y\",\r\n      \"\
+                    \ : [ {\r\n      \"debateId\" : \"0RX2V0V2QV06K\",\r\n      \"\
                     title\" : \"아직 선택되지 않은 토론\",\r\n      \"description\" : \"참여 요\
                     청은 보냈지만 호스트가 아직 게스트를 선택하지 않아도 목록에 조회됩니다.\",\r\n      \"debateStatus\"\
                     \ : \"WAITING\",\r\n      \"currentStage\" : \"NONE\",\r\n   \
                     \   \"myRole\" : \"GUEST\",\r\n      \"myPosition\" : \"CONS\"\
-                    ,\r\n      \"opponent\" : {\r\n        \"userId\" : \"0RWRWCNMHX42H\"\
+                    ,\r\n      \"opponent\" : {\r\n        \"userId\" : \"0RX2V0TSVV05G\"\
                     ,\r\n        \"nickname\" : \"대기방장\",\r\n        \"profileImageKey\"\
                     \ : null\r\n      },\r\n      \"turnTimeSeconds\" : 180,\r\n \
                     \     \"freeDebateTimeSeconds\" : 600,\r\n      \"createdAt\"\
-                    \ : \"2026-10-11T21:03:13.5149358\"\r\n    } ],\r\n    \"nextCursor\"\
+                    \ : \"2026-10-12T20:15:20.4690014\"\r\n    } ],\r\n    \"nextCursor\"\
                     \ : null,\r\n    \"hasNext\" : false\r\n  },\r\n  \"error\" :\
                     \ null\r\n}"
         "400":
@@ -724,17 +724,17 @@ paths:
               examples:
                 debates/get:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RWRWBX3HX43R\",\r\n    \"title\" : \"토론방 단건 조회 검증\",\r\n\
+                    \ : \"0RX2V01W3V03R\",\r\n    \"title\" : \"토론방 단건 조회 검증\",\r\n\
                     \    \"description\" : \"토론방 단건 조회 설명\",\r\n    \"hostPosition\"\
                     \ : \"PROS\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"status\"\
                     \ : \"WAITING\",\r\n    \"currentStage\" : \"NONE\",\r\n    \"\
                     turnEndsAt\" : null,\r\n    \"turnTimeSeconds\" : 180,\r\n   \
                     \ \"freeDebateTimeSeconds\" : 600,\r\n    \"inviteToken\" : \"\
-                    80540f12-48b0-4083-a2b6-bbb6c0313957\"\r\n  },\r\n  \"error\"\
+                    6dc5a025-bcd1-40bd-9756-04c045e1d48c\"\r\n  },\r\n  \"error\"\
                     \ : null\r\n}"
                 debates/get-guest:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RWRWCQ8SX45T\",\r\n    \"title\" : \"토론방 단건 조회 게스트 검증\"\
+                    \ : \"0RX2V0WDKV00V\",\r\n    \"title\" : \"토론방 단건 조회 게스트 검증\"\
                     ,\r\n    \"description\" : null,\r\n    \"hostPosition\" : \"\
                     PROS\",\r\n    \"guestPosition\" : \"CONS\",\r\n    \"status\"\
                     \ : \"WAITING\",\r\n    \"currentStage\" : \"NONE\",\r\n    \"\
@@ -746,7 +746,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/get-forbidden:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -770,10 +770,10 @@ paths:
             examples:
               email-verification/confirm:
                 value: "{\r\n  \"email\" : \"confirm-success@pangyeori.com\",\r\n\
-                  \  \"code\" : \"713148\"\r\n}"
+                  \  \"code\" : \"791283\"\r\n}"
               email-verification/confirm-already-verified:
                 value: "{\r\n  \"email\" : \"confirm-already-verified@pangyeori.com\"\
-                  ,\r\n  \"code\" : \"175308\"\r\n}"
+                  ,\r\n  \"code\" : \"958522\"\r\n}"
               email-verification/confirm-invalid-code:
                 value: "{\r\n  \"email\" : \"confirm-invalid-code@pangyeori.com\"\
                   ,\r\n  \"code\" : \"abc\"\r\n}"
@@ -793,7 +793,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications478885324"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm478885324"
               examples:
                 email-verification/confirm:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : { },\r\n  \"\
@@ -803,7 +803,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/confirm-already-verified:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -815,7 +815,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications2114211361"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm2114211361"
               examples:
                 email-verification/confirm-invalid-code:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -840,7 +840,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-email-verifications-1546988534"
+                $ref: "#/components/schemas/api-v1-email-verifications-confirm-1546988534"
               examples:
                 email-verification/confirm-mismatch:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -914,7 +914,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 notifications/delete-not-found:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -967,7 +967,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 password-reset/confirm-already-used:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -984,16 +984,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-histories845673417"
+                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
               examples:
                 password-reset/confirm-invalid-password:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
                     \ : \"입력값이 올바르지 않습니다.\",\r\n    \"details\" : [ {\r\n      \"\
-                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 8자 이\
-                    상 64자 이하여야 합니다.\"\r\n    }, {\r\n      \"field\" : \"newPassword\"\
-                    ,\r\n      \"message\" : \"비밀번호는 특수문자를 1개 이상 포함해야 합니다.\"\r\n \
-                    \   } ]\r\n  }\r\n}"
+                    field\" : \"newPassword\",\r\n      \"message\" : \"비밀번호는 특수문자\
+                    를 1개 이상 포함해야 합니다.\"\r\n    }, {\r\n      \"field\" : \"newPassword\"\
+                    ,\r\n      \"message\" : \"비밀번호는 8자 이상 64자 이하여야 합니다.\"\r\n   \
+                    \ } ]\r\n  }\r\n}"
                 password-reset/confirm-password-no-special-char:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
                     error\" : {\r\n    \"code\" : \"INVALID_INPUT\",\r\n    \"message\"\
@@ -1043,8 +1043,8 @@ paths:
               examples:
                 storage/create-upload-url:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"objectKey\"\
-                    \ : \"profile-images/2026/10/0RWRWFV18QGCF.png\",\r\n    \"uploadUrl\"\
-                    \ : \"https://fake.s3/profile-images/2026/10/0RWRWFV18QGCF.png\"\
+                    \ : \"profile-images/2026/10/0RX2V4TY5YZCD.png\",\r\n    \"uploadUrl\"\
+                    \ : \"https://fake.s3/profile-images/2026/10/0RX2V4TY5YZCD.png\"\
                     ,\r\n    \"expiresInSeconds\" : 300\r\n  },\r\n  \"error\" : null\r\
                     \n}"
         "422":
@@ -1052,7 +1052,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 storage/create-upload-url-file-too-large:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1095,7 +1095,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 storage/create-upload-url-unauthorized:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1163,16 +1163,16 @@ paths:
               examples:
                 users/get-my-info:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RWRWG7FNX44W\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
+                    \ : \"0RX2V58K3V07T\",\r\n    \"email\" : \"mypage@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"테스트사용자\",\r\n    \"profileImageKey\"\
-                    \ : null,\r\n    \"joinedAt\" : \"2026-10-11T21:03:42.5897812\"\
+                    \ : null,\r\n    \"joinedAt\" : \"2026-10-12T20:15:56.6964179\"\
                     \r\n  },\r\n  \"error\" : null\r\n}"
         "401":
           description: "401"
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/get-my-info-unauthorized:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1200,7 +1200,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/withdraw-unauthorized:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1244,23 +1244,23 @@ paths:
               examples:
                 users/update-profile:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RWRWG1PHX43H\",\r\n    \"email\" : \"update-nickname@pangyeori.com\"\
+                    \ : \"0RX2V51ZVV00P\",\r\n    \"email\" : \"update-nickname@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"새로운닉네임\",\r\n    \"profileImageKey\"\
-                    \ : null,\r\n    \"joinedAt\" : \"2026-10-11T21:03:41.1082404\"\
+                    \ : null,\r\n    \"joinedAt\" : \"2026-10-12T20:15:55.006989\"\
                     \r\n  },\r\n  \"error\" : null\r\n}"
                 users/update-profile-image:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RWRWG6WXX40Y\",\r\n    \"email\" : \"update-image@pangyeori.com\"\
+                    \ : \"0RX2V57VKV02Y\",\r\n    \"email\" : \"update-image@pangyeori.com\"\
                     ,\r\n    \"nickname\" : \"테스트사용자\",\r\n    \"profileImageKey\"\
                     \ : \"profile-images/2026/09/0000000000001.png\",\r\n    \"joinedAt\"\
-                    \ : \"2026-10-11T21:03:42.43902\"\r\n  },\r\n  \"error\" : null\r\
+                    \ : \"2026-10-12T20:15:56.5083274\"\r\n  },\r\n  \"error\" : null\r\
                     \n}"
         "409":
           description: "409"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/update-profile-duplicate-nickname:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1291,7 +1291,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/update-profile-unauthorized:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1320,20 +1320,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-histories1733542838"
+                $ref: "#/components/schemas/api-v1-debates-debateId-histories-428673560"
               examples:
                 debate-histories/get:
-                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : [ {\r\n    \"\
-                    id\" : \"0RWRWD46SX45R\",\r\n    \"stage\" : \"OPENING_PROS\"\
-                    ,\r\n    \"content\" : \"먼저 제출된 발언\",\r\n    \"createdAt\" : \"\
-                    2026-10-11T21:03:17.1744874\"\r\n  } ],\r\n  \"error\" : null\r\
-                    \n}"
+                  value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"histories\"\
+                    \ : [ {\r\n      \"id\" : \"0RX2V19FKV04X\",\r\n      \"stage\"\
+                    \ : \"OPENING_PROS\",\r\n      \"content\" : \"먼저 제출된 발언\",\r\n\
+                    \      \"createdAt\" : \"2026-10-12T20:15:24.1569994\"\r\n   \
+                    \ } ],\r\n    \"verdicts\" : [ {\r\n      \"id\" : \"0RX2V19FQV07Z\"\
+                    ,\r\n      \"stage\" : \"VERDICT_1\",\r\n      \"status\" : \"\
+                    SUCCESS\",\r\n      \"winnerPosition\" : \"PROS\",\r\n      \"\
+                    reasoning\" : \"찬성 측 발언이 더 구체적인 근거를 제시했습니다.\",\r\n      \"createdAt\"\
+                    \ : \"2026-10-12T20:15:24.1580654\"\r\n    } ]\r\n  },\r\n  \"\
+                    error\" : null\r\n}"
         "403":
           description: "403"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debate-histories/get-forbidden:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1381,16 +1386,16 @@ paths:
               examples:
                 debate-histories/submit:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"id\"\
-                    \ : \"0RWRWD1DDX42J\",\r\n    \"stage\" : \"OPENING_PROS\",\r\n\
+                    \ : \"0RX2V16SFV06P\",\r\n    \"stage\" : \"OPENING_PROS\",\r\n\
                     \    \"content\" : \"저는 이 주제에 찬성합니다.\",\r\n    \"createdAt\" :\
-                    \ \"2026-10-11T21:03:16.4596857\"\r\n  },\r\n  \"error\" : null\r\
+                    \ \"2026-10-12T20:15:23.4684651\"\r\n  },\r\n  \"error\" : null\r\
                     \n}"
         "409":
           description: "409"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debate-histories/submit-already-submitted:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1407,7 +1412,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-debates-debateId-histories845673417"
+                $ref: "#/components/schemas/api-v1-password-resets-confirm845673417"
               examples:
                 debate-histories/submit-blank-content:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1420,7 +1425,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debate-histories/submit-not-your-turn:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1454,9 +1459,9 @@ paths:
                 debates/get-status:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateStatus\"\
                     \ : \"WAITING\",\r\n    \"guestStatus\" : null,\r\n    \"requestList\"\
-                    \ : [ {\r\n      \"userId\" : \"0RWRWBQ2DX47T\",\r\n      \"nickname\"\
+                    \ : [ {\r\n      \"userId\" : \"0RX2TZVSZV05H\",\r\n      \"nickname\"\
                     \ : \"상태목록게스트\",\r\n      \"profileImageKey\" : null,\r\n    \
-                    \  \"status\" : \"PENDING\",\r\n      \"requestedAt\" : \"2026-10-11T21:03:05.7181571\"\
+                    \  \"status\" : \"PENDING\",\r\n      \"requestedAt\" : \"2026-10-12T20:15:12.5918405\"\
                     \r\n    } ]\r\n  },\r\n  \"error\" : null\r\n}"
                 debates/get-status-guest:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateStatus\"\
@@ -1467,7 +1472,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/get-status-forbidden:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1506,7 +1511,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 notifications/read-not-found:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1545,7 +1550,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/change-password-invalid-current:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1584,7 +1589,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/remove-profile-image-unauthorized:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1670,7 +1675,7 @@ paths:
               $ref: "#/components/schemas/api-v1-debates-debateId-guest-accept172970270"
             examples:
               debates/accept-guest:
-                value: "{\r\n  \"userId\" : \"0RWRWCF1DX43Q\"\r\n}"
+                value: "{\r\n  \"userId\" : \"0RX2V0KYZV01W\"\r\n}"
               debates/accept-guest-forbidden:
                 value: "{\r\n  \"userId\" : \"0000000000000\"\r\n}"
               debates/accept-guest-invalid-user-id:
@@ -1689,14 +1694,14 @@ paths:
               examples:
                 debates/accept-guest:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
-                    \ : \"0RWRWCFASX47M\",\r\n    \"status\" : \"READY\"\r\n  },\r\
+                    \ : \"0RX2V0M8FV03W\",\r\n    \"status\" : \"READY\"\r\n  },\r\
                     \n  \"error\" : null\r\n}"
         "403":
           description: "403"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/accept-guest-forbidden:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1721,7 +1726,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/accept-guest-not-in-queue:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1733,7 +1738,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/accept-guest-not-waiting:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1766,14 +1771,14 @@ paths:
               examples:
                 debates/request-participation:
                   value: "{\r\n  \"success\" : true,\r\n  \"data\" : {\r\n    \"debateId\"\
-                    \ : \"0RWRWC66SX44Q\",\r\n    \"position\" : \"CONS\"\r\n  },\r\
+                    \ : \"0RX2V0B47V03V\",\r\n    \"position\" : \"CONS\"\r\n  },\r\
                     \n  \"error\" : null\r\n}"
         "409":
           description: "409"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/request-participation-already-cancelled:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1814,7 +1819,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/request-participation-expired:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1826,7 +1831,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/request-participation-self:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1856,7 +1861,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/cancel-participation-not-pending:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1909,7 +1914,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/stream-status-debate-mismatch:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -1957,7 +1962,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 debates/issue-stream-ticket-forbidden:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -2032,7 +2037,7 @@ paths:
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/verify-password-invalid-token:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -2048,7 +2053,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-users-me1852456402"
+                $ref: "#/components/schemas/api-v1-storage-upload-urls1852456402"
               examples:
                 users/verify-password-mismatch:
                   value: "{\r\n  \"success\" : false,\r\n  \"data\" : null,\r\n  \"\
@@ -2061,7 +2066,7 @@ paths:
       - bearerAuthJWT: []
 components:
   schemas:
-    api-v1-email-verifications-1546988534:
+    api-v1-email-verifications-confirm-1546988534:
       required:
       - error
       - success
@@ -2110,6 +2115,36 @@ components:
               type: object
               description: API 인증에 사용하는 Access Token
           description: 재발급된 인증 토큰
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
+    api-v1-storage-upload-urls-601372828:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - expiresInSeconds
+          - objectKey
+          - uploadUrl
+          type: object
+          properties:
+            uploadUrl:
+              type: object
+              description: S3에 PUT 요청할 pre-signed URL
+            objectKey:
+              type: object
+              description: 저장 시 사용할 오브젝트 키
+            expiresInSeconds:
+              type: object
+              description: URL 유효 시간(초)
+          description: 발급된 업로드 URL 정보
         success:
           type: object
           description: 처리 성공 여부
@@ -2175,36 +2210,6 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-storage-upload-urls-601372828:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          required:
-          - expiresInSeconds
-          - objectKey
-          - uploadUrl
-          type: object
-          properties:
-            uploadUrl:
-              type: object
-              description: S3에 PUT 요청할 pre-signed URL
-            objectKey:
-              type: object
-              description: 저장 시 사용할 오브젝트 키
-            expiresInSeconds:
-              type: object
-              description: URL 유효 시간(초)
-          description: 발급된 업로드 URL 정보
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
     api-v1-debates-debateId-guest-accept-1066520533:
       required:
       - error
@@ -2247,6 +2252,22 @@ components:
               type: object
               description: 오류 메시지
           description: 오류 정보
+    api-v1-email-verifications-confirm478885324:
+      required:
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 에러 정보
+          nullable: true
     api-v1-debates-debateId-guest-accept1072356205:
       required:
       - data
@@ -2272,22 +2293,6 @@ components:
         error:
           type: object
           description: 오류 정보
-          nullable: true
-    api-v1-email-verifications478885324:
-      required:
-      - success
-      type: object
-      properties:
-        data:
-          type: object
-          description: 응답 데이터
-          nullable: true
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 에러 정보
           nullable: true
     api-v1-debates-debateId-status-stream-33084672:
       type: object
@@ -2414,14 +2419,6 @@ components:
         email:
           type: string
           description: 가입되지 않은 이메일
-    api-v1-debates-debateId-guest-accept172970270:
-      required:
-      - userId
-      type: object
-      properties:
-        userId:
-          type: string
-          description: 선택할 사용자 ID
     api-v1-users-nickname-duplicate-1986113649:
       required:
       - data
@@ -2444,6 +2441,14 @@ components:
           type: object
           description: 에러 정보
           nullable: true
+    api-v1-debates-debateId-guest-accept172970270:
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: string
+          description: 선택할 사용자 ID
     api-v1-users-me-1476925149:
       type: object
       properties:
@@ -2692,6 +2697,80 @@ components:
           type: object
           description: 오류 정보
           nullable: true
+    api-v1-debates-debateId-histories-428673560:
+      required:
+      - data
+      - success
+      type: object
+      properties:
+        data:
+          required:
+          - histories
+          - verdicts
+          type: object
+          properties:
+            verdicts:
+              type: array
+              description: AI 중간 판결 목록 (발급 시각순)
+              items:
+                required:
+                - createdAt
+                - id
+                - stage
+                - status
+                type: object
+                properties:
+                  createdAt:
+                    type: object
+                    description: 판결 발급 시각
+                  stage:
+                    type: object
+                    description: 판결이 내려진 토론 단계
+                  reasoning:
+                    type: object
+                    description: 판결 근거. 판결에 실패한 경우 null
+                    nullable: true
+                  winnerPosition:
+                    type: object
+                    description: 판결 시점 기준 우세 포지션. 판결에 실패한 경우 null
+                    nullable: true
+                  id:
+                    type: object
+                    description: 판결 ID
+                  status:
+                    type: object
+                    description: "판결 처리 상태 (SUCCESS, FAILED)"
+            histories:
+              type: array
+              description: 발언 기록 목록 (제출 시각순)
+              items:
+                required:
+                - createdAt
+                - id
+                - stage
+                type: object
+                properties:
+                  createdAt:
+                    type: object
+                    description: 제출 시각
+                  stage:
+                    type: object
+                    description: 발언 단계
+                  id:
+                    type: object
+                    description: 발언 기록 ID
+                  content:
+                    type: object
+                    description: 발언 내용. 시간 초과로 무응답 처리된 경우 null
+                    nullable: true
+          description: 발언 기록과 AI 중간 판결
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          type: object
+          description: 오류 정보
+          nullable: true
     api-v1-email-verifications-confirm-1686273376:
       required:
       - code
@@ -2820,43 +2899,7 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-debates-debateId-histories1733542838:
-      required:
-      - data
-      - success
-      type: object
-      properties:
-        data:
-          type: array
-          description: 발언 기록 목록 (제출 시각순)
-          items:
-            required:
-            - createdAt
-            - id
-            - stage
-            type: object
-            properties:
-              createdAt:
-                type: object
-                description: 제출 시각
-              stage:
-                type: object
-                description: 발언 단계
-              id:
-                type: object
-                description: 발언 기록 ID
-              content:
-                type: object
-                description: 발언 내용. 시간 초과로 무응답 처리된 경우 null
-                nullable: true
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          type: object
-          description: 오류 정보
-          nullable: true
-    api-v1-email-verifications2114211361:
+    api-v1-email-verifications-confirm2114211361:
       required:
       - error
       - success
@@ -3033,7 +3076,7 @@ components:
           type: object
           description: 오류 정보
           nullable: true
-    api-v1-debates-debateId-histories845673417:
+    api-v1-password-resets-confirm845673417:
       required:
       - error
       - success
@@ -3165,6 +3208,36 @@ components:
           oneOf:
           - type: string
           - null
+    api-v1-storage-upload-urls1852456402:
+      required:
+      - error
+      - success
+      type: object
+      properties:
+        data:
+          type: object
+          description: 응답 데이터
+          nullable: true
+        success:
+          type: object
+          description: 처리 성공 여부
+        error:
+          required:
+          - code
+          - message
+          type: object
+          properties:
+            code:
+              type: object
+              description: 오류 코드
+            details:
+              type: object
+              description: 필드별 검증 오류 목록
+              nullable: true
+            message:
+              type: object
+              description: 오류 메시지
+          description: 오류 정보
     api-v1-users-962038704:
       required:
       - error
@@ -3195,36 +3268,6 @@ components:
               type: object
               description: 에러 메시지
           description: 에러 정보
-    api-v1-users-me1852456402:
-      required:
-      - error
-      - success
-      type: object
-      properties:
-        data:
-          type: object
-          description: 응답 데이터
-          nullable: true
-        success:
-          type: object
-          description: 처리 성공 여부
-        error:
-          required:
-          - code
-          - message
-          type: object
-          properties:
-            code:
-              type: object
-              description: 오류 코드
-            details:
-              type: object
-              description: 필드별 검증 오류 목록
-              nullable: true
-            message:
-              type: object
-              description: 오류 메시지
-          description: 오류 정보
     api-v1-notifications-unread-count-1275706612:
       required:
       - data
