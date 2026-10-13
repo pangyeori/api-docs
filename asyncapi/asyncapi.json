@@ -83,7 +83,7 @@
           "examples" : [ {
             "name" : "개설자 입장",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "ENTERED",
               "role" : "HOST",
               "stage" : null,
@@ -97,7 +97,7 @@
           }, {
             "name" : "게스트 입장",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "ENTERED",
               "role" : "GUEST",
               "stage" : null,
@@ -111,7 +111,7 @@
           }, {
             "name" : "토론 시작",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "STARTED",
               "role" : null,
               "stage" : null,
@@ -125,12 +125,12 @@
           }, {
             "name" : "찬성 입장 발언 단계 시작",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "OPENING_PROS",
               "content" : null,
-              "turnEndsAt" : "2026-10-12T11:16:45.81882",
+              "turnEndsAt" : "2026-10-13T15:08:16.117938",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -139,13 +139,13 @@
           }, {
             "name" : "개설자 발언 제출",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "STATEMENT_SUBMITTED",
               "role" : "HOST",
               "stage" : "OPENING_PROS",
               "content" : "저는 이 주제에 찬성합니다",
               "turnEndsAt" : null,
-              "submittedAt" : "2026-10-12T20:15:45.8498965",
+              "submittedAt" : "2026-10-14T00:07:16.192608",
               "verdictStatus" : null,
               "winnerPosition" : null,
               "reasoning" : null
@@ -153,12 +153,12 @@
           }, {
             "name" : "반대 입장 발언 단계로 전환",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "OPENING_CONS",
               "content" : null,
-              "turnEndsAt" : "2026-10-12T11:16:45.8498965",
+              "turnEndsAt" : "2026-10-13T15:08:16.1932288",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -167,13 +167,13 @@
           }, {
             "name" : "게스트 발언 제출",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "STATEMENT_SUBMITTED",
               "role" : "GUEST",
               "stage" : "OPENING_CONS",
               "content" : "저는 이 주제에 반대합니다",
               "turnEndsAt" : null,
-              "submittedAt" : "2026-10-12T20:15:45.8820463",
+              "submittedAt" : "2026-10-14T00:07:16.2372703",
               "verdictStatus" : null,
               "winnerPosition" : null,
               "reasoning" : null
@@ -181,12 +181,12 @@
           }, {
             "name" : "AI 1차 중간 판결 단계로 전환",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "VERDICT_1",
               "content" : null,
-              "turnEndsAt" : "2026-10-12T11:16:45.8825715",
+              "turnEndsAt" : "2026-10-13T15:08:16.2377817",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -195,7 +195,7 @@
           }, {
             "name" : "AI 1차 중간 판결 완료",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "VERDICT_ISSUED",
               "role" : null,
               "stage" : "VERDICT_1",
@@ -209,12 +209,96 @@
           }, {
             "name" : "찬성 반박 발언 단계로 전환",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "REBUTTAL_PROS",
               "content" : null,
-              "turnEndsAt" : "2026-10-12T11:16:45.9163599",
+              "turnEndsAt" : "2026-10-13T15:08:16.28435",
+              "submittedAt" : null,
+              "verdictStatus" : null,
+              "winnerPosition" : null,
+              "reasoning" : null
+            }
+          }, {
+            "name" : "찬성 논박 제출",
+            "payload" : {
+              "debateId" : "0RXESPAYMK43R",
+              "type" : "STATEMENT_SUBMITTED",
+              "role" : "HOST",
+              "stage" : "REBUTTAL_PROS",
+              "content" : "반대측 주장에 반박합니다",
+              "turnEndsAt" : null,
+              "submittedAt" : "2026-10-14T00:07:16.3266576",
+              "verdictStatus" : null,
+              "winnerPosition" : null,
+              "reasoning" : null
+            }
+          }, {
+            "name" : "반대 논박 단계로 전환",
+            "payload" : {
+              "debateId" : "0RXESPAYMK43R",
+              "type" : "STAGE_CHANGED",
+              "role" : null,
+              "stage" : "REBUTTAL_CONS",
+              "content" : null,
+              "turnEndsAt" : "2026-10-13T15:08:16.3271873",
+              "submittedAt" : null,
+              "verdictStatus" : null,
+              "winnerPosition" : null,
+              "reasoning" : null
+            }
+          }, {
+            "name" : "반대 논박 제출",
+            "payload" : {
+              "debateId" : "0RXESPAYMK43R",
+              "type" : "STATEMENT_SUBMITTED",
+              "role" : "GUEST",
+              "stage" : "REBUTTAL_CONS",
+              "content" : "찬성측 주장에 반박합니다",
+              "turnEndsAt" : null,
+              "submittedAt" : "2026-10-14T00:07:16.3697164",
+              "verdictStatus" : null,
+              "winnerPosition" : null,
+              "reasoning" : null
+            }
+          }, {
+            "name" : "AI 2차 중간 판결 단계로 전환",
+            "payload" : {
+              "debateId" : "0RXESPAYMK43R",
+              "type" : "STAGE_CHANGED",
+              "role" : null,
+              "stage" : "VERDICT_2",
+              "content" : null,
+              "turnEndsAt" : "2026-10-13T15:08:16.3702439",
+              "submittedAt" : null,
+              "verdictStatus" : null,
+              "winnerPosition" : null,
+              "reasoning" : null
+            }
+          }, {
+            "name" : "AI 2차 중간 판결 완료",
+            "payload" : {
+              "debateId" : "0RXESPAYMK43R",
+              "type" : "VERDICT_ISSUED",
+              "role" : null,
+              "stage" : "VERDICT_2",
+              "content" : null,
+              "turnEndsAt" : null,
+              "submittedAt" : null,
+              "verdictStatus" : "SUCCESS",
+              "winnerPosition" : "PROS",
+              "reasoning" : "찬성 측이 더 구체적인 근거를 제시해 우세합니다."
+            }
+          }, {
+            "name" : "자유 토론 단계로 전환",
+            "payload" : {
+              "debateId" : "0RXESPAYMK43R",
+              "type" : "STAGE_CHANGED",
+              "role" : null,
+              "stage" : "FREE",
+              "content" : null,
+              "turnEndsAt" : "2026-10-13T15:08:16.4062959",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -223,7 +307,7 @@
           }, {
             "name" : "게스트 이탈",
             "payload" : {
-              "debateId" : "0RX2V3WDVV03P",
+              "debateId" : "0RXESPAYMK43R",
               "type" : "LEFT",
               "role" : "GUEST",
               "stage" : null,
@@ -285,11 +369,11 @@
               "debateStatus" : "WAITING",
               "guestStatus" : null,
               "requestList" : [ {
-                "userId" : "0RX2V29GZV04Z",
+                "userId" : "0RXESM1DRK40Q",
                 "nickname" : "스트림게스트1",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-12T20:15:32.475693"
+                "requestedAt" : "2026-10-14T00:06:56.890599"
               } ]
             }
           } ]
@@ -359,17 +443,17 @@
             "name" : "status-stream",
             "payload" : {
               "requestList" : [ {
-                "userId" : "0RX2V29GZV04Z",
+                "userId" : "0RXESM1DRK40Q",
                 "nickname" : "스트림게스트1",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-12T20:15:32.475693"
+                "requestedAt" : "2026-10-14T00:06:56.890599"
               }, {
-                "userId" : "0RX2V29TBV05K",
+                "userId" : "0RXESM1R8K44M",
                 "nickname" : "스트림게스트2",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-12T20:15:32.551323"
+                "requestedAt" : "2026-10-14T00:06:56.993946"
               } ]
             }
           }, {
