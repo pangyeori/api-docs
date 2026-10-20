@@ -18,6 +18,114 @@
     }
   },
   "channels" : {
+    "pubDebatesDebateIdEarlyEndAccept" : {
+      "address" : "/pub/debates/{debateId}/early-end/accept",
+      "description" : "자유 토론 조기 종료 제안 수락. 성공하면 같은 토론방을 구독 중인 모든 참가자에게 EARLY_END_ACCEPTED 이벤트가, 이어서 최종 판결 단계로의 STAGE_CHANGED 이벤트가 전달된다",
+      "servers" : [ {
+        "$ref" : "#/servers/stomp"
+      } ],
+      "parameters" : {
+        "debateId" : {
+          "description" : "토론방 ID"
+        }
+      },
+      "messages" : {
+        "EarlyEndAccept" : {
+          "name" : "Unit",
+          "contentType" : "application/json",
+          "summary" : "조기 종료 제안을 수락한다",
+          "payload" : {
+            "type" : "object",
+            "properties" : { }
+          },
+          "examples" : [ {
+            "name" : "조기 종료 제안 수락",
+            "payload" : { }
+          } ]
+        }
+      }
+    },
+    "pubDebatesDebateIdEarlyEndCancel" : {
+      "address" : "/pub/debates/{debateId}/early-end/cancel",
+      "description" : "자유 토론 조기 종료 제안 취소. 상대가 응답하기 전까지 제안자 본인만 취소할 수 있다. 성공하면 같은 토론방을 구독 중인 모든 참가자에게 EARLY_END_CANCELLED 이벤트로 전달된다",
+      "servers" : [ {
+        "$ref" : "#/servers/stomp"
+      } ],
+      "parameters" : {
+        "debateId" : {
+          "description" : "토론방 ID"
+        }
+      },
+      "messages" : {
+        "EarlyEndCancel" : {
+          "name" : "Unit",
+          "contentType" : "application/json",
+          "summary" : "조기 종료 제안을 취소한다",
+          "payload" : {
+            "type" : "object",
+            "properties" : { }
+          },
+          "examples" : [ {
+            "name" : "조기 종료 제안 취소",
+            "payload" : { }
+          } ]
+        }
+      }
+    },
+    "pubDebatesDebateIdEarlyEndDecline" : {
+      "address" : "/pub/debates/{debateId}/early-end/decline",
+      "description" : "자유 토론 조기 종료 제안 거절. 성공하면 같은 토론방을 구독 중인 모든 참가자에게 EARLY_END_DECLINED 이벤트로 전달된다",
+      "servers" : [ {
+        "$ref" : "#/servers/stomp"
+      } ],
+      "parameters" : {
+        "debateId" : {
+          "description" : "토론방 ID"
+        }
+      },
+      "messages" : {
+        "EarlyEndDecline" : {
+          "name" : "Unit",
+          "contentType" : "application/json",
+          "summary" : "조기 종료 제안을 거절한다",
+          "payload" : {
+            "type" : "object",
+            "properties" : { }
+          },
+          "examples" : [ {
+            "name" : "조기 종료 제안 거절",
+            "payload" : { }
+          } ]
+        }
+      }
+    },
+    "pubDebatesDebateIdEarlyEndPropose" : {
+      "address" : "/pub/debates/{debateId}/early-end/propose",
+      "description" : "자유 토론 조기 종료 제안. 성공하면 같은 토론방을 구독 중인 모든 참가자에게 EARLY_END_PROPOSED 이벤트로 전달된다",
+      "servers" : [ {
+        "$ref" : "#/servers/stomp"
+      } ],
+      "parameters" : {
+        "debateId" : {
+          "description" : "토론방 ID"
+        }
+      },
+      "messages" : {
+        "EarlyEndPropose" : {
+          "name" : "Unit",
+          "contentType" : "application/json",
+          "summary" : "조기 종료를 제안한다",
+          "payload" : {
+            "type" : "object",
+            "properties" : { }
+          },
+          "examples" : [ {
+            "name" : "조기 종료 제안",
+            "payload" : { }
+          } ]
+        }
+      }
+    },
     "pubDebatesDebateIdFreeMessages" : {
       "address" : "/pub/debates/{debateId}/free-messages",
       "description" : "자유 토론 메시지 전송. 먼저 STOMP WebSocket으로 연결한 뒤 이 목적지로 보낸다. 성공하면 같은 토론방을 구독 중인 모든 참가자에게 FREE_MESSAGE_SENT 이벤트로 전달된다",
@@ -122,7 +230,7 @@
           "examples" : [ {
             "name" : "개설자 입장",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "ENTERED",
               "role" : "HOST",
               "stage" : null,
@@ -137,7 +245,7 @@
           }, {
             "name" : "게스트 입장",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "ENTERED",
               "role" : "GUEST",
               "stage" : null,
@@ -152,7 +260,7 @@
           }, {
             "name" : "토론 시작",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STARTED",
               "role" : null,
               "stage" : null,
@@ -167,12 +275,12 @@
           }, {
             "name" : "찬성 입장 발언 단계 시작",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "OPENING_PROS",
               "content" : null,
-              "turnEndsAt" : "2026-10-18T13:09:21.1454111",
+              "turnEndsAt" : "2026-10-20T05:41:17.8585252",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -182,13 +290,13 @@
           }, {
             "name" : "개설자 발언 제출",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STATEMENT_SUBMITTED",
               "role" : "HOST",
               "stage" : "OPENING_PROS",
               "content" : "저는 이 주제에 찬성합니다",
               "turnEndsAt" : null,
-              "submittedAt" : "2026-10-18T22:08:21.1760346",
+              "submittedAt" : "2026-10-20T14:40:17.8909338",
               "verdictStatus" : null,
               "winnerPosition" : null,
               "reasoning" : null,
@@ -197,12 +305,12 @@
           }, {
             "name" : "반대 입장 발언 단계로 전환",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "OPENING_CONS",
               "content" : null,
-              "turnEndsAt" : "2026-10-18T13:09:21.1760346",
+              "turnEndsAt" : "2026-10-20T05:41:17.8914607",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -212,13 +320,13 @@
           }, {
             "name" : "게스트 발언 제출",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STATEMENT_SUBMITTED",
               "role" : "GUEST",
               "stage" : "OPENING_CONS",
               "content" : "저는 이 주제에 반대합니다",
               "turnEndsAt" : null,
-              "submittedAt" : "2026-10-18T22:08:21.204396",
+              "submittedAt" : "2026-10-20T14:40:17.9145436",
               "verdictStatus" : null,
               "winnerPosition" : null,
               "reasoning" : null,
@@ -227,12 +335,12 @@
           }, {
             "name" : "AI 1차 중간 판결 단계로 전환",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "VERDICT_1",
               "content" : null,
-              "turnEndsAt" : "2026-10-18T13:09:21.2049167",
+              "turnEndsAt" : "2026-10-20T05:41:17.9145436",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -242,7 +350,7 @@
           }, {
             "name" : "AI 1차 중간 판결 완료",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "VERDICT_ISSUED",
               "role" : null,
               "stage" : "VERDICT_1",
@@ -257,12 +365,12 @@
           }, {
             "name" : "찬성 반박 발언 단계로 전환",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "REBUTTAL_PROS",
               "content" : null,
-              "turnEndsAt" : "2026-10-18T13:09:21.2499859",
+              "turnEndsAt" : "2026-10-20T05:41:17.9511596",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -272,13 +380,13 @@
           }, {
             "name" : "찬성 논박 제출",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STATEMENT_SUBMITTED",
               "role" : "HOST",
               "stage" : "REBUTTAL_PROS",
               "content" : "반대측 주장에 반박합니다",
               "turnEndsAt" : null,
-              "submittedAt" : "2026-10-18T22:08:21.2772757",
+              "submittedAt" : "2026-10-20T14:40:17.9738681",
               "verdictStatus" : null,
               "winnerPosition" : null,
               "reasoning" : null,
@@ -287,12 +395,12 @@
           }, {
             "name" : "반대 논박 단계로 전환",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "REBUTTAL_CONS",
               "content" : null,
-              "turnEndsAt" : "2026-10-18T13:09:21.2778067",
+              "turnEndsAt" : "2026-10-20T05:41:17.9738681",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -302,13 +410,13 @@
           }, {
             "name" : "반대 논박 제출",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STATEMENT_SUBMITTED",
               "role" : "GUEST",
               "stage" : "REBUTTAL_CONS",
               "content" : "찬성측 주장에 반박합니다",
               "turnEndsAt" : null,
-              "submittedAt" : "2026-10-18T22:08:21.3051266",
+              "submittedAt" : "2026-10-20T14:40:17.995633",
               "verdictStatus" : null,
               "winnerPosition" : null,
               "reasoning" : null,
@@ -317,12 +425,12 @@
           }, {
             "name" : "AI 2차 중간 판결 단계로 전환",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "VERDICT_2",
               "content" : null,
-              "turnEndsAt" : "2026-10-18T13:09:21.3051266",
+              "turnEndsAt" : "2026-10-20T05:41:17.995633",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -332,7 +440,7 @@
           }, {
             "name" : "AI 2차 중간 판결 완료",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "VERDICT_ISSUED",
               "role" : null,
               "stage" : "VERDICT_2",
@@ -347,12 +455,12 @@
           }, {
             "name" : "자유 토론 단계로 전환",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "STAGE_CHANGED",
               "role" : null,
               "stage" : "FREE",
               "content" : null,
-              "turnEndsAt" : "2026-10-18T13:09:21.3420662",
+              "turnEndsAt" : "2026-10-20T05:41:18.0239832",
               "submittedAt" : null,
               "verdictStatus" : null,
               "winnerPosition" : null,
@@ -362,7 +470,7 @@
           }, {
             "name" : "게스트 이탈",
             "payload" : {
-              "debateId" : "0RZ1EDRCJ3R1T",
+              "debateId" : "0RZJV1VN2ZC2X",
               "type" : "LEFT",
               "role" : "GUEST",
               "stage" : null,
@@ -425,11 +533,11 @@
               "debateStatus" : "WAITING",
               "guestStatus" : null,
               "requestList" : [ {
-                "userId" : "0RZ1EB9QE3R2M",
+                "userId" : "0RZJTXXY6ZC7Q",
                 "nickname" : "스트림게스트1",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-18T22:08:00.689895"
+                "requestedAt" : "2026-10-20T14:39:45.373017"
               } ]
             }
           } ]
@@ -499,17 +607,17 @@
             "name" : "status-stream",
             "payload" : {
               "requestList" : [ {
-                "userId" : "0RZ1EB9QE3R2M",
+                "userId" : "0RZJTXXY6ZC7Q",
                 "nickname" : "스트림게스트1",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-18T22:08:00.689895"
+                "requestedAt" : "2026-10-20T14:39:45.373017"
               }, {
-                "userId" : "0RZ1EBA163R4S",
+                "userId" : "0RZJTXY7AZC7S",
                 "nickname" : "스트림게스트2",
                 "profileImageKey" : null,
                 "status" : "PENDING",
-                "requestedAt" : "2026-10-18T22:08:00.776484"
+                "requestedAt" : "2026-10-20T14:39:45.430272"
               } ]
             }
           }, {
@@ -523,6 +631,46 @@
     }
   },
   "operations" : {
+    "pubDebatesDebateIdEarlyEndAccept-EarlyEndAccept" : {
+      "action" : "send",
+      "channel" : {
+        "$ref" : "#/channels/pubDebatesDebateIdEarlyEndAccept"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/pubDebatesDebateIdEarlyEndAccept/messages/EarlyEndAccept"
+      } ],
+      "summary" : "조기 종료 제안을 수락한다"
+    },
+    "pubDebatesDebateIdEarlyEndCancel-EarlyEndCancel" : {
+      "action" : "send",
+      "channel" : {
+        "$ref" : "#/channels/pubDebatesDebateIdEarlyEndCancel"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/pubDebatesDebateIdEarlyEndCancel/messages/EarlyEndCancel"
+      } ],
+      "summary" : "조기 종료 제안을 취소한다"
+    },
+    "pubDebatesDebateIdEarlyEndDecline-EarlyEndDecline" : {
+      "action" : "send",
+      "channel" : {
+        "$ref" : "#/channels/pubDebatesDebateIdEarlyEndDecline"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/pubDebatesDebateIdEarlyEndDecline/messages/EarlyEndDecline"
+      } ],
+      "summary" : "조기 종료 제안을 거절한다"
+    },
+    "pubDebatesDebateIdEarlyEndPropose-EarlyEndPropose" : {
+      "action" : "send",
+      "channel" : {
+        "$ref" : "#/channels/pubDebatesDebateIdEarlyEndPropose"
+      },
+      "messages" : [ {
+        "$ref" : "#/channels/pubDebatesDebateIdEarlyEndPropose/messages/EarlyEndPropose"
+      } ],
+      "summary" : "조기 종료를 제안한다"
+    },
     "pubDebatesDebateIdFreeMessages-DebateFreeMessageSubmitRequest" : {
       "action" : "send",
       "channel" : {
